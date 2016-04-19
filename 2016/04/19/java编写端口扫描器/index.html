@@ -64,7 +64,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="java," />
 
 
 
@@ -80,15 +80,19 @@
 
 
 
-<meta name="description" content="世界很大，我很小">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Stack Overflow">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="好久没写java了，学的时候，也没学习网络编程这一块，无意中看到了一本书，于是小小复习一下java，写个端口扫描器，玩玩吧，网上这种小工具有的是，就是自己无聊写着玩玩。源代码如下：
+1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859">
+<meta property="og:type" content="article">
+<meta property="og:title" content="java编写的端口扫描器">
+<meta property="og:url" content="http://yoursite.com/2016/04/19/java编写端口扫描器/index.html">
 <meta property="og:site_name" content="Stack Overflow">
-<meta property="og:description" content="世界很大，我很小">
+<meta property="og:description" content="好久没写java了，学的时候，也没学习网络编程这一块，无意中看到了一本书，于是小小复习一下java，写个端口扫描器，玩玩吧，网上这种小工具有的是，就是自己无聊写着玩玩。源代码如下：
+1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859">
+<meta property="og:updated_time" content="2016-04-19T11:27:40.019Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Stack Overflow">
-<meta name="twitter:description" content="世界很大，我很小">
+<meta name="twitter:title" content="java编写的端口扫描器">
+<meta name="twitter:description" content="好久没写java了，学的时候，也没学习网络编程这一块，无意中看到了一本书，于是小小复习一下java，写个端口扫描器，玩玩吧，网上这种小工具有的是，就是自己无聊写着玩玩。源代码如下：
+1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859">
 
 
 
@@ -106,7 +110,7 @@
   };
 </script>
 
-  <title> Stack Overflow </title>
+  <title> java编写的端口扫描器 | Stack Overflow </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -127,9 +131,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left 
-   page-home 
- ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -206,9 +208,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
   
@@ -228,10 +230,7 @@
             
             
               
-                
-                <a class="post-title-link" href="/2016/04/19/java编写端口扫描器/" itemprop="url">
-                  java编写的端口扫描器
-                </a>
+                java编写的端口扫描器
               
             
           </h1>
@@ -297,144 +296,62 @@
       
 
       
-        
-          
-            <p>好久没写java了，学的时候，也没学习网络编程这一块，无意中看到了一本书，于是小小复习一下java，写个端口扫描器，玩玩吧，网上这种小工具有的是，就是自己无聊写着玩玩。<br>源代码如下：</p>
+        <p>好久没写java了，学的时候，也没学习网络编程这一块，无意中看到了一本书，于是小小复习一下java，写个端口扫描器，玩玩吧，网上这种小工具有的是，就是自己无聊写着玩玩。<br>源代码如下：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> javax.swing.*;</span><br><span class="line"><span class="keyword">import</span> java.awt.Dimension;</span><br><span class="line"><span class="keyword">import</span> java.awt.Font;</span><br><span class="line"><span class="keyword">import</span> java.awt.Toolkit;</span><br><span class="line"><span class="keyword">import</span> java.awt.event.*;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PortScan</span> <span class="keyword">extends</span> <span class="title">JFrame</span> </span>&#123;</span><br><span class="line">    JPanel center=<span class="keyword">new</span> JPanel();</span><br><span class="line">	Box hBox0=Box.createHorizontalBox();</span><br><span class="line">	Box hBox1= Box.createHorizontalBox();</span><br><span class="line">	Box hBox2= Box.createHorizontalBox();</span><br><span class="line">	Box hBox3= Box.createHorizontalBox();</span><br><span class="line">	<span class="keyword">private</span> JLabel state=<span class="keyword">new</span> JLabel(<span class="string">"关闭"</span>);</span><br><span class="line">	<span class="keyword">private</span> JLabel HOST=<span class="keyword">new</span> JLabel(<span class="string">"主机名:"</span>);</span><br><span class="line">	<span class="keyword">private</span> JLabel PORT=<span class="keyword">new</span> JLabel(<span class="string">"端口号:"</span>);</span><br><span class="line">	<span class="keyword">private</span> JLabel STATE=<span class="keyword">new</span> JLabel(<span class="string">"状态："</span>);</span><br><span class="line">    <span class="keyword">private</span> JButton btn1=<span class="keyword">new</span> JButton(<span class="string">"开始扫描"</span>);</span><br><span class="line">    <span class="keyword">private</span> JButton reset=<span class="keyword">new</span> JButton(<span class="string">"重置"</span>);</span><br><span class="line">    <span class="keyword">private</span> JTextField host=<span class="keyword">new</span> JTextField(<span class="number">20</span>);</span><br><span class="line">    <span class="keyword">private</span> JTextField port=<span class="keyword">new</span> JTextField(<span class="number">7</span>);</span><br><span class="line">    Font f1=<span class="keyword">new</span> Font(<span class="string">"隶书"</span>,Font.PLAIN,<span class="number">15</span>);</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		JFrame portscan=<span class="keyword">new</span> PortScan();</span><br><span class="line">		portscan.setVisible(<span class="keyword">true</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">PortScan</span><span class="params">()</span></span>&#123;</span><br><span class="line">		setTitle(<span class="string">"PortScanner"</span>);</span><br><span class="line">		setSize(<span class="number">300</span>, <span class="number">200</span>);</span><br><span class="line">		center.setLayout(<span class="keyword">new</span> BoxLayout(center,BoxLayout.Y_AXIS));</span><br><span class="line">		 Toolkit kit = Toolkit.getDefaultToolkit();</span><br><span class="line">	 	   Dimension screenSize = kit.getScreenSize();<span class="comment">//获取屏幕分辨率</span></span><br><span class="line">		  setLocation(screenSize.width/<span class="number">4</span>,screenSize.height/<span class="number">4</span>);<span class="comment">//位置</span></span><br><span class="line">		  state.setFont(f1);</span><br><span class="line">		  HOST.setFont(f1);</span><br><span class="line">		  PORT.setFont(f1);</span><br><span class="line">		  btn1.setFont(f1);</span><br><span class="line">		  reset.setFont(f1);</span><br><span class="line">		  STATE.setFont(f1);</span><br><span class="line">		 center.add(hBox0);</span><br><span class="line">		 center.add(Box.createRigidArea(<span class="keyword">new</span> Dimension(<span class="number">10</span>,<span class="number">20</span>)));</span><br><span class="line">		 center.add(hBox1);</span><br><span class="line">		 center.add(Box.createRigidArea(<span class="keyword">new</span> Dimension(<span class="number">2</span>,<span class="number">20</span>)));</span><br><span class="line">		 center.add(hBox2);</span><br><span class="line">		 center.add(Box.createRigidArea(<span class="keyword">new</span> Dimension(<span class="number">2</span>,<span class="number">20</span>)));</span><br><span class="line">		 center.add(hBox3);</span><br><span class="line">		 hBox0.add(HOST);</span><br><span class="line">		 hBox0.add(host);</span><br><span class="line">		 hBox1.add(PORT);</span><br><span class="line">		 hBox1.add(port);</span><br><span class="line">		 hBox2.add(btn1);</span><br><span class="line">		 hBox2.add(reset);</span><br><span class="line">		 hBox3.add(STATE);</span><br><span class="line">		 hBox3.add(state);</span><br><span class="line">		 add(center);</span><br><span class="line">		 btn1.addActionListener(<span class="keyword">new</span> MyActionListener());</span><br><span class="line">		 reset.addActionListener(<span class="keyword">new</span> MyActionListener());</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="class"><span class="keyword">class</span> <span class="title">MyActionListener</span> <span class="keyword">implements</span> <span class="title">ActionListener</span></span>&#123;</span><br><span class="line"></span><br><span class="line">		<span class="meta">@Override</span></span><br><span class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">actionPerformed</span><span class="params">(ActionEvent e)</span> </span>&#123;</span><br><span class="line">			String post1=host.getText();</span><br><span class="line">			<span class="keyword">int</span> port1=Integer.parseInt(port.getText());</span><br><span class="line">			<span class="keyword">if</span>(e.getActionCommand()==<span class="string">"开始扫描"</span>)&#123;</span><br><span class="line">			<span class="keyword">if</span>(	PortScannerByIP.scan(post1, port1))&#123;</span><br><span class="line">				state.setText(<span class="string">"开放"</span>);</span><br><span class="line">			&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">				state.setText(<span class="string">"关闭"</span>);</span><br><span class="line">			&#125;</span><br><span class="line">				</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">if</span>(e.getActionCommand()==<span class="string">"重置"</span>)&#123;</span><br><span class="line">				host.setText(<span class="string">""</span>);</span><br><span class="line">				port.setText(<span class="string">""</span>);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <hr>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">   <span class="keyword">import</span> java.io.IOException;</span><br><span class="line">   <span class="keyword">import</span> java.net.Socket;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PortScannerByIP</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">scan</span><span class="params">(String host,<span class="keyword">int</span> port)</span></span>&#123;</span><br><span class="line">		<span class="keyword">boolean</span> flag=<span class="keyword">true</span>;</span><br><span class="line">		Socket socket=<span class="keyword">null</span>;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			socket=<span class="keyword">new</span> Socket(host,port);</span><br><span class="line">			<span class="keyword">return</span> flag;</span><br><span class="line">		&#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">			flag=<span class="keyword">false</span>;</span><br><span class="line">			<span class="keyword">return</span> flag;</span><br><span class="line">		&#125;<span class="keyword">finally</span>&#123;</span><br><span class="line">			<span class="keyword">try</span> &#123;</span><br><span class="line">				<span class="keyword">if</span>(socket!=<span class="keyword">null</span>)</span><br><span class="line">					socket.close();</span><br><span class="line">			&#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">				e.printStackTrace();</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-          
-        
       
     </div>
     
     <div>
       
+        
+      
     </div>
 
     <div>
+      
+        
       
     </div>
 
     <footer class="post-footer">
       
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/04/19/hello-world/" itemprop="url">
-                  Hello World
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-04-19T16:44:29+08:00" content="2016-04-19">
-              2016-04-19
-            </time>
-          </span>
-
+        <div class="post-tags">
           
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/04/19/hello-world/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/19/hello-world/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
+            <a href="/tags/java/" rel="tag">#java</a>
           
         </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <p>欢迎来到华裳的个人世界</p>
-<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="http://music.163.com/outchain/player?type=2&id=33166563&auto=0&height=66"></iframe>
-          
-        
-      
-    </div>
-    
-    <div>
-      
-    </div>
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/04/19/hello-world/" rel="next" title="Hello World">
+                <i class="fa fa-chevron-left"></i> Hello World
+              </a>
+            
+          </div>
 
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
       
 
       
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -442,6 +359,14 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/04/19/java编写端口扫描器/"
+           data-title="java编写的端口扫描器" data-url="http://yoursite.com/2016/04/19/java编写端口扫描器/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -461,8 +386,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="http://avatar.csdn.net/D/1/3/1_xiaoduc.jpg"
@@ -512,6 +446,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">此文章未包含目录</p>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -615,6 +560,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 
