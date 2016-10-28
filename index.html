@@ -229,8 +229,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/04/21/MD5加密工具类/" itemprop="url">
-                  java编写的端口扫描器
+                <a class="post-title-link" href="/2016/10/28/hello-world/" itemprop="url">
+                  Hello World
                 </a>
               
             
@@ -243,38 +243,19 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-04-21T22:32:15+08:00" content="2016-04-21">
-              2016-04-21
+            <time itemprop="dateCreated" datetime="2016-10-28T19:27:48+08:00" content="2016-10-28">
+              2016-10-28
             </time>
           </span>
 
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/工具类/" itemprop="url" rel="index">
-                    <span itemprop="name">工具类</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
           
 
           
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/04/21/MD5加密工具类/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/21/MD5加密工具类/" itemprop="commentsCount"></span>
+                <a href="/2016/10/28/hello-world/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/28/hello-world/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -299,10 +280,8 @@
       
         
           
-            <p><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="http://music.163.com/outchain/player?type=2&id=26508242&auto=0&height=66"></iframe><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.dzq.utils;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.math.BigInteger;</span><br><span class="line"><span class="keyword">import</span> java.security.MessageDigest;</span><br><span class="line"><span class="keyword">import</span> java.security.NoSuchAlgorithmException;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MD5Utils</span> </span>&#123;</span><br><span class="line">	<span class="comment">/**</span><br><span class="line">	 * 使用md5的算法进行加密</span><br><span class="line">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">md5</span><span class="params">(String plainText)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">byte</span>[] secretBytes = <span class="keyword">null</span>;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			secretBytes = MessageDigest.getInstance(<span class="string">"md5"</span>).digest(</span><br><span class="line">					plainText.getBytes());</span><br><span class="line">		&#125; <span class="keyword">catch</span> (NoSuchAlgorithmException e) &#123;</span><br><span class="line">			<span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(<span class="string">"没有md5这个算法！"</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		String md5code = <span class="keyword">new</span> BigInteger(<span class="number">1</span>, secretBytes).toString(<span class="number">16</span>);</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">32</span> - md5code.length(); i++) &#123;</span><br><span class="line">			md5code = <span class="string">"0"</span> + md5code;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> md5code;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>##博主信息<br><em>博客园 <a href="http://www.cnblogs.com/xiaoduc-org/" target="_blank" rel="external">@xiaoduc</a>
-</em>CSDN   <a href="http://blog.csdn.net/xiaoduc" target="_blank" rel="external">@xiaoduc</a></p>
-
+            <p>欢迎来到破玉的个人世界</p>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="http://music.163.com/outchain/player?type=2&id=33166563&auto=0&height=66"></iframe>
           
         
       
@@ -351,7 +330,7 @@
             
               
                 
-                <a class="post-title-link" href="/2016/04/19/java编写端口扫描器/" itemprop="url">
+                <a class="post-title-link" href="/2016/10/28/java编写端口扫描器/" itemprop="url">
                   java编写的端口扫描器
                 </a>
               
@@ -365,8 +344,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-04-19T16:57:38+08:00" content="2016-04-19">
-              2016-04-19
+            <time itemprop="dateCreated" datetime="2016-10-28T19:14:02+08:00" content="2016-10-28">
+              2016-10-28
             </time>
           </span>
 
@@ -395,8 +374,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/04/19/java编写端口扫描器/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/19/java编写端口扫描器/" itemprop="commentsCount"></span>
+                <a href="/2016/10/28/java编写端口扫描器/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/28/java编写端口扫描器/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -474,8 +453,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/04/19/hello-world/" itemprop="url">
-                  Hello World
+                <a class="post-title-link" href="/2016/10/28/MD5加密工具类/" itemprop="url">
+                  java编写的端口扫描器
                 </a>
               
             
@@ -488,19 +467,38 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-04-19T16:44:29+08:00" content="2016-04-19">
-              2016-04-19
+            <time itemprop="dateCreated" datetime="2016-10-28T19:14:02+08:00" content="2016-10-28">
+              2016-10-28
             </time>
           </span>
 
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/工具类/" itemprop="url" rel="index">
+                    <span itemprop="name">工具类</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
           
 
           
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/04/19/hello-world/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/19/hello-world/" itemprop="commentsCount"></span>
+                <a href="/2016/10/28/MD5加密工具类/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/28/MD5加密工具类/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -525,8 +523,10 @@
       
         
           
-            <p>欢迎来到华裳的个人世界</p>
-<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="http://music.163.com/outchain/player?type=2&id=33166563&auto=0&height=66"></iframe>
+            <p><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="http://music.163.com/outchain/player?type=2&id=26508242&auto=0&height=66"></iframe><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.dzq.utils;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.math.BigInteger;</span><br><span class="line"><span class="keyword">import</span> java.security.MessageDigest;</span><br><span class="line"><span class="keyword">import</span> java.security.NoSuchAlgorithmException;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MD5Utils</span> </span>&#123;</span><br><span class="line">	<span class="comment">/**</span><br><span class="line">	 * 使用md5的算法进行加密</span><br><span class="line">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">md5</span><span class="params">(String plainText)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">byte</span>[] secretBytes = <span class="keyword">null</span>;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			secretBytes = MessageDigest.getInstance(<span class="string">"md5"</span>).digest(</span><br><span class="line">					plainText.getBytes());</span><br><span class="line">		&#125; <span class="keyword">catch</span> (NoSuchAlgorithmException e) &#123;</span><br><span class="line">			<span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(<span class="string">"没有md5这个算法！"</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		String md5code = <span class="keyword">new</span> BigInteger(<span class="number">1</span>, secretBytes).toString(<span class="number">16</span>);</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">32</span> - md5code.length(); i++) &#123;</span><br><span class="line">			md5code = <span class="string">"0"</span> + md5code;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> md5code;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>##博主信息<br><em>博客园 <a href="http://www.cnblogs.com/xiaoduc-org/" target="_blank" rel="external">@xiaoduc</a>
+</em>CSDN   <a href="http://blog.csdn.net/xiaoduc" target="_blank" rel="external">@xiaoduc</a></p>
+
           
         
       
