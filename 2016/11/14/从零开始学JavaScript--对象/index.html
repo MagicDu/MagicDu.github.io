@@ -1,0 +1,641 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="js," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="JavaScript的对象面向对象面向对象方法的特性1.抽象性2.继承性3.多态性（重载和覆盖）
+类类是用来描述抽象的一种载体，它记录了哪些属性和行为是具有通性的。12345678class  Car&amp;#123;    String color;//属性    void shift()&amp;#123;//行为        //换挡    &amp;#125;&amp;#125;//创建一个redCar对象Car r">
+<meta property="og:type" content="article">
+<meta property="og:title" content="从零开始学JavaScript--对象">
+<meta property="og:url" content="http://github.magicdu.cn/2016/11/14/从零开始学JavaScript--对象/index.html">
+<meta property="og:site_name" content="Stack Overflow">
+<meta property="og:description" content="JavaScript的对象面向对象面向对象方法的特性1.抽象性2.继承性3.多态性（重载和覆盖）
+类类是用来描述抽象的一种载体，它记录了哪些属性和行为是具有通性的。12345678class  Car&amp;#123;    String color;//属性    void shift()&amp;#123;//行为        //换挡    &amp;#125;&amp;#125;//创建一个redCar对象Car r">
+<meta property="og:updated_time" content="2016-11-14T09:04:54.171Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="从零开始学JavaScript--对象">
+<meta name="twitter:description" content="JavaScript的对象面向对象面向对象方法的特性1.抽象性2.继承性3.多态性（重载和覆盖）
+类类是用来描述抽象的一种载体，它记录了哪些属性和行为是具有通性的。12345678class  Car&amp;#123;    String color;//属性    void shift()&amp;#123;//行为        //换挡    &amp;#125;&amp;#125;//创建一个redCar对象Car r">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> 从零开始学JavaScript--对象 | Stack Overflow </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Stack Overflow</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">最是多情掩初春</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                从零开始学JavaScript--对象
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-14T17:04:54+08:00" content="2016-11-14">
+              2016-11-14
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/11/14/从零开始学JavaScript--对象/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/14/从零开始学JavaScript--对象/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="JavaScript的对象"><a href="#JavaScript的对象" class="headerlink" title="JavaScript的对象"></a>JavaScript的对象</h2><h3 id="面向对象"><a href="#面向对象" class="headerlink" title="面向对象"></a>面向对象</h3><h4 id="面向对象方法的特性"><a href="#面向对象方法的特性" class="headerlink" title="面向对象方法的特性"></a>面向对象方法的特性</h4><p>1.抽象性<br>2.继承性<br>3.多态性（重载和覆盖）</p>
+<h4 id="类"><a href="#类" class="headerlink" title="类"></a>类</h4><p>类是用来描述抽象的一种载体，它记录了哪些属性和行为是具有通性的。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span>  <span class="title">Car</span></span>&#123;</span><br><span class="line">    <span class="built_in">String</span> color;<span class="comment">//属性</span></span><br><span class="line">    <span class="keyword">void</span> shift()&#123;<span class="comment">//行为</span></span><br><span class="line">        <span class="comment">//换挡</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//创建一个redCar对象</span></span><br><span class="line">Car redCar=<span class="keyword">new</span> Car();</span><br></pre></td></tr></table></figure></p>
+<p>可以看到，一个类并不是一个单纯数据集合，它还包括了行为，这是面向对象的另一个特点，封装性。类是描述一类事物的共同特性的，它是抽象、没有具体含义的。而对象是类的实例。</p>
+<h4 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h4><p>对象从概念上讲，就是类的实现，把抽象的变为具体的。javascript将对象定义为：无序属性的集合，属性可以是任何类型的值，包括其他对象或者函数，当函数作为对象属性时被叫做<em>方法</em><br>也就是对象的行为。</p>
+<h4 id="创建对象"><a href="#创建对象" class="headerlink" title="创建对象"></a>创建对象</h4><p>语法<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> 对象名=<span class="keyword">new</span> 构造函数();</span><br></pre></td></tr></table></figure></p>
+<p>javascript 创建对象与绝大多数面向对象语言是一样的，都使用new关键字来实例化一个类，创建该类的一个对象。更确切的说法是，以new关键字来调用构造函数来创建一个对象。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj=<span class="keyword">new</span> <span class="built_in">String</span>();</span><br><span class="line">obj=<span class="keyword">new</span> <span class="built_in">Object</span>;<span class="comment">//Object 本身也是对象</span></span><br><span class="line">alert(<span class="string">'obj对象的构造函数为：'</span>+obj.constructor);</span><br><span class="line">alert(<span class="string">'Object对象的原型为：'</span>+<span class="built_in">Object</span>.prototype);</span><br></pre></td></tr></table></figure></p>
+<h4 id="对象的属性"><a href="#对象的属性" class="headerlink" title="对象的属性"></a>对象的属性</h4><p>从对象定义的角度来看，他可以理解成一个包含很多值的集合，而实际应用中就是使用集合的某一属性参与程序执行。</p>
+<p>1.访问属性<br>无论是函数还是变量，作为对象的属性，他们都可以通过.号来访问，如果对象的属性任然是一个对象，那么还可以通过重复使用.号来进行访问，例如<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a=<span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line"><span class="comment">//显示对象a的constructor属性的prototype属性</span></span><br><span class="line">alert(a.constructor.prototype);</span><br></pre></td></tr></table></figure></p>
+<p>2.添加属性</p>
+<p>在javascript中，对象的属性都与普通的函数或其他变量一样，都可以动态的生成</p>
+<p>例如<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a=<span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line">a.x=<span class="number">1</span>;<span class="comment">//生成变量属性</span></span><br><span class="line">a[<span class="string">"func"</span>]=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="comment">//生成函数属性</span></span><br><span class="line">    ++<span class="keyword">this</span>.x;<span class="comment">//this表示对象a本身</span></span><br><span class="line">&#125;</span><br><span class="line">a.func();</span><br><span class="line">alert(a.x);<span class="comment">//显示为2</span></span><br></pre></td></tr></table></figure></p>
+<p>直接对指定的属性名赋值，就可以生成一个对象的属性，这不需要使用var关键字进行声明</p>
+<p>3.删除属性</p>
+<p>删除属性首选delete运算符。从资源释放的角度来说，只需要把需要删除的属性设置为null就可以了。</p>
+<p>例如：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a=<span class="keyword">new</span> <span class="built_in">Object</span>;</span><br><span class="line">a.x=<span class="keyword">new</span> <span class="built_in">Object</span>;</span><br><span class="line"><span class="comment">//释放属性所引用的对象</span></span><br><span class="line">a.x=<span class="literal">null</span>;</span><br></pre></td></tr></table></figure></p>
+<h4 id="释放对象"><a href="#释放对象" class="headerlink" title="释放对象"></a>释放对象</h4><p>在任何编程语言中，释放不再使用的内存空间都是很重要的事。javascript和Java一样提供了自动回收内存的机制–垃圾收集器。</p>
+<h4 id="本地对象"><a href="#本地对象" class="headerlink" title="本地对象"></a>本地对象</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Global       <span class="built_in">Object</span>          <span class="built_in">Function</span>      <span class="built_in">Array</span></span><br><span class="line"><span class="built_in">String</span>       <span class="built_in">Boolean</span>         <span class="built_in">Number</span>        <span class="built_in">Math</span></span><br><span class="line"><span class="built_in">Date</span>         <span class="built_in">RegExp</span>          <span class="built_in">Error</span>         <span class="built_in">EvalError</span></span><br><span class="line"><span class="built_in">RangeError</span>   <span class="built_in">ReferenceError</span>  <span class="built_in">SyntaxError</span>   <span class="built_in">TypeError</span></span><br></pre></td></tr></table></figure>
+<p>不依赖于浏览器而实现的对象称为本地对象</p>
+<h3 id="内置对象"><a href="#内置对象" class="headerlink" title="内置对象"></a>内置对象</h3><h4 id="Global-对象"><a href="#Global-对象" class="headerlink" title="Global 对象"></a>Global 对象</h4><p>Global对象 是javascript对象模型中最高级，它拥有最大的执行环境，一切声明的变量和函数都是它的属性，Global对象具有以下特性：</p>
+<p>Global 对象没有Construct属性，所以它无法通过new操作符被当作类来调用</p>
+<p>Global 对象也没有call属性，所以他也无法像函数那样调用</p>
+<p>最重要的是Global对象只是一个概念，表示全局对象，他是根据宿主的实现而产生的。在浏览器中Global对象就是window对象</p>
+<p>Global对象拥有很多属性，如NaN、Infinity、undefined、属性以及parseInt()、parseFloat()等方法属性，当程序开始运行之前，Global对象就已经被系统创建了，并且它的属性也都已经被赋值了，所以在程序中可以直接使用parseInt等函数</p>
+<p>。。。未完待续。。。</p>
+
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/js/" rel="tag">#js</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/11/13/从零开始学JavaScript/" rel="next" title="从零开始学JavaScript">
+                <i class="fa fa-chevron-left"></i> 从零开始学JavaScript
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/11/14/从零开始学JavaScript--对象/"
+           data-title="从零开始学JavaScript--对象" data-url="http://github.magicdu.cn/2016/11/14/从零开始学JavaScript--对象/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://avatar.csdn.net/D/1/3/1_xiaoduc.jpg"
+               alt="MagicDo" />
+          <p class="site-author-name" itemprop="name">MagicDo</p>
+          <p class="site-description motion-element" itemprop="description">世界很大，我很小</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">5</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#JavaScript的对象"><span class="nav-number">1.</span> <span class="nav-text">JavaScript的对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#面向对象"><span class="nav-number">1.1.</span> <span class="nav-text">面向对象</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#面向对象方法的特性"><span class="nav-number">1.1.1.</span> <span class="nav-text">面向对象方法的特性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#类"><span class="nav-number">1.1.2.</span> <span class="nav-text">类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#对象"><span class="nav-number">1.1.3.</span> <span class="nav-text">对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#创建对象"><span class="nav-number">1.1.4.</span> <span class="nav-text">创建对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#对象的属性"><span class="nav-number">1.1.5.</span> <span class="nav-text">对象的属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#释放对象"><span class="nav-number">1.1.6.</span> <span class="nav-text">释放对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#本地对象"><span class="nav-number">1.1.7.</span> <span class="nav-text">本地对象</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#内置对象"><span class="nav-number">1.2.</span> <span class="nav-text">内置对象</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Global-对象"><span class="nav-number">1.2.1.</span> <span class="nav-text">Global 对象</span></a></li></ol></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">MagicDo</span>
+</div>
+
+<div class="powered-by">
+  最是多情掩初春
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"magicdu"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>
