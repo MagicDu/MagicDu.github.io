@@ -84,11 +84,11 @@
 类类是用来描述抽象的一种载体，它记录了哪些属性和行为是具有通性的。12345678class  Car&amp;#123;    String color;//属性    void shift()&amp;#123;//行为        //换挡    &amp;#125;&amp;#125;//创建一个redCar对象Car r">
 <meta property="og:type" content="article">
 <meta property="og:title" content="从零开始学JavaScript--对象">
-<meta property="og:url" content="http://github.magicdu.cn/2016/11/14/从零开始学JavaScript--对象/index.html">
+<meta property="og:url" content="http://github.magicdu.cn/2016/11/15/从零开始学JavaScript--对象/index.html">
 <meta property="og:site_name" content="Stack Overflow">
 <meta property="og:description" content="JavaScript的对象面向对象面向对象方法的特性1.抽象性2.继承性3.多态性（重载和覆盖）
 类类是用来描述抽象的一种载体，它记录了哪些属性和行为是具有通性的。12345678class  Car&amp;#123;    String color;//属性    void shift()&amp;#123;//行为        //换挡    &amp;#125;&amp;#125;//创建一个redCar对象Car r">
-<meta property="og:updated_time" content="2016-11-14T09:04:54.171Z">
+<meta property="og:updated_time" content="2016-11-15T12:29:21.937Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="从零开始学JavaScript--对象">
 <meta name="twitter:description" content="JavaScript的对象面向对象面向对象方法的特性1.抽象性2.继承性3.多态性（重载和覆盖）
@@ -252,8 +252,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-14T17:04:54+08:00" content="2016-11-14">
-              2016-11-14
+            <time itemprop="dateCreated" datetime="2016-11-15T20:29:21+08:00" content="2016-11-15">
+              2016-11-15
             </time>
           </span>
 
@@ -282,8 +282,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/11/14/从零开始学JavaScript--对象/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/14/从零开始学JavaScript--对象/" itemprop="commentsCount"></span>
+                <a href="/2016/11/15/从零开始学JavaScript--对象/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/15/从零开始学JavaScript--对象/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -329,7 +329,32 @@
 <p>Global 对象也没有call属性，所以他也无法像函数那样调用</p>
 <p>最重要的是Global对象只是一个概念，表示全局对象，他是根据宿主的实现而产生的。在浏览器中Global对象就是window对象</p>
 <p>Global对象拥有很多属性，如NaN、Infinity、undefined、属性以及parseInt()、parseFloat()等方法属性，当程序开始运行之前，Global对象就已经被系统创建了，并且它的属性也都已经被赋值了，所以在程序中可以直接使用parseInt等函数</p>
-<p>。。。未完待续。。。</p>
+<p>1.全局执行环境<br>JavaScript中有两种执行环境，全局环境和函数环境</p>
+<ul>
+<li>在全局执行环境中代码执行之前，系统会为执行环境创建一个用来管理当前执行环境中所有标识符的对象，也就是管理当前执行环境中声明的所有变量和函数，这个对象就是Global对象，在浏览器中就是window对象</li>
+<li>任何在全局执行环境中声明的变量和函数都会作为Global对象的属性存在，属性名，就是定义时所使用的标识符，属性值就是变量值或者函数对象</li>
+<li>如果出现重复定义的变量或者函数，只要标识符相同，后定义的值就会覆盖原先的值<br>例如：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    alert(<span class="string">'a'</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params">x,y</span>)</span>&#123;</span><br><span class="line">    alert(<span class="string">'aa'</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> a=<span class="number">10</span>;</span><br><span class="line">alert(a);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>上面程序中，alert函数最终结果将显示10，并且不会引发任何程序错误，因为在javascript中，这几句代码只是改变了Global对象a属性的值而已。<br>2.浏览器中的Global对象</p>
+<p>window对象就是浏览器中的全局对象</p>
+<p>3.this指针</p>
+<p>this关键字表示对某个对象的引用，可以把它理解为引用类型的变量，但它的值是由系统确定的，也就是说，this无法被赋值</p>
+<p>在javascript中，this很强很复杂，任何地方都能使用this，并且根据this出现的位子，它的含义也是有所不同的。</p>
+<ul>
+<li>在全局执行环境中，使用this，表示Global对象，在浏览器中就是window对象</li>
+<li>当在函数执行环境中使用this时，情况就有些复杂了。如果函数没有明显的非window对象属性，而只是定义了函数，不管这个函数是不是定义在另一个函数中，这个函数中的this仍然表示window对象。如果函数显式的作为一个非window对象的属性，那么函数中的this就代表这个对象</li>
+</ul>
+<p>例如：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> o=<span class="keyword">new</span> <span class="built_in">Object</span>；</span><br><span class="line">o.func=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;  <span class="comment">//对象o的func属性为一个函数</span></span><br><span class="line">    alert(<span class="string">"作为属性的函数："</span>+(<span class="keyword">this</span>===o));<span class="comment">//判断this是否为函数所绑定的对象,true</span></span><br><span class="line">    (<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        alert(<span class="string">"普通函数："</span>+(<span class="keyword">this</span>===<span class="built_in">window</span>));<span class="comment">//判断this是否为window对象,true</span></span><br><span class="line">    &#125;)();</span><br><span class="line">&#125;</span><br><span class="line">o.func();</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>当通过new对象运算符来调用函数时，函数被当做一个构造函数，this指向构造函数创建出来的对象<h4 id="Object对象"><a href="#Object对象" class="headerlink" title="Object对象"></a>Object对象</h4>Object对象是所有对象的基础，任何其他对象都是从Object对象扩展而来的，或者说是继承，而这一切的实现都是由“原型”来完成的。</li>
+</ul>
+<p>1.原型对象</p>
+<p>原型对象是对象的一个属性，也就是Prototype内部的属性，每个对象(包括宿主对象)都有这个内部属性，它本身也是一个对象<br>在javascript中，每个对象，都不是直接包含具体的属性，而是通过原型进行属性的共享。<br>例如：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Object</span>.prototype.num=<span class="number">20</span>;</span><br><span class="line">alert(<span class="string">"添加原型属性:"</span>+<span class="built_in">Object</span>.num);</span><br><span class="line"><span class="built_in">Object</span>.num=<span class="number">10</span>;</span><br><span class="line">alert(<span class="string">"添加对象属性"</span>+<span class="built_in">Object</span>.num);</span><br></pre></td></tr></table></figure></p>
+<p>实际上，当获取一个对象的属性时，系统首先检测对象是否直接包含这个属性，如果不包含，那就去对象的原型属性中再查找这个属性，如果也没找到，就会返回undefined</p>
+<p>表面上看着原型似乎没有存在的必要，但是，它是用来实现继承的关键对象</p>
+<p>2.原型链<br>要理解javascript如何实现继承，必须先区分一个概念：每个对象都具有Prototype内部属性，但不是每个对象都可以通过”对象.prototype”访问到这个属性，只有拥有Construct内部属性的对象(也就是构造函数)才能直接访问到Prototype属性，因为这些对象可以被理解为类，而在面向对象的概念中，只有类才能被继承、扩展</p>
+<p>未完待续。。。。</p>
 
       
     </div>
@@ -391,8 +416,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/11/14/从零开始学JavaScript--对象/"
-           data-title="从零开始学JavaScript--对象" data-url="http://github.magicdu.cn/2016/11/14/从零开始学JavaScript--对象/">
+      <div class="ds-thread" data-thread-key="2016/11/15/从零开始学JavaScript--对象/"
+           data-title="从零开始学JavaScript--对象" data-url="http://github.magicdu.cn/2016/11/15/从零开始学JavaScript--对象/">
       </div>
     
   </div>
@@ -483,7 +508,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#JavaScript的对象"><span class="nav-number">1.</span> <span class="nav-text">JavaScript的对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#面向对象"><span class="nav-number">1.1.</span> <span class="nav-text">面向对象</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#面向对象方法的特性"><span class="nav-number">1.1.1.</span> <span class="nav-text">面向对象方法的特性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#类"><span class="nav-number">1.1.2.</span> <span class="nav-text">类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#对象"><span class="nav-number">1.1.3.</span> <span class="nav-text">对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#创建对象"><span class="nav-number">1.1.4.</span> <span class="nav-text">创建对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#对象的属性"><span class="nav-number">1.1.5.</span> <span class="nav-text">对象的属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#释放对象"><span class="nav-number">1.1.6.</span> <span class="nav-text">释放对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#本地对象"><span class="nav-number">1.1.7.</span> <span class="nav-text">本地对象</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#内置对象"><span class="nav-number">1.2.</span> <span class="nav-text">内置对象</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Global-对象"><span class="nav-number">1.2.1.</span> <span class="nav-text">Global 对象</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#JavaScript的对象"><span class="nav-number">1.</span> <span class="nav-text">JavaScript的对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#面向对象"><span class="nav-number">1.1.</span> <span class="nav-text">面向对象</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#面向对象方法的特性"><span class="nav-number">1.1.1.</span> <span class="nav-text">面向对象方法的特性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#类"><span class="nav-number">1.1.2.</span> <span class="nav-text">类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#对象"><span class="nav-number">1.1.3.</span> <span class="nav-text">对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#创建对象"><span class="nav-number">1.1.4.</span> <span class="nav-text">创建对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#对象的属性"><span class="nav-number">1.1.5.</span> <span class="nav-text">对象的属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#释放对象"><span class="nav-number">1.1.6.</span> <span class="nav-text">释放对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#本地对象"><span class="nav-number">1.1.7.</span> <span class="nav-text">本地对象</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#内置对象"><span class="nav-number">1.2.</span> <span class="nav-text">内置对象</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Global-对象"><span class="nav-number">1.2.1.</span> <span class="nav-text">Global 对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Object对象"><span class="nav-number">1.2.2.</span> <span class="nav-text">Object对象</span></a></li></ol></li></ol></li></ol></div>
             
           </div>
         </section>
