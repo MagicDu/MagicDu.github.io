@@ -80,19 +80,16 @@
 
 
 
-<meta name="description" content="JavaScript的对象面向对象面向对象方法的特性1.抽象性2.继承性3.多态性（重载和覆盖）
-类类是用来描述抽象的一种载体，它记录了哪些属性和行为是具有通性的。12345678class  Car&amp;#123;    String color;//属性    void shift()&amp;#123;//行为        //换挡    &amp;#125;&amp;#125;//创建一个redCar对象Car r">
+<meta name="description" content="JavaScript的对象面向对象面向对象方法的特性1.抽象性2.继承性3.多态性（重载和覆盖）">
 <meta property="og:type" content="article">
 <meta property="og:title" content="从零开始学JavaScript--对象">
 <meta property="og:url" content="http://github.magicdu.cn/2016/11/17/从零开始学JavaScript--对象/index.html">
 <meta property="og:site_name" content="Stack Overflow">
-<meta property="og:description" content="JavaScript的对象面向对象面向对象方法的特性1.抽象性2.继承性3.多态性（重载和覆盖）
-类类是用来描述抽象的一种载体，它记录了哪些属性和行为是具有通性的。12345678class  Car&amp;#123;    String color;//属性    void shift()&amp;#123;//行为        //换挡    &amp;#125;&amp;#125;//创建一个redCar对象Car r">
-<meta property="og:updated_time" content="2016-11-17T08:49:32.045Z">
+<meta property="og:description" content="JavaScript的对象面向对象面向对象方法的特性1.抽象性2.继承性3.多态性（重载和覆盖）">
+<meta property="og:updated_time" content="2016-11-17T12:14:08.525Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="从零开始学JavaScript--对象">
-<meta name="twitter:description" content="JavaScript的对象面向对象面向对象方法的特性1.抽象性2.继承性3.多态性（重载和覆盖）
-类类是用来描述抽象的一种载体，它记录了哪些属性和行为是具有通性的。12345678class  Car&amp;#123;    String color;//属性    void shift()&amp;#123;//行为        //换挡    &amp;#125;&amp;#125;//创建一个redCar对象Car r">
+<meta name="twitter:description" content="JavaScript的对象面向对象面向对象方法的特性1.抽象性2.继承性3.多态性（重载和覆盖）">
 
 
 
@@ -252,7 +249,7 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-17T16:49:32+08:00" content="2016-11-17">
+            <time itemprop="dateCreated" datetime="2016-11-17T20:14:08+08:00" content="2016-11-17">
               2016-11-17
             </time>
           </span>
@@ -306,7 +303,7 @@
       
 
       
-        <h2 id="JavaScript的对象"><a href="#JavaScript的对象" class="headerlink" title="JavaScript的对象"></a>JavaScript的对象</h2><h3 id="面向对象"><a href="#面向对象" class="headerlink" title="面向对象"></a>面向对象</h3><h4 id="面向对象方法的特性"><a href="#面向对象方法的特性" class="headerlink" title="面向对象方法的特性"></a>面向对象方法的特性</h4><p>1.抽象性<br>2.继承性<br>3.多态性（重载和覆盖）</p>
+        <h2 id="JavaScript的对象"><a href="#JavaScript的对象" class="headerlink" title="JavaScript的对象"></a>JavaScript的对象</h2><h3 id="面向对象"><a href="#面向对象" class="headerlink" title="面向对象"></a>面向对象</h3><h4 id="面向对象方法的特性"><a href="#面向对象方法的特性" class="headerlink" title="面向对象方法的特性"></a>面向对象方法的特性</h4><p>1.抽象性<br>2.继承性<br>3.多态性（重载和覆盖）<br><a id="more"></a></p>
 <h4 id="类"><a href="#类" class="headerlink" title="类"></a>类</h4><p>类是用来描述抽象的一种载体，它记录了哪些属性和行为是具有通性的。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span>  <span class="title">Car</span></span>&#123;</span><br><span class="line">    <span class="built_in">String</span> color;<span class="comment">//属性</span></span><br><span class="line">    <span class="keyword">void</span> shift()&#123;<span class="comment">//行为</span></span><br><span class="line">        <span class="comment">//换挡</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//创建一个redCar对象</span></span><br><span class="line">Car redCar=<span class="keyword">new</span> Car();</span><br></pre></td></tr></table></figure></p>
 <p>可以看到，一个类并不是一个单纯数据集合，它还包括了行为，这是面向对象的另一个特点，封装性。类是描述一类事物的共同特性的，它是抽象、没有具体含义的。而对象是类的实例。</p>
 <h4 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h4><p>对象从概念上讲，就是类的实现，把抽象的变为具体的。javascript将对象定义为：无序属性的集合，属性可以是任何类型的值，包括其他对象或者函数，当函数作为对象属性时被叫做<em>方法</em><br>也就是对象的行为。</p>
@@ -442,7 +439,7 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/11/13/从零开始学JavaScript/" rel="next" title="从零开始学JavaScript">
+              <a href="/2016/11/17/从零开始学JavaScript/" rel="next" title="从零开始学JavaScript">
                 <i class="fa fa-chevron-left"></i> 从零开始学JavaScript
               </a>
             

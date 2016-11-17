@@ -253,7 +253,7 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-17T16:49:32+08:00" content="2016-11-17">
+            <time itemprop="dateCreated" datetime="2016-11-17T20:14:08+08:00" content="2016-11-17">
               2016-11-17
             </time>
           </span>
@@ -308,116 +308,12 @@
 
       
         
-          
-            <h2 id="JavaScript的对象"><a href="#JavaScript的对象" class="headerlink" title="JavaScript的对象"></a>JavaScript的对象</h2><h3 id="面向对象"><a href="#面向对象" class="headerlink" title="面向对象"></a>面向对象</h3><h4 id="面向对象方法的特性"><a href="#面向对象方法的特性" class="headerlink" title="面向对象方法的特性"></a>面向对象方法的特性</h4><p>1.抽象性<br>2.继承性<br>3.多态性（重载和覆盖）</p>
-<h4 id="类"><a href="#类" class="headerlink" title="类"></a>类</h4><p>类是用来描述抽象的一种载体，它记录了哪些属性和行为是具有通性的。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span>  <span class="title">Car</span></span>&#123;</span><br><span class="line">    <span class="built_in">String</span> color;<span class="comment">//属性</span></span><br><span class="line">    <span class="keyword">void</span> shift()&#123;<span class="comment">//行为</span></span><br><span class="line">        <span class="comment">//换挡</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//创建一个redCar对象</span></span><br><span class="line">Car redCar=<span class="keyword">new</span> Car();</span><br></pre></td></tr></table></figure></p>
-<p>可以看到，一个类并不是一个单纯数据集合，它还包括了行为，这是面向对象的另一个特点，封装性。类是描述一类事物的共同特性的，它是抽象、没有具体含义的。而对象是类的实例。</p>
-<h4 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h4><p>对象从概念上讲，就是类的实现，把抽象的变为具体的。javascript将对象定义为：无序属性的集合，属性可以是任何类型的值，包括其他对象或者函数，当函数作为对象属性时被叫做<em>方法</em><br>也就是对象的行为。</p>
-<h4 id="创建对象"><a href="#创建对象" class="headerlink" title="创建对象"></a>创建对象</h4><p>语法<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> 对象名=<span class="keyword">new</span> 构造函数();</span><br></pre></td></tr></table></figure></p>
-<p>javascript 创建对象与绝大多数面向对象语言是一样的，都使用new关键字来实例化一个类，创建该类的一个对象。更确切的说法是，以new关键字来调用构造函数来创建一个对象。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj=<span class="keyword">new</span> <span class="built_in">String</span>();</span><br><span class="line">obj=<span class="keyword">new</span> <span class="built_in">Object</span>;<span class="comment">//Object 本身也是对象</span></span><br><span class="line">alert(<span class="string">'obj对象的构造函数为：'</span>+obj.constructor);</span><br><span class="line">alert(<span class="string">'Object对象的原型为：'</span>+<span class="built_in">Object</span>.prototype);</span><br></pre></td></tr></table></figure></p>
-<h4 id="对象的属性"><a href="#对象的属性" class="headerlink" title="对象的属性"></a>对象的属性</h4><p>从对象定义的角度来看，他可以理解成一个包含很多值的集合，而实际应用中就是使用集合的某一属性参与程序执行。</p>
-<p>1.访问属性<br>无论是函数还是变量，作为对象的属性，他们都可以通过.号来访问，如果对象的属性任然是一个对象，那么还可以通过重复使用.号来进行访问，例如<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a=<span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line"><span class="comment">//显示对象a的constructor属性的prototype属性</span></span><br><span class="line">alert(a.constructor.prototype);</span><br></pre></td></tr></table></figure></p>
-<p>2.添加属性</p>
-<p>在javascript中，对象的属性都与普通的函数或其他变量一样，都可以动态的生成</p>
-<p>例如<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a=<span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line">a.x=<span class="number">1</span>;<span class="comment">//生成变量属性</span></span><br><span class="line">a[<span class="string">"func"</span>]=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="comment">//生成函数属性</span></span><br><span class="line">    ++<span class="keyword">this</span>.x;<span class="comment">//this表示对象a本身</span></span><br><span class="line">&#125;</span><br><span class="line">a.func();</span><br><span class="line">alert(a.x);<span class="comment">//显示为2</span></span><br></pre></td></tr></table></figure></p>
-<p>直接对指定的属性名赋值，就可以生成一个对象的属性，这不需要使用var关键字进行声明</p>
-<p>3.删除属性</p>
-<p>删除属性首选delete运算符。从资源释放的角度来说，只需要把需要删除的属性设置为null就可以了。</p>
-<p>例如：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a=<span class="keyword">new</span> <span class="built_in">Object</span>;</span><br><span class="line">a.x=<span class="keyword">new</span> <span class="built_in">Object</span>;</span><br><span class="line"><span class="comment">//释放属性所引用的对象</span></span><br><span class="line">a.x=<span class="literal">null</span>;</span><br></pre></td></tr></table></figure></p>
-<h4 id="释放对象"><a href="#释放对象" class="headerlink" title="释放对象"></a>释放对象</h4><p>在任何编程语言中，释放不再使用的内存空间都是很重要的事。javascript和Java一样提供了自动回收内存的机制–垃圾收集器。</p>
-<h4 id="本地对象"><a href="#本地对象" class="headerlink" title="本地对象"></a>本地对象</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Global       <span class="built_in">Object</span>          <span class="built_in">Function</span>      <span class="built_in">Array</span></span><br><span class="line"><span class="built_in">String</span>       <span class="built_in">Boolean</span>         <span class="built_in">Number</span>        <span class="built_in">Math</span></span><br><span class="line"><span class="built_in">Date</span>         <span class="built_in">RegExp</span>          <span class="built_in">Error</span>         <span class="built_in">EvalError</span></span><br><span class="line"><span class="built_in">RangeError</span>   <span class="built_in">ReferenceError</span>  <span class="built_in">SyntaxError</span>   <span class="built_in">TypeError</span></span><br></pre></td></tr></table></figure>
-<p>不依赖于浏览器而实现的对象称为本地对象</p>
-<h3 id="内置对象"><a href="#内置对象" class="headerlink" title="内置对象"></a>内置对象</h3><h4 id="Global-对象"><a href="#Global-对象" class="headerlink" title="Global 对象"></a>Global 对象</h4><p>Global对象 是javascript对象模型中最高级，它拥有最大的执行环境，一切声明的变量和函数都是它的属性，Global对象具有以下特性：</p>
-<p>Global 对象没有Construct属性，所以它无法通过new操作符被当作类来调用</p>
-<p>Global 对象也没有call属性，所以他也无法像函数那样调用</p>
-<p>最重要的是Global对象只是一个概念，表示全局对象，他是根据宿主的实现而产生的。在浏览器中Global对象就是window对象</p>
-<p>Global对象拥有很多属性，如NaN、Infinity、undefined、属性以及parseInt()、parseFloat()等方法属性，当程序开始运行之前，Global对象就已经被系统创建了，并且它的属性也都已经被赋值了，所以在程序中可以直接使用parseInt等函数</p>
-<p>1.全局执行环境<br>JavaScript中有两种执行环境，全局环境和函数环境</p>
-<ul>
-<li>在全局执行环境中代码执行之前，系统会为执行环境创建一个用来管理当前执行环境中所有标识符的对象，也就是管理当前执行环境中声明的所有变量和函数，这个对象就是Global对象，在浏览器中就是window对象</li>
-<li>任何在全局执行环境中声明的变量和函数都会作为Global对象的属性存在，属性名，就是定义时所使用的标识符，属性值就是变量值或者函数对象</li>
-<li>如果出现重复定义的变量或者函数，只要标识符相同，后定义的值就会覆盖原先的值<br>例如：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    alert(<span class="string">'a'</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params">x,y</span>)</span>&#123;</span><br><span class="line">    alert(<span class="string">'aa'</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> a=<span class="number">10</span>;</span><br><span class="line">alert(a);</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>上面程序中，alert函数最终结果将显示10，并且不会引发任何程序错误，因为在javascript中，这几句代码只是改变了Global对象a属性的值而已。<br>2.浏览器中的Global对象</p>
-<p>window对象就是浏览器中的全局对象</p>
-<p>3.this指针</p>
-<p>this关键字表示对某个对象的引用，可以把它理解为引用类型的变量，但它的值是由系统确定的，也就是说，this无法被赋值</p>
-<p>在javascript中，this很强很复杂，任何地方都能使用this，并且根据this出现的位子，它的含义也是有所不同的。</p>
-<ul>
-<li>在全局执行环境中，使用this，表示Global对象，在浏览器中就是window对象</li>
-<li>当在函数执行环境中使用this时，情况就有些复杂了。如果函数没有明显的非window对象属性，而只是定义了函数，不管这个函数是不是定义在另一个函数中，这个函数中的this仍然表示window对象。如果函数显式的作为一个非window对象的属性，那么函数中的this就代表这个对象</li>
-</ul>
-<p>例如：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> o=<span class="keyword">new</span> <span class="built_in">Object</span>；</span><br><span class="line">o.func=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;  <span class="comment">//对象o的func属性为一个函数</span></span><br><span class="line">    alert(<span class="string">"作为属性的函数："</span>+(<span class="keyword">this</span>===o));<span class="comment">//判断this是否为函数所绑定的对象,true</span></span><br><span class="line">    (<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        alert(<span class="string">"普通函数："</span>+(<span class="keyword">this</span>===<span class="built_in">window</span>));<span class="comment">//判断this是否为window对象,true</span></span><br><span class="line">    &#125;)();</span><br><span class="line">&#125;</span><br><span class="line">o.func();</span><br></pre></td></tr></table></figure></p>
-<ul>
-<li>当通过new对象运算符来调用函数时，函数被当做一个构造函数，this指向构造函数创建出来的对象<h4 id="Object对象"><a href="#Object对象" class="headerlink" title="Object对象"></a>Object对象</h4>Object对象是所有对象的基础，任何其他对象都是从Object对象扩展而来的，或者说是继承，而这一切的实现都是由“原型”来完成的。</li>
-</ul>
-<p>1.原型对象</p>
-<p>原型对象是对象的一个属性，也就是Prototype内部的属性，每个对象(包括宿主对象)都有这个内部属性，它本身也是一个对象<br>在javascript中，每个对象，都不是直接包含具体的属性，而是通过原型进行属性的共享。<br>例如：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Object</span>.prototype.num=<span class="number">20</span>;</span><br><span class="line">alert(<span class="string">"添加原型属性:"</span>+<span class="built_in">Object</span>.num);</span><br><span class="line"><span class="built_in">Object</span>.num=<span class="number">10</span>;</span><br><span class="line">alert(<span class="string">"添加对象属性"</span>+<span class="built_in">Object</span>.num);</span><br></pre></td></tr></table></figure></p>
-<p>实际上，当获取一个对象的属性时，系统首先检测对象是否直接包含这个属性，如果不包含，那就去对象的原型属性中再查找这个属性，如果也没找到，就会返回undefined</p>
-<p>表面上看着原型似乎没有存在的必要，但是，它是用来实现继承的关键对象</p>
-<p>2.原型链</p>
-<p>要理解javascript如何实现继承，必须先区分一个概念：每个对象都具有Prototype内部属性，但不是每个对象都可以通过”对象.prototype”访问到这个属性，只有拥有Construct内部属性的对象(也就是构造函数)才能直接访问到Prototype属性，因为这些对象可以被理解为类，而在面向对象的概念中，只有类才能被继承、扩展.</p>
-<p>任何对象都有Prototype属性，当然也包括prototype对象本身。当程序试图获取String对象中属性名为a的属性时，系统会执行如下步骤。</p>
-<p>①查找String对象是否有名为a的属性，如果有，返回程序</p>
-<p>②查找String对象的prototype属性对象，是否有名为a的属性，如果有，返回程序</p>
-<p>③查找属性对象的prototype属性对象中是否有名为a的属性，如果没有，则继续查找下一个原型对象的prototype属性对象，直到它为null</p>
-<p>每个对象都隐式或者显式的关联有一个原型对象，并且这个原型对象可能也隐式或者显式的关联有另一个原型对象，这称为原型链。原型链使得原型中的属性得以共享。例如：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Object</span>.prototype.a=<span class="number">3.14</span>;</span><br><span class="line">alert(<span class="string">"Object对象的实例:"</span>+<span class="keyword">new</span> <span class="built_in">Object</span>().a);</span><br><span class="line">alert(<span class="string">"String对象:"</span>+<span class="built_in">String</span>.a);</span><br></pre></td></tr></table></figure>
-<p>当扩展了Object的原型后，所有本地对象都拥有了这个属性，因为所有的本地对象都可以继承自Object对象。但原型链是有先后顺序的，也就是说，扩展了Object原型，String对象就可以得到新的扩展，反之，则不行。</p>
-<p>3.原型扩展</p>
-<p>有两种方式可以扩展原型，不管那种方式都会对原型所在的原型链产生影响。</p>
-<p>①：属性扩展</p>
-<p>对构造函数的原型对象进行属性扩展后，扩展结果对继承此原型的对象都有效，通常用在扩展javascript对象的功能。</p>
-<p>例如，javascript中字符串类型，没有去掉空格的方法，而通过原型扩展，可以给javascript中的字符串都扩展此功能。例如：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">String</span>.prototype.trim=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="comment">//逻辑处理</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//就可以这样使用</span></span><br><span class="line"><span class="string">"a b"</span>.trim();</span><br></pre></td></tr></table></figure></p>
-<p>②： 对象赋值<br>当用户对自定义的类进行扩展时，最直接、最简单的方法就是直接对构造函数的原型进行赋值，例如：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">String</span>.prototype=<span class="built_in">Object</span>.prototype</span><br></pre></td></tr></table></figure></p>
-<p>这样，String类就完全继承了Object类的所有属性，<em>但是，上面这个例子无法运行，因为所有内置对象的prototype属性都只有只读特性</em></p>
-<h4 id="Function对象"><a href="#Function对象" class="headerlink" title="Function对象"></a>Function对象</h4><p>当开发者使用function关键字定义了一个函数的时候，在系统内部的实际上是创建了Function类的一个对象实例，也就是说，javascript中的函数也是对象<br>例如：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> func=<span class="keyword">new</span> <span class="built_in">Function</span>(<span class="string">"a"</span>,<span class="string">"b"</span>,<span class="string">"return a-b"</span>);</span><br><span class="line">alert(func(<span class="number">3</span>,<span class="number">4</span>));</span><br></pre></td></tr></table></figure></p>
-<p>在javascript中，无论是通过function关键字定义一个函数护着通过Function类创建一个函数，他们都是等价的。但是通过Function类创建函数具有无可比拟的动态性，它允许程序运行期间动态的创建函数。</p>
-<p>语法：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> 函数名=<span class="keyword">new</span> <span class="built_in">Function</span>(形参<span class="number">1</span>，形参<span class="number">2</span>,....,形参n，函数体);</span><br></pre></td></tr></table></figure></p>
-<p> 通过Function构造函数创建一个函数，从形势上来说读者更容易理解为创建了一个对象实例，这刚好解释了对象的Call属性：函数是一个包含了”参数列表”以及”函数体”的对象，他们都是以字符串格式作为函数对象的属性存在的。</p>
-<p>除了通过”函数名()”的方式调用函数外，函数对象还有两个方法属性，用来实现动态的函数调用</p>
-<p>①：apply(this参数,函数参数数组)<br>apply方法可以动态的改变函数中this的引用 例如：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj=<span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line"><span class="keyword">var</span> func1=<span class="keyword">new</span> <span class="built_in">Function</span>(<span class="string">"a"</span>,<span class="string">"b"</span>,<span class="string">"alert(\"function1\"+(this===window)+\",\"+(a-b))"</span>);</span><br><span class="line"><span class="keyword">var</span> func2=<span class="function"><span class="keyword">function</span>(<span class="params">a,b</span>)</span>&#123;</span><br><span class="line">    alert(<span class="string">"func2:"</span>+(<span class="keyword">this</span>===obj)+<span class="string">","</span>+(a-b))</span><br><span class="line">&#125;</span><br><span class="line">func1(<span class="number">3</span>,<span class="number">4</span>);</span><br><span class="line">func2.appply(obj,[<span class="number">3</span>,<span class="number">4</span>]);</span><br></pre></td></tr></table></figure></p>
-<p>apply方法有两个参数，一个是改变函数中的this引用，在一个就是传递给函数本身的参数列表，他们被放在一个数组中。在需要动态改变函数this引用的情况下，就可以使用这个方法</p>
-<p>② call(this参数,函数参数1，函数参数2,…函数参数n)</p>
-<p>call方法就是apply的最佳替代者，他可以不用传递数组，例如：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj=<span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line"><span class="keyword">var</span> func1=<span class="keyword">new</span> <span class="built_in">Function</span>(<span class="string">"a"</span>,<span class="string">"b"</span>,<span class="string">"alert(\"apply:\"+(this===window)+\",\"+(a-b))"</span>);</span><br><span class="line"><span class="keyword">var</span> func2=<span class="function"><span class="keyword">function</span>(<span class="params">a,b</span>)</span>&#123;</span><br><span class="line">    alert(<span class="string">"call:"</span>+(<span class="keyword">this</span>===obj)+<span class="string">","</span>+(a-b))</span><br><span class="line">&#125;</span><br><span class="line">func1.apply(<span class="literal">null</span>,[<span class="number">3</span>,<span class="number">4</span>]);</span><br><span class="line">func2.call(obj,<span class="number">3</span>,<span class="number">4</span>);</span><br></pre></td></tr></table></figure>
-<p>call和apply的区别就是传递参数的形式不同，对他们来说，当”this”参数不是一个有效对象时，函数中的this引用指向Global对象。</p>
-<p>1.函数执行环境</p>
-<p>相对于单纯的全局执行环境，函数执行环境多了至少一层被包含的关系，对于嵌套函数来说，被包含的层数可能会很多。这对于函数执行环境中的标识符管理来说会更复杂。</p>
-<ul>
-<li>像全局执行环境那样，在函数执行环境中的代码执行之前，系统也会为执行环境创建一个用来管理当前执行环境中所有标识符的对象。在javascript中，称这个对象为活动对象。不像Global对象，活动对象无法通过代码访问到，但它的作用跟Global对象是相同的。</li>
-<li>在任何函数执行环境中声明的变量和函数都会作为活动对象的属性存在，属性名就是定义时使用的标识符，属性值就是变量值或者函数对象。</li>
-<li>如果出现重复定义的变量或函数，只要标识符相同，后定义的值就会覆盖原先的值。</li>
-<li>当在函数执行环境中检索一个标识符P时，也就是调用一个名字为P的属性，如果活动对象没有名为P的属性，那么系统会扩展检索范围为包含当前执行环境的上层环境。如果知道Global对象没有P属性，那么将引起程序错误。例如：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> <span class="built_in">parseInt</span>=<span class="function"><span class="keyword">function</span>(<span class="params">x</span>)</span>&#123;</span><br><span class="line">        alert(x&lt;&lt;<span class="number">1</span>^<span class="number">2</span>|<span class="number">3</span>&amp;<span class="number">4</span>&gt;&gt;&gt;x);</span><br><span class="line">        <span class="built_in">parseInt</span>(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">func();</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>上例中使用parseInt的结果并不是解析整数，而是弹出一个对话框并显示运算结果。因为parseInt是Global对象的而属性，当在函数执行环境中给活动对象定义了重名的属性时，系统会优先检索当前环境中的属性。所以在func()函数中使用parseInt属性时，它的值已经被改变了。如果要使用解析整数的parseInt，必须使用window.parseInt() 。</p>
-<p>2.arguments 对象</p>
-<p>当一个函数要被执行的时候，系统会在执行函数体代码前做一些初始化的工作，其中之一就是为函数对象创建一个arguments对象属性<br>arguments对象只能使用函数体中，并用来管理函数的实际参数。</p>
-<p>①caller/callee属性<br>caller属性并不是arguments对象的，而是函数本身的属性。它显示了函数的调用者。如果函数在全局执行环境中被调用，那么它的值为null，如果在另一个函数中被调用，它的值就是个函数。</p>
-<p>例如：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a=<span class="keyword">new</span> <span class="built_in">Function</span>(<span class="string">"alert('a:'+a.caller)"</span>);</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">b</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    a();</span><br><span class="line">    alert(<span class="string">'b:'</span>+b.caller);</span><br><span class="line">&#125;b();</span><br></pre></td></tr></table></figure></p>
-<p>如果在函数体外部使用caller属性，将始终得到null<br>calle是arguments对象的属性，表示正在执行的函数，也就是函数本身，例如：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    alert(<span class="built_in">arguments</span>.callee)</span><br><span class="line">&#125;)()</span><br></pre></td></tr></table></figure></p>
-<p>在匿名函数中，无法获取函数对象的引用。所以arguments对象提供了calle属性，通常它与直接引用函数对象是等价的，起码在功能上是这样。但他们并不是同一个对象，所以最好使用calle属性，而避免直接使用函数对象。</p>
-<p>②length属性</p>
-<p>length是arguments对象属性，表示函数被调用时传递的参数个数。可以使用一个小于length的整数，采用数组元素的访问方式来访问arguments对象，例如：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">argc</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    alert(<span class="built_in">arguments</span>[<span class="number">0</span>]+<span class="built_in">arguments</span>[<span class="number">1</span>]);</span><br><span class="line">&#125;</span><br><span class="line">argc(<span class="number">1</span>,<span class="number">2</span>);</span><br></pre></td></tr></table></figure></p>
-<p>虽然arguments对象属性，表示函数被调用时实际传递的参数个数。但他不是Array类型的一个实例。</p>
-<p>3.构造函数</p>
-<p>构造函数在javascript中见对象的Construct属性描述。每个对象都有一指向创建自己的构造函数的属性：constructor。通过“对象.constructor” 就可以访问到这个构造函数。</p>
-<p>构造函数是创建一切对象的工具，当使用new操作符来调用构造函数F创建对象的时候，构造函数F会执行一系列步骤来完成这个对象的创建。</p>
-<ul>
-<li>创建一个本地对象O(为对象分配内存空间等系统操作)。</li>
-<li><p>设置O的class属性为”Object”或者其他本地类型，例如”Number”、”String”等。这是根据<br>构造函数的类型来确定的。</p>
-</li>
-<li><p>设置O的prototype属性为Object.prototype或者其他本地对象的原型，例如Number.prototype、String.prototype等。这是根据构造函数类型确定的</p>
-</li>
-<li>调用F的Call属性，将O作为this的值。</li>
-<li>如果Call的返回值的类型是对象(指函数体内的return语句)，返回这个对象</li>
-<li>返回O</li>
-</ul>
-<p>如何使用构造函数：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">Constructor</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.a=<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Array</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">var</span> obj=<span class="keyword">new</span> Constructor();</span><br><span class="line">    alert(<span class="string">"obj对象是否为Array类的实例："</span>+(obj <span class="keyword">instanceof</span> <span class="built_in">Array</span>)+<span class="string">"\n\n属性a："</span>+obj.a);</span><br><span class="line">    又例如：</span><br><span class="line"><span class="string">``</span><span class="string">`javascript</span><br><span class="line">    function Constructor()&#123;</span><br><span class="line">        this.a=1;</span><br><span class="line">    &#125;</span><br><span class="line">    var obj=new Constructor();</span><br><span class="line">    alert("obj对象是否为Array类的实例:"+obj instanceof Array +"\n\n属性a:"+obj.a);</span></span><br></pre></td></tr></table></figure></p>
-
-          
+          <h2 id="JavaScript的对象"><a href="#JavaScript的对象" class="headerlink" title="JavaScript的对象"></a>JavaScript的对象</h2><h3 id="面向对象"><a href="#面向对象" class="headerlink" title="面向对象"></a>面向对象</h3><h4 id="面向对象方法的特性"><a href="#面向对象方法的特性" class="headerlink" title="面向对象方法的特性"></a>面向对象方法的特性</h4><p>1.抽象性<br>2.继承性<br>3.多态性（重载和覆盖）<br>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/11/17/从零开始学JavaScript--对象/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -465,7 +361,7 @@
             
               
                 
-                <a class="post-title-link" href="/2016/11/13/从零开始学JavaScript/" itemprop="url">
+                <a class="post-title-link" href="/2016/11/17/从零开始学JavaScript/" itemprop="url">
                   从零开始学JavaScript
                 </a>
               
@@ -479,8 +375,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-13T18:36:26+08:00" content="2016-11-13">
-              2016-11-13
+            <time itemprop="dateCreated" datetime="2016-11-17T20:13:51+08:00" content="2016-11-17">
+              2016-11-17
             </time>
           </span>
 
@@ -509,8 +405,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/11/13/从零开始学JavaScript/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/13/从零开始学JavaScript/" itemprop="commentsCount"></span>
+                <a href="/2016/11/17/从零开始学JavaScript/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/17/从零开始学JavaScript/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -534,69 +430,13 @@
 
       
         
-          
-            <h2 id="——基本语法"><a href="#——基本语法" class="headerlink" title="——基本语法"></a>——基本语法</h2><h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><h4 id="变量声明和赋值"><a href="#变量声明和赋值" class="headerlink" title="变量声明和赋值"></a>变量声明和赋值</h4><p>1.声明<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> 变量名</span><br></pre></td></tr></table></figure></p>
+          <h2 id="——基本语法"><a href="#——基本语法" class="headerlink" title="——基本语法"></a>——基本语法</h2><h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><h4 id="变量声明和赋值"><a href="#变量声明和赋值" class="headerlink" title="变量声明和赋值"></a>变量声明和赋值</h4><p>1.声明<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> 变量名</span><br></pre></td></tr></table></figure></p>
 <p>2.赋值<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//变量名=值</span></span><br><span class="line"><span class="keyword">var</span> PI=<span class="number">3.141592654</span></span><br></pre></td></tr></table></figure></p>
-<h4 id="变量命名规范"><a href="#变量命名规范" class="headerlink" title="变量命名规范"></a>变量命名规范</h4><p><em>变量名区分大小写</em> 例如：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> name=<span class="number">1.2</span>;</span><br><span class="line"><span class="keyword">var</span> NAME=<span class="string">'john'</span>;</span><br><span class="line"><span class="keyword">var</span> Name=<span class="literal">true</span>;</span><br></pre></td></tr></table></figure></p>
-<p>上面就是三个不同的变量，并且代表不同类型的值，除了区分大小写以外，变量名开头只能使用字母和”$”或”<em>“，后面可以接字母或数字和”$”或”</em>“,例如：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> $_$=<span class="number">1</span>;</span><br><span class="line"><span class="keyword">var</span> _$_1=<span class="number">2</span>;</span><br></pre></td></tr></table></figure></p>
-<p>上面都是合法的命名，下面是不合法的命名方式<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//下面代码在运行中会出现语法错误</span></span><br><span class="line"><span class="keyword">var</span> &amp;_&amp;=<span class="number">1</span>;</span><br><span class="line"><span class="keyword">var</span> <span class="number">1</span>ab=<span class="number">1</span>;</span><br><span class="line"><span class="keyword">var</span> ._.=<span class="number">1</span>;</span><br></pre></td></tr></table></figure></p>
-<h3 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h3><p>javascript总共有9种数据类型，分别是 未定义(Undefined)、空(Null)、布尔(Boolean)、字符串(String)、数字(Number)、对象(Object)、引用(Reference)、列表(List)、完成(Completion).其中后三种仅仅作为运行时中间结果的数据类型，而不能在代码中使用。</p>
-<h4 id="数据类型分类"><a href="#数据类型分类" class="headerlink" title="数据类型分类"></a>数据类型分类</h4><p>1.基本类型<br>包含5种基本类型</p>
-<p>① Undefined</p>
-<p>未定义类型，这个类型只有一个值，undefined<br>任何未被赋值的变量，也就是只声明过的变量，都有一个undefined值</p>
-<p>如果程序中引用了未定义变量，也会显示undefined，造成程序错误</p>
-<p>其中 <em>typeof</em>运算符可用来查看一个变量所属类型</p>
-<p>除了程序引用了未定义变量，开发者自己也可以把变量赋值为undefined</p>
-<p>②Null</p>
-<p>Null是空类型，这个类型只有一个值–null</p>
-<p>null是一个占位符，表示一个变量已经有值，但值为空。不同于undefined，null通常产生在程序运行中</p>
-<p>当变量不在使用时，将变量赋值为null，以释放存储空间</p>
-<p>③Boolean</p>
-<p>布尔类型，值为true或false</p>
-<p>④ String</p>
-<p>字符串类型 程序中使用最广的一种类型</p>
-<p>在字符串序列中，每个字符都有一个索引值，用来定位字符的位置。</p>
-<p>应当把null和空字符串区分开来<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//空字符串</span></span><br><span class="line"><span class="keyword">var</span> str=<span class="string">""</span>;</span><br><span class="line"><span class="comment">//空值</span></span><br><span class="line"><span class="keyword">var</span> str=<span class="literal">null</span>;</span><br></pre></td></tr></table></figure></p>
-<p>⑤Number</p>
-<p>数值类型<br>举例：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//十进制</span></span><br><span class="line"><span class="keyword">var</span> num=<span class="number">10</span>;</span><br><span class="line"><span class="comment">//十进制小数</span></span><br><span class="line"><span class="keyword">var</span> num=<span class="number">1.19</span>;</span><br><span class="line"><span class="comment">//八进制</span></span><br><span class="line"><span class="keyword">var</span> num=<span class="number">010</span>;</span><br><span class="line"><span class="comment">//十六进制</span></span><br><span class="line"><span class="keyword">var</span> num=<span class="number">0xFD</span>;</span><br><span class="line"><span class="comment">//科学计数法</span></span><br><span class="line"><span class="keyword">var</span> num=<span class="number">9.99e+9</span>;</span><br></pre></td></tr></table></figure></p>
-<p><em>不管参与运算的变量值是什么进制的数字，计算结果仍然是十进制</em></p>
-<p>Number 类型有3个特殊常量值，分别是NaN、+Infinity和-Infinity</p>
-<p> 1）NaN</p>
-<p>NaN全称是 Not a Number，通常来验证一个变量的值是否是数值，不能直接通过与NaN比较来判断，而是利用isNaN(..);来判断<br>例如：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str=<span class="string">'abcd'</span>;</span><br><span class="line">alert(<span class="built_in">isNaN</span>(str));</span><br></pre></td></tr></table></figure></p>
-<p>2）+Infinity</p>
-<p>正无穷常量表示一个数值表达式的计算结果是无穷大，规定大于或等于2的1024次方的数为无穷大</p>
-<p>3）-Infinity</p>
-<p>负无穷常量与正无穷相反，但是他们的数量级相同</p>
-<p>2.引用类型</p>
-<p>相对于基本类型，引用类型最大的不同之处在于变量值的存储方式，对于基本类型来说，变量中存储的是值本身，而引用类型存储的是值所在的内存空间地址，也就是指针</p>
-<p>引用类型通常被认为是类，而他的值就是对象。对象是一种特殊值，相当于集合 可以通过.来访问集合内部值，例如obj.name</p>
-<h3 id="关键字"><a href="#关键字" class="headerlink" title="关键字"></a>关键字</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">break</span>     <span class="keyword">else</span>       <span class="keyword">new</span>         <span class="keyword">var</span></span><br><span class="line"><span class="keyword">case</span>      <span class="keyword">finally</span>    <span class="keyword">return</span>      <span class="keyword">void</span></span><br><span class="line"><span class="keyword">catch</span>     <span class="keyword">for</span>        <span class="keyword">switch</span>      <span class="keyword">while</span></span><br><span class="line"><span class="keyword">continue</span>  <span class="function"><span class="keyword">function</span>   <span class="title">this</span>        <span class="title">with</span></span><br><span class="line"><span class="title">default</span>   <span class="title">if</span>         <span class="title">throw</span>       <span class="title">delete</span></span><br><span class="line"><span class="title">in</span>        <span class="title">try</span>        <span class="title">do</span>          <span class="title">instanceof</span></span><br><span class="line"><span class="title">typeof</span></span></span><br></pre></td></tr></table></figure>
-<h3 id="标识符"><a href="#标识符" class="headerlink" title="标识符"></a>标识符</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">abstract  enum       int         short</span><br><span class="line">boolean   <span class="keyword">export</span>     interface   <span class="keyword">static</span></span><br><span class="line">byte      extends    long        <span class="keyword">super</span></span><br><span class="line">char      final      native      synchronized</span><br><span class="line"><span class="class"><span class="keyword">class</span>     <span class="title">float</span>      <span class="title">package</span>     <span class="title">throws</span></span><br><span class="line"><span class="title">const</span>     <span class="title">goto</span>       <span class="title">private</span>     <span class="title">transient</span></span><br><span class="line"><span class="title">debugger</span>  <span class="title">implements</span> <span class="title">protected</span>   <span class="title">volatile</span></span><br><span class="line"><span class="title">double</span>    <span class="title">import</span>     <span class="title">public</span></span></span><br></pre></td></tr></table></figure>
-<h3 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h3><h4 id="算数运算符"><a href="#算数运算符" class="headerlink" title="算数运算符"></a>算数运算符</h4><p>四则运算等</p>
-<p>1.取模运算%</p>
-<p>2.自增/自减运算 ++/–</p>
-<p>3.变量取正负运算+ -</p>
-<h4 id="赋值运算符"><a href="#赋值运算符" class="headerlink" title="赋值运算符"></a>赋值运算符</h4><p>=、+= ……</p>
-<h4 id="关系运算符"><a href="#关系运算符" class="headerlink" title="关系运算符"></a>关系运算符</h4><p>&lt;、== &gt;、 ……</p>
-<h4 id="逻辑运算符"><a href="#逻辑运算符" class="headerlink" title="逻辑运算符"></a>逻辑运算符</h4><p>&amp;&amp; || ！</p>
-<h4 id="位运算符"><a href="#位运算符" class="headerlink" title="位运算符"></a>位运算符</h4><p>&amp; 、| 、~ 、^(异或)、&lt;&lt; （按位左移）、&gt;&gt;（按位右移）、&gt;&gt;&gt;（无符号按位右移）</p>
-<h4 id="其他运算符"><a href="#其他运算符" class="headerlink" title="其他运算符"></a>其他运算符</h4><p>[]、instanceof、typeof、new、void、delete、in、</p>
-<p>举例<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">delete</span> obj.a;</span><br><span class="line"><span class="keyword">delete</span> array[<span class="number">0</span>];</span><br><span class="line"><span class="string">'a'</span> <span class="keyword">in</span> obj;</span><br></pre></td></tr></table></figure></p>
-<h3 id="控制语句"><a href="#控制语句" class="headerlink" title="控制语句"></a>控制语句</h3><h4 id="选择条件语句"><a href="#选择条件语句" class="headerlink" title="选择条件语句"></a>选择条件语句</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>()&#123;</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">switch</span>()&#123;</span><br><span class="line"><span class="keyword">case</span> <span class="number">1</span>: ...;<span class="keyword">break</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//javascript中switch支持各种类型控制条件</span></span><br><span class="line"><span class="comment">//条件表达式</span></span><br><span class="line">变量=布尔值?值<span class="number">1</span>:值<span class="number">2</span></span><br></pre></td></tr></table></figure>
-<h4 id="循环语句"><a href="#循环语句" class="headerlink" title="循环语句"></a>循环语句</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>()&#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span>()&#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">do</span>&#123;</span><br><span class="line">&#125;<span class="keyword">while</span>()</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> <span class="keyword">in</span> object)&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h3><p>1.javascript数组可以存放任何类型数据</p>
-<p>2.访问不存在的索引时返回undefined</p>
-<p>3.试图给不存在的索引赋值，不会引发程序错误，而是自动扩展数组</p>
-<h3 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h3><p>在javascript中 函数也是一种数据类型</p>
-<p>语法<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">   <span class="function"><span class="keyword">function</span> 函数名（形参1 2 3 ...）</span>&#123;</span><br><span class="line">     语句</span><br><span class="line">     <span class="keyword">return</span> 返回值;</span><br><span class="line">   &#125;</span><br><span class="line">   </span><br><span class="line">   <span class="comment">//阶乘函数</span></span><br><span class="line">   <span class="function"><span class="keyword">function</span> <span class="title">n$</span>(<span class="params">n</span>)</span>&#123;</span><br><span class="line"><span class="keyword">if</span> (n==<span class="number">0</span>) &#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> out=<span class="number">1</span>;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">	out*=i;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> out;</span><br><span class="line"> &#125;</span><br><span class="line"><span class="comment">//调用函数</span></span><br><span class="line"><span class="keyword">var</span> n0=n$(<span class="number">10</span>);</span><br></pre></td></tr></table></figure></p>
-<h4 id="内部函数和匿名函数"><a href="#内部函数和匿名函数" class="headerlink" title="内部函数和匿名函数"></a>内部函数和匿名函数</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//创建一个匿名函数</span></span><br><span class="line"> <span class="keyword">var</span> func=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">     alert(<span class="string">'fun'</span>);</span><br><span class="line"> &#125;</span><br><span class="line"> </span><br><span class="line"> <span class="comment">//返回函数类型的值</span></span><br><span class="line"> <span class="keyword">var</span> func=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">     <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">         alert(<span class="string">'这是一个内部匿名函数'</span>);</span><br><span class="line">     &#125;</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="comment">//调用函数</span></span><br><span class="line">func()();</span><br></pre></td></tr></table></figure>
-<h4 id="回调函数"><a href="#回调函数" class="headerlink" title="回调函数"></a>回调函数</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span><br><span class="line">     <span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">       alert(<span class="string">'回调函数'</span>);</span><br><span class="line">     &#125;</span><br><span class="line">     </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"吊我"</span> <span class="attr">onclick</span>=<span class="string">"func()"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h3 id="严格模式"><a href="#严格模式" class="headerlink" title="严格模式"></a>严格模式</h3><p>开启严格模式<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">"use strict"</span>;<span class="comment">//必须是第一行</span></span><br></pre></td></tr></table></figure></p>
-<p>严格模式允许定义在不同作用域内<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">"use strict"</span>;<span class="comment">//影响该文件</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">stricFunc</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    use strict;<span class="comment">//只影响函数内代码</span></span><br><span class="line">    a=<span class="number">3</span>;</span><br><span class="line">    <span class="keyword">return</span> a;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h2 id="博主信息"><a href="#博主信息" class="headerlink" title="博主信息"></a>博主信息</h2><p><em>博客园 <a href="http://www.cnblogs.com/xiaoduc-org/" target="_blank" rel="external">@xiaoduc</a>
-</em>MyBlog   <a href="http://blog.magicdu.cn" target="_blank" rel="external">@破玉</a></p>
-
-          
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/11/17/从零开始学JavaScript/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -644,7 +484,7 @@
             
               
                 
-                <a class="post-title-link" href="/2016/11/13/MD5加密工具类/" itemprop="url">
+                <a class="post-title-link" href="/2016/11/17/MD5加密工具类/" itemprop="url">
                   MD5加密工具类
                 </a>
               
@@ -658,8 +498,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-13T18:34:19+08:00" content="2016-11-13">
-              2016-11-13
+            <time itemprop="dateCreated" datetime="2016-11-17T20:12:16+08:00" content="2016-11-17">
+              2016-11-17
             </time>
           </span>
 
@@ -688,8 +528,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/11/13/MD5加密工具类/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/13/MD5加密工具类/" itemprop="commentsCount"></span>
+                <a href="/2016/11/17/MD5加密工具类/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/17/MD5加密工具类/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -714,7 +554,7 @@
       
         
           
-            <p><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="http://music.163.com/outchain/player?type=2&id=26508242&auto=0&height=66"></iframe><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.dzq.utils;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.math.BigInteger;</span><br><span class="line"><span class="keyword">import</span> java.security.MessageDigest;</span><br><span class="line"><span class="keyword">import</span> java.security.NoSuchAlgorithmException;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MD5Utils</span> </span>&#123;</span><br><span class="line">	<span class="comment">/**</span><br><span class="line">	 * 使用md5的算法进行加密</span><br><span class="line">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">md5</span><span class="params">(String plainText)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">byte</span>[] secretBytes = <span class="keyword">null</span>;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			secretBytes = MessageDigest.getInstance(<span class="string">"md5"</span>).digest(</span><br><span class="line">					plainText.getBytes());</span><br><span class="line">		&#125; <span class="keyword">catch</span> (NoSuchAlgorithmException e) &#123;</span><br><span class="line">			<span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(<span class="string">"没有md5这个算法！"</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		String md5code = <span class="keyword">new</span> BigInteger(<span class="number">1</span>, secretBytes).toString(<span class="number">16</span>);</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">32</span> - md5code.length(); i++) &#123;</span><br><span class="line">			md5code = <span class="string">"0"</span> + md5code;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> md5code;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+            <p><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="http://music.163.com/outchain/player?type=2&id=26508242&auto=0&height=66"></iframe><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.dzq.utils;</span><br><span class="line">&lt;!--more--&gt;</span><br><span class="line"><span class="keyword">import</span> java.math.BigInteger;</span><br><span class="line"><span class="keyword">import</span> java.security.MessageDigest;</span><br><span class="line"><span class="keyword">import</span> java.security.NoSuchAlgorithmException;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MD5Utils</span> </span>&#123;</span><br><span class="line">	<span class="comment">/**</span><br><span class="line">	 * 使用md5的算法进行加密</span><br><span class="line">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">md5</span><span class="params">(String plainText)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">byte</span>[] secretBytes = <span class="keyword">null</span>;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			secretBytes = MessageDigest.getInstance(<span class="string">"md5"</span>).digest(</span><br><span class="line">					plainText.getBytes());</span><br><span class="line">		&#125; <span class="keyword">catch</span> (NoSuchAlgorithmException e) &#123;</span><br><span class="line">			<span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(<span class="string">"没有md5这个算法！"</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		String md5code = <span class="keyword">new</span> BigInteger(<span class="number">1</span>, secretBytes).toString(<span class="number">16</span>);</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">32</span> - md5code.length(); i++) &#123;</span><br><span class="line">			md5code = <span class="string">"0"</span> + md5code;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> md5code;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <h2 id="博主信息"><a href="#博主信息" class="headerlink" title="博主信息"></a>博主信息</h2><p><em>博客园 <a href="http://www.cnblogs.com/xiaoduc-org/" target="_blank" rel="external">@xiaoduc</a>
 </em>CSDN   <a href="http://blog.csdn.net/xiaoduc" target="_blank" rel="external">@xiaoduc</a></p>
 
@@ -766,8 +606,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/10/28/hello-world/" itemprop="url">
-                  Hello World
+                <a class="post-title-link" href="/2016/11/17/java编写端口扫描器/" itemprop="url">
+                  java编写的端口扫描器
                 </a>
               
             
@@ -780,19 +620,38 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-28T20:35:27+08:00" content="2016-10-28">
-              2016-10-28
+            <time itemprop="dateCreated" datetime="2016-11-17T20:11:35+08:00" content="2016-11-17">
+              2016-11-17
             </time>
           </span>
 
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/网络编程/" itemprop="url" rel="index">
+                    <span itemprop="name">网络编程</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
           
 
           
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/10/28/hello-world/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/28/hello-world/" itemprop="commentsCount"></span>
+                <a href="/2016/11/17/java编写端口扫描器/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/17/java编写端口扫描器/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -816,10 +675,12 @@
 
       
         
-          
-            <p>欢迎来到破玉的个人世界,和我一块进步吧</p>
-<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="http://music.163.com/outchain/player?type=2&id=33166563&auto=0&height=66"></iframe>
-          
+          <p>好久没写java了，学的时候，也没学习网络编程这一块，无意中看到了一本书，于是小小复习一下java，写个端口扫描器，玩玩吧，网上这种小工具有的是，就是自己无聊写着玩玩。<br>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/11/17/java编写端口扫描器/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -867,8 +728,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/10/28/java编写端口扫描器/" itemprop="url">
-                  java编写的端口扫描器
+                <a class="post-title-link" href="/2016/11/17/hello-world/" itemprop="url">
+                  Hello World
                 </a>
               
             
@@ -881,38 +742,19 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-28T19:14:02+08:00" content="2016-10-28">
-              2016-10-28
+            <time itemprop="dateCreated" datetime="2016-11-17T20:10:58+08:00" content="2016-11-17">
+              2016-11-17
             </time>
           </span>
 
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/网络编程/" itemprop="url" rel="index">
-                    <span itemprop="name">网络编程</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
           
 
           
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/10/28/java编写端口扫描器/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/28/java编写端口扫描器/" itemprop="commentsCount"></span>
+                <a href="/2016/11/17/hello-world/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/17/hello-world/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -937,11 +779,8 @@
       
         
           
-            <p>好久没写java了，学的时候，也没学习网络编程这一块，无意中看到了一本书，于是小小复习一下java，写个端口扫描器，玩玩吧，网上这种小工具有的是，就是自己无聊写着玩玩。<br>源代码如下：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> javax.swing.*;</span><br><span class="line"><span class="keyword">import</span> java.awt.Dimension;</span><br><span class="line"><span class="keyword">import</span> java.awt.Font;</span><br><span class="line"><span class="keyword">import</span> java.awt.Toolkit;</span><br><span class="line"><span class="keyword">import</span> java.awt.event.*;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PortScan</span> <span class="keyword">extends</span> <span class="title">JFrame</span> </span>&#123;</span><br><span class="line">    JPanel center=<span class="keyword">new</span> JPanel();</span><br><span class="line">	Box hBox0=Box.createHorizontalBox();</span><br><span class="line">	Box hBox1= Box.createHorizontalBox();</span><br><span class="line">	Box hBox2= Box.createHorizontalBox();</span><br><span class="line">	Box hBox3= Box.createHorizontalBox();</span><br><span class="line">	<span class="keyword">private</span> JLabel state=<span class="keyword">new</span> JLabel(<span class="string">"关闭"</span>);</span><br><span class="line">	<span class="keyword">private</span> JLabel HOST=<span class="keyword">new</span> JLabel(<span class="string">"主机名:"</span>);</span><br><span class="line">	<span class="keyword">private</span> JLabel PORT=<span class="keyword">new</span> JLabel(<span class="string">"端口号:"</span>);</span><br><span class="line">	<span class="keyword">private</span> JLabel STATE=<span class="keyword">new</span> JLabel(<span class="string">"状态："</span>);</span><br><span class="line">    <span class="keyword">private</span> JButton btn1=<span class="keyword">new</span> JButton(<span class="string">"开始扫描"</span>);</span><br><span class="line">    <span class="keyword">private</span> JButton reset=<span class="keyword">new</span> JButton(<span class="string">"重置"</span>);</span><br><span class="line">    <span class="keyword">private</span> JTextField host=<span class="keyword">new</span> JTextField(<span class="number">20</span>);</span><br><span class="line">    <span class="keyword">private</span> JTextField port=<span class="keyword">new</span> JTextField(<span class="number">7</span>);</span><br><span class="line">    Font f1=<span class="keyword">new</span> Font(<span class="string">"隶书"</span>,Font.PLAIN,<span class="number">15</span>);</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		JFrame portscan=<span class="keyword">new</span> PortScan();</span><br><span class="line">		portscan.setVisible(<span class="keyword">true</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">PortScan</span><span class="params">()</span></span>&#123;</span><br><span class="line">		setTitle(<span class="string">"PortScanner"</span>);</span><br><span class="line">		setSize(<span class="number">300</span>, <span class="number">200</span>);</span><br><span class="line">		center.setLayout(<span class="keyword">new</span> BoxLayout(center,BoxLayout.Y_AXIS));</span><br><span class="line">		 Toolkit kit = Toolkit.getDefaultToolkit();</span><br><span class="line">	 	   Dimension screenSize = kit.getScreenSize();<span class="comment">//获取屏幕分辨率</span></span><br><span class="line">		  setLocation(screenSize.width/<span class="number">4</span>,screenSize.height/<span class="number">4</span>);<span class="comment">//位置</span></span><br><span class="line">		  state.setFont(f1);</span><br><span class="line">		  HOST.setFont(f1);</span><br><span class="line">		  PORT.setFont(f1);</span><br><span class="line">		  btn1.setFont(f1);</span><br><span class="line">		  reset.setFont(f1);</span><br><span class="line">		  STATE.setFont(f1);</span><br><span class="line">		 center.add(hBox0);</span><br><span class="line">		 center.add(Box.createRigidArea(<span class="keyword">new</span> Dimension(<span class="number">10</span>,<span class="number">20</span>)));</span><br><span class="line">		 center.add(hBox1);</span><br><span class="line">		 center.add(Box.createRigidArea(<span class="keyword">new</span> Dimension(<span class="number">2</span>,<span class="number">20</span>)));</span><br><span class="line">		 center.add(hBox2);</span><br><span class="line">		 center.add(Box.createRigidArea(<span class="keyword">new</span> Dimension(<span class="number">2</span>,<span class="number">20</span>)));</span><br><span class="line">		 center.add(hBox3);</span><br><span class="line">		 hBox0.add(HOST);</span><br><span class="line">		 hBox0.add(host);</span><br><span class="line">		 hBox1.add(PORT);</span><br><span class="line">		 hBox1.add(port);</span><br><span class="line">		 hBox2.add(btn1);</span><br><span class="line">		 hBox2.add(reset);</span><br><span class="line">		 hBox3.add(STATE);</span><br><span class="line">		 hBox3.add(state);</span><br><span class="line">		 add(center);</span><br><span class="line">		 btn1.addActionListener(<span class="keyword">new</span> MyActionListener());</span><br><span class="line">		 reset.addActionListener(<span class="keyword">new</span> MyActionListener());</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="class"><span class="keyword">class</span> <span class="title">MyActionListener</span> <span class="keyword">implements</span> <span class="title">ActionListener</span></span>&#123;</span><br><span class="line"></span><br><span class="line">		<span class="meta">@Override</span></span><br><span class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">actionPerformed</span><span class="params">(ActionEvent e)</span> </span>&#123;</span><br><span class="line">			String post1=host.getText();</span><br><span class="line">			<span class="keyword">int</span> port1=Integer.parseInt(port.getText());</span><br><span class="line">			<span class="keyword">if</span>(e.getActionCommand()==<span class="string">"开始扫描"</span>)&#123;</span><br><span class="line">			<span class="keyword">if</span>(	PortScannerByIP.scan(post1, port1))&#123;</span><br><span class="line">				state.setText(<span class="string">"开放"</span>);</span><br><span class="line">			&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">				state.setText(<span class="string">"关闭"</span>);</span><br><span class="line">			&#125;</span><br><span class="line">				</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">if</span>(e.getActionCommand()==<span class="string">"重置"</span>)&#123;</span><br><span class="line">				host.setText(<span class="string">""</span>);</span><br><span class="line">				port.setText(<span class="string">""</span>);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<hr>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">   <span class="keyword">import</span> java.io.IOException;</span><br><span class="line">   <span class="keyword">import</span> java.net.Socket;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PortScannerByIP</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">scan</span><span class="params">(String host,<span class="keyword">int</span> port)</span></span>&#123;</span><br><span class="line">		<span class="keyword">boolean</span> flag=<span class="keyword">true</span>;</span><br><span class="line">		Socket socket=<span class="keyword">null</span>;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			socket=<span class="keyword">new</span> Socket(host,port);</span><br><span class="line">			<span class="keyword">return</span> flag;</span><br><span class="line">		&#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">			flag=<span class="keyword">false</span>;</span><br><span class="line">			<span class="keyword">return</span> flag;</span><br><span class="line">		&#125;<span class="keyword">finally</span>&#123;</span><br><span class="line">			<span class="keyword">try</span> &#123;</span><br><span class="line">				<span class="keyword">if</span>(socket!=<span class="keyword">null</span>)</span><br><span class="line">					socket.close();</span><br><span class="line">			&#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">				e.printStackTrace();</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+            <p>欢迎来到破玉的个人世界,这是我的第一篇博客</p>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="http://music.163.com/outchain/player?type=2&id=33166563&auto=0&height=66"></iframe>
           
         
       
