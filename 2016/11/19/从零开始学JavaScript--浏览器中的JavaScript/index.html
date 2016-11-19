@@ -1,0 +1,672 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="js," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="BOM——浏览器对象模型BOM关注的是浏览器的整体结构，包括浏览器窗口的属性和行为，每个浏览器都有自己的BOM，它们并不是完全一致的。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="从零开始学JavaScript--浏览器中的JavaScript">
+<meta property="og:url" content="http://github.magicdu.cn/2016/11/19/从零开始学JavaScript--浏览器中的JavaScript/index.html">
+<meta property="og:site_name" content="Stack Overflow">
+<meta property="og:description" content="BOM——浏览器对象模型BOM关注的是浏览器的整体结构，包括浏览器窗口的属性和行为，每个浏览器都有自己的BOM，它们并不是完全一致的。">
+<meta property="og:image" content="http://qiniu.magicdu.cn/js_method.png">
+<meta property="og:updated_time" content="2016-11-19T13:03:10.145Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="从零开始学JavaScript--浏览器中的JavaScript">
+<meta name="twitter:description" content="BOM——浏览器对象模型BOM关注的是浏览器的整体结构，包括浏览器窗口的属性和行为，每个浏览器都有自己的BOM，它们并不是完全一致的。">
+<meta name="twitter:image" content="http://qiniu.magicdu.cn/js_method.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> 从零开始学JavaScript--浏览器中的JavaScript | Stack Overflow </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Stack Overflow</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">最是多情掩初春</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                从零开始学JavaScript--浏览器中的JavaScript
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-19T21:12:01+08:00" content="2016-11-19">
+              2016-11-19
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/11/19/从零开始学JavaScript--浏览器中的JavaScript/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/19/从零开始学JavaScript--浏览器中的JavaScript/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="BOM——浏览器对象模型"><a href="#BOM——浏览器对象模型" class="headerlink" title="BOM——浏览器对象模型"></a>BOM——浏览器对象模型</h3><p>BOM关注的是浏览器的整体结构，包括浏览器窗口的属性和行为，每个浏览器都有自己的BOM，它们并不是完全一致的。<br><a id="more"></a></p>
+<h4 id="window对象"><a href="#window对象" class="headerlink" title="window对象"></a>window对象</h4><p>window对象是BOM模型中的顶层对象。可以把它理解为包含文档(document)的窗口容器，一个浏览器窗口就是一个window对象的界面表现。即使文档没有加载，窗口依然存在。只要打开一个浏览器窗口，window对象就存在了，它所关注的是窗口本身。</p>
+<p>1.window对象的方法</p>
+<p>除了Global本地对象方法外，宿主(浏览器)还为window对象添加了适用于浏览器的方法。</p>
+<p><img src="http://qiniu.magicdu.cn/js_method.png" alt=""> </p>
+<p>举例：实现”震屏”效果</p>
+<p>① 改变窗口大小为400*400像素<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.resizeTo(<span class="number">400</span>,<span class="number">400</span>);<span class="comment">//改变窗口大小</span></span><br></pre></td></tr></table></figure></p>
+<p>② 定义参数<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> loop=<span class="number">0</span>;<span class="comment">//震动次数</span></span><br><span class="line"><span class="keyword">var</span> timer;<span class="comment">//定时器引用</span></span><br><span class="line"><span class="keyword">var</span> offX;</span><br><span class="line"><span class="keyword">var</span> offY;</span><br><span class="line"><span class="keyword">var</span> dir=<span class="number">1</span>;<span class="comment">//震动方向 1正，-1反</span></span><br></pre></td></tr></table></figure></p>
+<p>③ 使用setInterval函数重复移动窗口位置，达到震动效果<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//震屏特效</span></span><br><span class="line">timer=setInterval(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">window</span>.moveTo(<span class="number">500</span>,<span class="number">180</span>);<span class="comment">//改变窗口位置</span></span><br><span class="line">    <span class="keyword">if</span>(loop&gt;<span class="number">100</span>)&#123;<span class="comment">//震动次数超过100就停止计数器</span></span><br><span class="line">        clearInterval(timer);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//随机获取震动方向</span></span><br><span class="line">    dir=<span class="built_in">Math</span>.random()*<span class="number">10</span>&gt;<span class="number">5</span>?<span class="number">1</span>:<span class="number">-1</span>;</span><br><span class="line">    <span class="comment">//随机获取X轴移动量</span></span><br><span class="line">    offX=<span class="built_in">Math</span>.random()*<span class="number">20</span>*dir;</span><br><span class="line">    <span class="comment">//随机获取Y轴移动量</span></span><br><span class="line">    offY=<span class="built_in">Math</span>.random()*<span class="number">20</span>*dir<span class="number">-1</span>;</span><br><span class="line">    <span class="built_in">window</span>.moveBy(offX,offY);<span class="comment">//移动偏移</span></span><br><span class="line">    loop++;<span class="comment">//震动次数增加</span></span><br><span class="line">&#125;,<span class="number">10</span>);<span class="comment">//每隔10毫秒震动一次</span></span><br></pre></td></tr></table></figure></p>
+<p>2.框架集中的window对象</p>
+<p>当页面被通过frameSet或者iframe进行嵌套的时候，每个页面都对其他任何页面有一个引用，而相互引用的入口就是window对象</p>
+<p>① 页面A中编写的脚本<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">frameA.contentWindow</span><br></pre></td></tr></table></figure></p>
+<p>frameA是页面A中的iframe或者frame对象的引用，可以访问到页面B和页面D的window对象，但无法直接访问页面C</p>
+<p>② 页面B中的脚本<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">frameB.contentWindow</span><br></pre></td></tr></table></figure></p>
+<p>frameB是页面B中的iframe或者frame标签对象的引用，可以访问到页面C的window对象。下面的代码可以访问到页面A的window对象<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//window表示页面B自身</span></span><br><span class="line"><span class="built_in">window</span>.parent</span><br></pre></td></tr></table></figure></p>
+<p>③页面C中脚本：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//window表示页面C自身</span></span><br><span class="line"><span class="built_in">window</span>.parent</span><br></pre></td></tr></table></figure></p>
+<p>可以访问到页面B的window对象<br>下面的代码可以访问到页面A的window对象<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.top</span><br></pre></td></tr></table></figure></p>
+<p>④页面D中的脚本<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//window表示页面D自身</span></span><br><span class="line"><span class="built_in">window</span>.parent</span><br></pre></td></tr></table></figure></p>
+<p>可以访问到页面A的window对象。</p>
+<p>嵌套结构也是一个树型结构，不同分支上的页面如果要互相访问，必须先得到共同节点的引用，例如页面B要访问页面D，必须先得到页面A的引用，例如：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.parent.frameA.contentWindow</span><br></pre></td></tr></table></figure></p>
+<h4 id="location-对象"><a href="#location-对象" class="headerlink" title="location 对象"></a>location 对象</h4><p>location 对象用来管理当前打开窗口的URL信息。程序中可以获取或者改变这些信息<br>例如：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alert(location.href);</span><br></pre></td></tr></table></figure></p>
+<p>获取或者设置当前窗口的URL地址</p>
+<p>例如当前窗口打开百度页面，就可以这样写<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.location.href=<span class="string">"http://www.baidu.com"</span>;</span><br></pre></td></tr></table></figure></p>
+<p>除此之外，location对象还有一些方法<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">location.reload();</span><br></pre></td></tr></table></figure></p>
+<p>用来刷新当前页面</p>
+<h4 id="history-对象"><a href="#history-对象" class="headerlink" title="history 对象"></a>history 对象</h4><p>history对象用来管理当前窗口最近访问的URL记录，这些URL记录被保存在history列表中，history对象使得脚本程序可以模拟浏览器工具栏的前进和后退按钮，例如：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">history.go(<span class="number">1</span>);<span class="comment">//使当前窗口转到最近一次访问的URL地址</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="navigator-对象"><a href="#navigator-对象" class="headerlink" title="navigator 对象"></a>navigator 对象</h4><p>navigator是一个可以刺探浏览器用户隐私的对象。</p>
+
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/js/" rel="tag">#js</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/11/18/从零开始学JavaScript--对象/" rel="next" title="从零开始学JavaScript--对象">
+                <i class="fa fa-chevron-left"></i> 从零开始学JavaScript--对象
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/11/19/从零开始学JavaScript--浏览器中的JavaScript/"
+           data-title="从零开始学JavaScript--浏览器中的JavaScript" data-url="http://github.magicdu.cn/2016/11/19/从零开始学JavaScript--浏览器中的JavaScript/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://avatar.csdn.net/D/1/3/1_xiaoduc.jpg"
+               alt="MagicDo" />
+          <p class="site-author-name" itemprop="name">MagicDo</p>
+          <p class="site-description motion-element" itemprop="description">世界很大，我很小</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">6</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/magicdu" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://blog.magicdu.cn" target="_blank" title="Blog">
+                  
+                    <i class="fa fa-globe"></i>
+                  
+                  Blog
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.cnblogs.com/xiaoduc-org/" target="_blank" title="cnblog">
+                  
+                    <i class="fa fa-twitter"></i>
+                  
+                  cnblog
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#BOM——浏览器对象模型"><span class="nav-number">1.</span> <span class="nav-text">BOM——浏览器对象模型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#window对象"><span class="nav-number">1.1.</span> <span class="nav-text">window对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#location-对象"><span class="nav-number">1.2.</span> <span class="nav-text">location 对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#history-对象"><span class="nav-number">1.3.</span> <span class="nav-text">history 对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#navigator-对象"><span class="nav-number">1.4.</span> <span class="nav-text">navigator 对象</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">MagicDo</span>
+</div>
+
+<div class="powered-by">
+  最是多情掩初春
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"magicdu"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>
