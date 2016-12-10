@@ -83,10 +83,10 @@
 <meta name="description" content="背景、边框和补丁除了字体、文本相关属性之外，HTML网页上最常用的CSS属性应该就是背景和边框相关属性了。通过使用背景，可以为HTML控件增加各种各样的背景颜色、背景图片；通过边框相关属性，可以为HTML控件增加各种颜色、各种线性、粗细不等的边框。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="从零开始学CSS3">
-<meta property="og:url" content="http://github.magicdu.cn/2016/12/09/从零开始学CSS3-背景、边框和补丁/index.html">
+<meta property="og:url" content="http://github.magicdu.cn/2016/12/10/从零开始学CSS3-背景、边框和补丁/index.html">
 <meta property="og:site_name" content="Stack Overflow">
 <meta property="og:description" content="背景、边框和补丁除了字体、文本相关属性之外，HTML网页上最常用的CSS属性应该就是背景和边框相关属性了。通过使用背景，可以为HTML控件增加各种各样的背景颜色、背景图片；通过边框相关属性，可以为HTML控件增加各种颜色、各种线性、粗细不等的边框。">
-<meta property="og:updated_time" content="2016-12-09T12:38:07.125Z">
+<meta property="og:updated_time" content="2016-12-10T03:30:23.220Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="从零开始学CSS3">
 <meta name="twitter:description" content="背景、边框和补丁除了字体、文本相关属性之外，HTML网页上最常用的CSS属性应该就是背景和边框相关属性了。通过使用背景，可以为HTML控件增加各种各样的背景颜色、背景图片；通过边框相关属性，可以为HTML控件增加各种颜色、各种线性、粗细不等的边框。">
@@ -249,8 +249,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-12-09T20:38:07+08:00" content="2016-12-09">
-              2016-12-09
+            <time itemprop="dateCreated" datetime="2016-12-10T11:30:23+08:00" content="2016-12-10">
+              2016-12-10
             </time>
           </span>
 
@@ -279,8 +279,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/12/09/从零开始学CSS3-背景、边框和补丁/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/09/从零开始学CSS3-背景、边框和补丁/" itemprop="commentsCount"></span>
+                <a href="/2016/12/10/从零开始学CSS3-背景、边框和补丁/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/10/从零开始学CSS3-背景、边框和补丁/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -340,6 +340,8 @@
 <li>padding:指定背景图片从内补丁区开始覆盖</li>
 <li>content:指定背景图片从内容区开始覆盖<br>需要指出的是Firefox、Opera的最新版本暂不支持该属性，在chrome、Safari中使用该属性需要把属性写成-webkit-background-origin.</li>
 </ul>
+<p>在CSS3以前，当我们为HTML元素设置背景图片时，该图片铺到该组件上，图片大小总是该图片的原始大小。CSS3的出现改变了这种现状，background-size属性可控制背景图片的大小。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">title</span>&gt;</span>background-size<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span><span class="undefined"></span><br><span class="line">		div&#123;</span><br><span class="line">			border: 1px solid #000;</span><br><span class="line">			height: 50px;</span><br><span class="line">			width: 200px;</span><br><span class="line">		&#125;</span><br><span class="line">	</span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">background-image: url(wjc.gif);</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"background-image: url(wjc.gif);"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">background-image: url(wjc.gif); -webkit-background-size:100% 80%;background-size: 100% 80%</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"background-image: url(wjc.gif); -webkit-background-size:100% 80%;background-size: 100% 80%"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">background-image: url(wjc.gif); -webkit-background-size:20% auto;background-size: 20% auto</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"background-image: url(wjc.gif); -webkit-background-size:20% auto;background-size: 20% auto"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">background-image: url(wjc.gif); -webkit-background-size:auto 50%;background-size: auto 50%</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"background-image: url(wjc.gif); -webkit-background-size:auto 50%;background-size: auto 50%"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">background-image: url(wjc.gif); -webkit-background-size:60px 30px;background-size: 60px 30px</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"background-image: url(wjc.gif); -webkit-background-size:60px 30px;background-size: 60px 30px"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">background-image: url(wjc.gif); -webkit-background-size:40px auto;background-size: 40px auto</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"background-image: url(wjc.gif); -webkit-background-size:40px auto;background-size: 40px auto"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">background-image: url(wjc.gif); -webkit-background-size:auto 20px;background-size: auto 20px</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"background-image: url(wjc.gif); -webkit-background-size:auto 20px;background-size: auto 20px"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="CSS3新增的多背景图片"><a href="#CSS3新增的多背景图片" class="headerlink" title="CSS3新增的多背景图片"></a>CSS3新增的多背景图片</h4><p>。。。</p>
 
       
     </div>
@@ -401,8 +403,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/12/09/从零开始学CSS3-背景、边框和补丁/"
-           data-title="从零开始学CSS3" data-url="http://github.magicdu.cn/2016/12/09/从零开始学CSS3-背景、边框和补丁/">
+      <div class="ds-thread" data-thread-key="2016/12/10/从零开始学CSS3-背景、边框和补丁/"
+           data-title="从零开始学CSS3" data-url="http://github.magicdu.cn/2016/12/10/从零开始学CSS3-背景、边框和补丁/">
       </div>
     
   </div>
@@ -522,7 +524,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#背景、边框和补丁"><span class="nav-number">1.</span> <span class="nav-text">背景、边框和补丁</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#背景相关属性"><span class="nav-number">1.1.</span> <span class="nav-text">背景相关属性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#背景图片固定"><span class="nav-number">1.1.1.</span> <span class="nav-text">背景图片固定</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#CSS3新增的背景相关属性"><span class="nav-number">1.1.2.</span> <span class="nav-text">CSS3新增的背景相关属性</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#背景、边框和补丁"><span class="nav-number">1.</span> <span class="nav-text">背景、边框和补丁</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#背景相关属性"><span class="nav-number">1.1.</span> <span class="nav-text">背景相关属性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#背景图片固定"><span class="nav-number">1.1.1.</span> <span class="nav-text">背景图片固定</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#CSS3新增的背景相关属性"><span class="nav-number">1.1.2.</span> <span class="nav-text">CSS3新增的背景相关属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#CSS3新增的多背景图片"><span class="nav-number">1.1.3.</span> <span class="nav-text">CSS3新增的多背景图片</span></a></li></ol></li></ol></li></ol></div>
             
           </div>
         </section>
