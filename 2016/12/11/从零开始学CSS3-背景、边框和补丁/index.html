@@ -83,10 +83,10 @@
 <meta name="description" content="背景、边框和补丁除了字体、文本相关属性之外，HTML网页上最常用的CSS属性应该就是背景和边框相关属性了。通过使用背景，可以为HTML控件增加各种各样的背景颜色、背景图片；通过边框相关属性，可以为HTML控件增加各种颜色、各种线性、粗细不等的边框。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="从零开始学CSS3">
-<meta property="og:url" content="http://github.magicdu.cn/2016/12/10/从零开始学CSS3-背景、边框和补丁/index.html">
+<meta property="og:url" content="http://github.magicdu.cn/2016/12/11/从零开始学CSS3-背景、边框和补丁/index.html">
 <meta property="og:site_name" content="Stack Overflow">
 <meta property="og:description" content="背景、边框和补丁除了字体、文本相关属性之外，HTML网页上最常用的CSS属性应该就是背景和边框相关属性了。通过使用背景，可以为HTML控件增加各种各样的背景颜色、背景图片；通过边框相关属性，可以为HTML控件增加各种颜色、各种线性、粗细不等的边框。">
-<meta property="og:updated_time" content="2016-12-10T09:04:54.087Z">
+<meta property="og:updated_time" content="2016-12-11T08:52:56.897Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="从零开始学CSS3">
 <meta name="twitter:description" content="背景、边框和补丁除了字体、文本相关属性之外，HTML网页上最常用的CSS属性应该就是背景和边框相关属性了。通过使用背景，可以为HTML控件增加各种各样的背景颜色、背景图片；通过边框相关属性，可以为HTML控件增加各种颜色、各种线性、粗细不等的边框。">
@@ -249,8 +249,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-12-10T17:04:54+08:00" content="2016-12-10">
-              2016-12-10
+            <time itemprop="dateCreated" datetime="2016-12-11T16:52:56+08:00" content="2016-12-11">
+              2016-12-11
             </time>
           </span>
 
@@ -279,8 +279,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/12/10/从零开始学CSS3-背景、边框和补丁/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/10/从零开始学CSS3-背景、边框和补丁/" itemprop="commentsCount"></span>
+                <a href="/2016/12/11/从零开始学CSS3-背景、边框和补丁/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/11/从零开始学CSS3-背景、边框和补丁/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -347,8 +347,47 @@
 <ul>
 <li>border:这是一个复合属性，用于设置目标组件的边框样式。可同时设置边框的粗细、线型、颜色。</li>
 <li>border-color:用于设置组件的边框颜色。如果提供4个参数值，则将用于设置4个biankuang的颜色。如果提供两个参数值，则第一个用于设置上下两个边框的颜色。第二个用于设置左右两个边框的颜色。如果提供3个参数值，则第一个用于设置上边框的颜色。第二个用于设置左右两个边框的颜色，第三个用于设置下边框的颜色。</li>
-<li>border-style:</li>
+<li>border-style:用于设置组件的边框线型。如果提供4个参数值，则将按上右下左的顺序一次设置4个边框的线型；如果只提供一个参数值，则将用于设置4个边框的线型；如果提供两个参数值，则第一个用于设置上下两个边框的线型，第二个用于设置左右两个边框的线型；如果提供3个参数值，则一个用于设置上边框的线型，第二个用于设置左右两个边框的线宽，第三个用于设置下边框的线宽。</li>
+<li>border-top:这是一个复合属性，用于设置目标组件的上边框样式。同时可设置边框的粗细、线型、颜色。</li>
+<li>border-top-color:用于设置目标组件的上边框颜色。</li>
+<li>border-top-style:用于设置目标组件上边框的线型。</li>
+<li>border-style-width:用于设置目标组件上边框的线宽</li>
+<li>border-right:这是一个复合属性，用于设置目标组件的右边框样式。可同时设置右边框的粗细、线型、颜色</li>
+<li>border-right-color:用于设置目标组件的右边框颜色</li>
+<li>border-right-style:用于设置目标组件右边框的线型</li>
+<li>border-right-width:用于设置目标组件右边框的线宽</li>
+<li>border-bottom:这是一个复合属性，用于设置目标组件下边框的样式。可同时设置边框的粗细、线型、颜色</li>
+<li>border-bottom-color:用于设置目标组件下边框的颜色。</li>
+<li>border-bottom-style:用于设置目标组件下边框的线型。</li>
+<li>border-bottom-width:用于设置目标组件的左边框的线宽。</li>
+<li>border-left:这是一个复合属性，用于设置目标组件左边框的样式。可同时设置边框的粗细、线型、颜色</li>
+<li>border-left-color:用于设置目标组件左边框的颜色。</li>
+<li>border-left-style:用于设置目标组件左边框的线型。</li>
+<li>border-left-width:用于设置目标组件的左边框的线宽。</li>
 </ul>
+<p>在上面的边框相关属性中，边框颜色可以是任何有效的颜色值，而线宽可以是任何有效的长度值，线型可以支持如下值。</p>
+<ul>
+<li>none:无边框</li>
+<li>hidden:隐藏边框</li>
+<li>dotted:点线边框</li>
+<li>dashed:虚线边框</li>
+<li>solid:实线边框</li>
+<li>double:双线边框</li>
+<li>groove:3D凹槽边框</li>
+<li>ridge:3D凸槽边框</li>
+<li>inset:3D凹入边框</li>
+<li>outset:3D凸出边框</li>
+</ul>
+<p>示例代码：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">title</span>&gt;</span>border<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span><span class="undefined"></span><br><span class="line">		div&#123;</span><br><span class="line">			width: 300px;</span><br><span class="line">			height: 40px;</span><br><span class="line">		&#125;</span><br><span class="line">	</span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"border: 5px solid #666"</span>&gt;</span>宽度为5的灰色实线边框<span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"border: 2px dashed #666"</span>&gt;</span>宽度为2的灰色虚线边框<span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"border: 2px dotted #666"</span>&gt;</span>宽度为2的灰色点线边框<span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"border: 5px groove #666"</span>&gt;</span>宽度为5的灰色凹槽边框<span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"border: 8px inset #666"</span>&gt;</span>宽度为8的灰色凹入边框<span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"border: 8px outset #666"</span>&gt;</span>宽度为8的灰色凸出边框<span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"border-width: 8px 2px;border-style: solid dashed; border-color: #ccc #444"</span>&gt;</span></span><br><span class="line">	上下两个边框样式为 8px solid #ccc<span class="tag">&lt;<span class="name">br</span>/&gt;</span></span><br><span class="line">	左右两个边框样式为 2px dashed #444</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"border-width: 8px;border-style: solid;border-color: #ccc #ccc #444 #444"</span>&gt;</span>四个边框颜色不同做出立体效果<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="CSS3提供的渐变边框"><a href="#CSS3提供的渐变边框" class="headerlink" title="CSS3提供的渐变边框"></a>CSS3提供的渐变边框</h4><p>CSS3提供了如下4个属性来支持渐变边框</p>
+<ul>
+<li>border-top-colors:该属性用于设置目标组件上边框的颜色。如果设置上边框的宽度是Npx，那么就可以为该属性设置N种颜色，每种颜色1px的宽度。但如果设置的颜色数量小于边框的宽度，那么最后一个颜色将会覆盖该边框剩下的宽度。</li>
+<li>border-rigtht-colors:该属性用于设置右边框颜色。含义同上边框</li>
+<li>border-bottom-colors:该属性用于设置下边框颜色。含义同上边框</li>
+<li>border-left-colors:该属性用于设置左边框颜色。含义同上边框</li>
+</ul>
+<p>目前四个属性只有firefox浏览器才支持，而且使用该属性必须在前面增加-moz-前缀<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">title</span>&gt;</span><span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span><span class="undefined"></span><br><span class="line">		div&#123;</span><br><span class="line">			width: 300px;</span><br><span class="line">			height: 40px;</span><br><span class="line">		&#125;</span><br><span class="line">	</span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"border: 10px solid white;</span><br><span class="line">-moz-border-bottom-colors:#555 #666 #777 #888 #999 #aaa #bbb #ccc #ddd #eee;</span><br><span class="line">-moz-border-top-colors:#555 #666 #777 #888 #999 #aaa #bbb #ccc #ddd #eee;</span><br><span class="line">-moz-border-left-colors:#555 #666 #777 #888 #999 #aaa #bbb #ccc #ddd #eee;</span><br><span class="line">-moz-border-right-colors:#555 #666 #777 #888 #999 #aaa #bbb #ccc #ddd #eee;"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="CSS3提供的圆角边框"><a href="#CSS3提供的圆角边框" class="headerlink" title="CSS3提供的圆角边框"></a>CSS3提供的圆角边框</h4><p>CSS3为支持圆角边框提供了如下属性。</p>
 
       
     </div>
@@ -410,8 +449,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/12/10/从零开始学CSS3-背景、边框和补丁/"
-           data-title="从零开始学CSS3" data-url="http://github.magicdu.cn/2016/12/10/从零开始学CSS3-背景、边框和补丁/">
+      <div class="ds-thread" data-thread-key="2016/12/11/从零开始学CSS3-背景、边框和补丁/"
+           data-title="从零开始学CSS3" data-url="http://github.magicdu.cn/2016/12/11/从零开始学CSS3-背景、边框和补丁/">
       </div>
     
   </div>
@@ -531,7 +570,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#背景、边框和补丁"><span class="nav-number">1.</span> <span class="nav-text">背景、边框和补丁</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#背景相关属性"><span class="nav-number">1.1.</span> <span class="nav-text">背景相关属性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#背景图片固定"><span class="nav-number">1.1.1.</span> <span class="nav-text">背景图片固定</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#CSS3新增的背景相关属性"><span class="nav-number">1.1.2.</span> <span class="nav-text">CSS3新增的背景相关属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#CSS3新增的多背景图片"><span class="nav-number">1.1.3.</span> <span class="nav-text">CSS3新增的多背景图片</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#边框相关属性"><span class="nav-number">1.2.</span> <span class="nav-text">边框相关属性</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#背景、边框和补丁"><span class="nav-number">1.</span> <span class="nav-text">背景、边框和补丁</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#背景相关属性"><span class="nav-number">1.1.</span> <span class="nav-text">背景相关属性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#背景图片固定"><span class="nav-number">1.1.1.</span> <span class="nav-text">背景图片固定</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#CSS3新增的背景相关属性"><span class="nav-number">1.1.2.</span> <span class="nav-text">CSS3新增的背景相关属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#CSS3新增的多背景图片"><span class="nav-number">1.1.3.</span> <span class="nav-text">CSS3新增的多背景图片</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#边框相关属性"><span class="nav-number">1.2.</span> <span class="nav-text">边框相关属性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#CSS3提供的渐变边框"><span class="nav-number">1.2.1.</span> <span class="nav-text">CSS3提供的渐变边框</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#CSS3提供的圆角边框"><span class="nav-number">1.2.2.</span> <span class="nav-text">CSS3提供的圆角边框</span></a></li></ol></li></ol></li></ol></div>
             
           </div>
         </section>
