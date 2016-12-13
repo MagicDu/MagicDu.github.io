@@ -83,10 +83,10 @@
 <meta name="description" content="背景、边框和补丁除了字体、文本相关属性之外，HTML网页上最常用的CSS属性应该就是背景和边框相关属性了。通过使用背景，可以为HTML控件增加各种各样的背景颜色、背景图片；通过边框相关属性，可以为HTML控件增加各种颜色、各种线性、粗细不等的边框。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="从零开始学CSS3">
-<meta property="og:url" content="http://github.magicdu.cn/2016/12/12/从零开始学CSS3-背景、边框和补丁/index.html">
+<meta property="og:url" content="http://github.magicdu.cn/2016/12/13/从零开始学CSS3-背景、边框和补丁/index.html">
 <meta property="og:site_name" content="Stack Overflow">
 <meta property="og:description" content="背景、边框和补丁除了字体、文本相关属性之外，HTML网页上最常用的CSS属性应该就是背景和边框相关属性了。通过使用背景，可以为HTML控件增加各种各样的背景颜色、背景图片；通过边框相关属性，可以为HTML控件增加各种颜色、各种线性、粗细不等的边框。">
-<meta property="og:updated_time" content="2016-12-12T09:16:44.878Z">
+<meta property="og:updated_time" content="2016-12-13T01:51:17.161Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="从零开始学CSS3">
 <meta name="twitter:description" content="背景、边框和补丁除了字体、文本相关属性之外，HTML网页上最常用的CSS属性应该就是背景和边框相关属性了。通过使用背景，可以为HTML控件增加各种各样的背景颜色、背景图片；通过边框相关属性，可以为HTML控件增加各种颜色、各种线性、粗细不等的边框。">
@@ -249,8 +249,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-12-12T17:16:44+08:00" content="2016-12-12">
-              2016-12-12
+            <time itemprop="dateCreated" datetime="2016-12-13T09:51:17+08:00" content="2016-12-13">
+              2016-12-13
             </time>
           </span>
 
@@ -279,8 +279,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/12/12/从零开始学CSS3-背景、边框和补丁/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/12/从零开始学CSS3-背景、边框和补丁/" itemprop="commentsCount"></span>
+                <a href="/2016/12/13/从零开始学CSS3-背景、边框和补丁/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/13/从零开始学CSS3-背景、边框和补丁/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -407,7 +407,15 @@
 <li>border-image-repeat:该属性用于指定边框图片的覆盖方式，支持stretch（拉伸覆盖）、repeat(平铺覆盖)、round(取整覆盖)三种覆盖方式。</li>
 </ul>
 <p>示例代码：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>image-border<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span><span class="undefined"></span><br><span class="line">        div&#123;</span><br><span class="line">            width: 400px;</span><br><span class="line">            height: 45px;</span><br><span class="line">        &#125;</span><br><span class="line">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">border-image:url(border.jpg) 27</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"-o-border-image:url(border.jpg) 27;</span><br><span class="line">-moz-border-image:url(border.jpg) 27;</span><br><span class="line">-webkit-border-image:url(border.jpg) 27;</span><br><span class="line">"</span>&gt;</span>默认边框宽度<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">border-image:url(border.jpg) 27/27px</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"-o-border-image:url(border.jpg) 27/27px;</span><br><span class="line">-moz-border-image:url(border.jpg) 27/27px;</span><br><span class="line">-webkit-border-image:url(border.jpg) 27/27px;</span><br><span class="line">"</span>&gt;</span>指定边框宽度27px，默认拉伸边框图片<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">border-image:url(border.jpg) 27/27px repeat</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"-o-border-image:url(border.jpg) 27/27px repeat;</span><br><span class="line">-moz-border-image:url(border.jpg) 27/27px repeat;</span><br><span class="line">-webkit-border-image:url(border.jpg) 27/27px repeat;</span><br><span class="line">"</span>&gt;</span>指定边框宽度27px，平铺图片<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">border-image:url(border.jpg) 27/27px round</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"-o-border-image:url(border.jpg) 27/27px round;</span><br><span class="line">-moz-border-image:url(border.jpg) 27/27px round;</span><br><span class="line">-webkit-border-image:url(border.jpg) 27/27px round;</span><br><span class="line">"</span>&gt;</span>指定边框宽度27px，以round方式平铺图片<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">border-image:url(border.jpg) 27/27px stretch round</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"-o-border-image:url(border.jpg) 27/27px stretch round;</span><br><span class="line">-moz-border-image:url(border.jpg) 27/27px stretch round;</span><br><span class="line">-webkit-border-image:url(border.jpg) 27/27px stretch round;</span><br><span class="line">"</span>&gt;</span>指定边框宽度27px，横向stretch,纵向round方式平铺图片<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<h3 id="补丁相关属性"><a href="#补丁相关属性" class="headerlink" title="补丁相关属性"></a>补丁相关属性</h3>
+<h3 id="补丁相关属性"><a href="#补丁相关属性" class="headerlink" title="补丁相关属性"></a>补丁相关属性</h3><ul>
+<li>margin:该属性可以同时设置上下左右4个边的外补丁的距离。该属性允许设置4个长度，分别对应4个长度，分别对应于上下左右4个边的补丁距离；如果只设置了1个长度，则该值将作为上下左右的4个边的外补丁距离；如果设置了2个长度，则前一个长度将作为上下的外补丁，后一个长度将作为左右的外补丁距离；如果设置了3个长度的，则第一个长度将作为上边的外补丁距离，第二个长度将作为左右的补丁距离，第三个长度将作为下边的外补丁的距离。</li>
+<li>margin-top:设置上边的外补丁距离。</li>
+<li>margin-right:设置右边的外补丁距离</li>
+<li>margin-bottom:设置下边的外补丁距离</li>
+<li>margin-left:设置左边的外补丁距离</li>
+</ul>
+<p>示例代码：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>text<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span><span class="undefined"></span><br><span class="line">        div&#123;</span><br><span class="line">            width: 300px;</span><br><span class="line">            height: 45px;</span><br><span class="line">            border: 1px solid black;</span><br><span class="line">        &#125;</span><br><span class="line">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">margin:30px 50px;</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"margin: 30px 50px"</span>&gt;</span>测试文字 测试文字 测试文字 测试文字 测试文字 测试文字  测试文字 测试文字</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">margin: 10px 30px 2px 60px</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"margin: 10px 40px 10px 90px"</span>&gt;</span>测试文字 测试文字 测试文字 测试文字 测试文字 测试文字 测试文字 测试文字<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+
       
     </div>
     
@@ -468,8 +476,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/12/12/从零开始学CSS3-背景、边框和补丁/"
-           data-title="从零开始学CSS3" data-url="http://github.magicdu.cn/2016/12/12/从零开始学CSS3-背景、边框和补丁/">
+      <div class="ds-thread" data-thread-key="2016/12/13/从零开始学CSS3-背景、边框和补丁/"
+           data-title="从零开始学CSS3" data-url="http://github.magicdu.cn/2016/12/13/从零开始学CSS3-背景、边框和补丁/">
       </div>
     
   </div>
