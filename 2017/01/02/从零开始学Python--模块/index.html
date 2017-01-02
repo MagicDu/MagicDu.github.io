@@ -64,7 +64,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="java," />
+  <meta name="keywords" content="Python," />
 
 
 
@@ -80,16 +80,28 @@
 
 
 
-<meta name="description">
+<meta name="description" content="模块在计算机程序的开发过程中，随着程序代码越写越多，在一个文件里代码就会越来越长，越来越不容易维护。
+为了编写可维护的代码，我们把很多函数分组，分别放到不同的文件里，这样，每个文件包含的代码就相对较少，很多编程语言都采用这种组织代码的方式。在Python中，一个.py文件就称之为一个模块（Module）。
+使用模块有什么好处？
+最大的好处是大大提高了代码的可维护性。其次，编写代码不必从零开始。当一">
 <meta property="og:type" content="article">
-<meta property="og:title" content="MD5加密工具类">
-<meta property="og:url" content="http://github.magicdu.cn/2016/11/17/MD5加密工具类/index.html">
+<meta property="og:title" content="从零开始学Python">
+<meta property="og:url" content="http://github.magicdu.cn/2017/01/02/从零开始学Python--模块/index.html">
 <meta property="og:site_name" content="Stack Overflow">
-<meta property="og:description">
-<meta property="og:updated_time" content="2016-11-17T12:41:22.452Z">
+<meta property="og:description" content="模块在计算机程序的开发过程中，随着程序代码越写越多，在一个文件里代码就会越来越长，越来越不容易维护。
+为了编写可维护的代码，我们把很多函数分组，分别放到不同的文件里，这样，每个文件包含的代码就相对较少，很多编程语言都采用这种组织代码的方式。在Python中，一个.py文件就称之为一个模块（Module）。
+使用模块有什么好处？
+最大的好处是大大提高了代码的可维护性。其次，编写代码不必从零开始。当一">
+<meta property="og:image" content="http://www.liaoxuefeng.com/files/attachments/001388366035986b515b38d149b4efaaac3f2c721813d2c000/0">
+<meta property="og:image" content="http://www.liaoxuefeng.com/files/attachments/00138836605526535c9bebcbf414c3dae2430c50bbeef29000/0">
+<meta property="og:updated_time" content="2017-01-02T09:27:53.498Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MD5加密工具类">
-<meta name="twitter:description">
+<meta name="twitter:title" content="从零开始学Python">
+<meta name="twitter:description" content="模块在计算机程序的开发过程中，随着程序代码越写越多，在一个文件里代码就会越来越长，越来越不容易维护。
+为了编写可维护的代码，我们把很多函数分组，分别放到不同的文件里，这样，每个文件包含的代码就相对较少，很多编程语言都采用这种组织代码的方式。在Python中，一个.py文件就称之为一个模块（Module）。
+使用模块有什么好处？
+最大的好处是大大提高了代码的可维护性。其次，编写代码不必从零开始。当一">
+<meta name="twitter:image" content="http://www.liaoxuefeng.com/files/attachments/001388366035986b515b38d149b4efaaac3f2c721813d2c000/0">
 
 
 
@@ -107,7 +119,7 @@
   };
 </script>
 
-  <title> MD5加密工具类 | Stack Overflow </title>
+  <title> 从零开始学Python | Stack Overflow </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -237,7 +249,7 @@
             
             
               
-                MD5加密工具类
+                从零开始学Python
               
             
           </h1>
@@ -249,8 +261,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-17T20:41:22+08:00" content="2016-11-17">
-              2016-11-17
+            <time itemprop="dateCreated" datetime="2017-01-02T17:27:53+08:00" content="2017-01-02">
+              2017-01-02
             </time>
           </span>
 
@@ -263,8 +275,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/工具类/" itemprop="url" rel="index">
-                    <span itemprop="name">工具类</span>
+                  <a href="/categories/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
                   </a>
                 </span>
 
@@ -279,8 +291,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/11/17/MD5加密工具类/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/17/MD5加密工具类/" itemprop="commentsCount"></span>
+                <a href="/2017/01/02/从零开始学Python--模块/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/01/02/从零开始学Python--模块/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -303,10 +315,29 @@
       
 
       
-        <p><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="http://music.163.com/outchain/player?type=2&id=26508242&auto=0&height=66"></iframe><br><a id="more"></a><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.dzq.utils;</span><br><span class="line">&lt;!-- more --&gt;</span><br><span class="line"><span class="keyword">import</span> java.math.BigInteger;</span><br><span class="line"><span class="keyword">import</span> java.security.MessageDigest;</span><br><span class="line"><span class="keyword">import</span> java.security.NoSuchAlgorithmException;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MD5Utils</span> </span>&#123;</span><br><span class="line">	<span class="comment">/**</span><br><span class="line">	 * 使用md5的算法进行加密</span><br><span class="line">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">md5</span><span class="params">(String plainText)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">byte</span>[] secretBytes = <span class="keyword">null</span>;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			secretBytes = MessageDigest.getInstance(<span class="string">"md5"</span>).digest(</span><br><span class="line">					plainText.getBytes());</span><br><span class="line">		&#125; <span class="keyword">catch</span> (NoSuchAlgorithmException e) &#123;</span><br><span class="line">			<span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(<span class="string">"没有md5这个算法！"</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		String md5code = <span class="keyword">new</span> BigInteger(<span class="number">1</span>, secretBytes).toString(<span class="number">16</span>);</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">32</span> - md5code.length(); i++) &#123;</span><br><span class="line">			md5code = <span class="string">"0"</span> + md5code;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> md5code;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h2 id="博主信息"><a href="#博主信息" class="headerlink" title="博主信息"></a>博主信息</h2><p><em>博客园 <a href="http://www.cnblogs.com/xiaoduc-org/" target="_blank" rel="external">@xiaoduc</a>
-</em>CSDN   <a href="http://blog.csdn.net/xiaoduc" target="_blank" rel="external">@xiaoduc</a></p>
-
+        <h2 id="模块"><a href="#模块" class="headerlink" title="模块"></a>模块</h2><p>在计算机程序的开发过程中，随着程序代码越写越多，在一个文件里代码就会越来越长，越来越不容易维护。</p>
+<p>为了编写可维护的代码，我们把很多函数分组，分别放到不同的文件里，这样，每个文件包含的代码就相对较少，很多编程语言都采用这种组织代码的方式。在Python中，一个.py文件就称之为一个模块（Module）。</p>
+<p>使用模块有什么好处？</p>
+<p>最大的好处是大大提高了代码的可维护性。其次，编写代码不必从零开始。当一个模块编写完毕，就可以被其他地方引用。我们在编写程序的时候，也经常引用其他模块，包括Python内置的模块和来自第三方的模块。<br><a id="more"></a></p>
+<p>使用模块还可以避免函数名和变量名冲突。相同名字的函数和变量完全可以分别存在不同的模块中，因此，我们自己在编写模块时，不必考虑名字会与其他模块冲突。但是也要注意，尽量不要与内置函数名字冲突。点这里查看Python的所有内置函数。</p>
+<p>你也许还想到，如果不同的人编写的模块名相同怎么办？为了避免模块名冲突，Python又引入了按目录来组织模块的方法，称为包（Package）。</p>
+<p>举个例子，一个<code>abc.py</code>的文件就是一个名字叫<code>abc</code>的模块，一个<code>xyz.py</code>的文件就是一个名字叫<code>xyz</code>的模块。</p>
+<p>现在，假设我们的abc和xyz这两个模块名字与其他模块冲突了，于是我们可以通过包来组织模块，避免冲突。方法是选择一个顶层包名，比如<code>mycompany</code>，按照如下目录存放：<br><img src="http://www.liaoxuefeng.com/files/attachments/001388366035986b515b38d149b4efaaac3f2c721813d2c000/0" alt=""></p>
+<p>引入了包以后，只要顶层的包名不与别人冲突，那所有模块都不会与别人冲突。现在，abc.py模块的名字就变成了mycompany.abc，类似的，xyz.py的模块名变成了mycompany.xyz。</p>
+<p>请注意，每一个包目录下面都会有一个<code>__init__.py</code>的文件，这个文件是必须存在的，否则，Python就把这个目录当成普通目录，而不是一个包。<code>__init__.py</code>可以是空文件，也可以有Python代码，因为<code>__init__.py</code>本身就是一个模块，而它的模块名就是<code>mycompany</code>。</p>
+<p>类似的，可以有多级目录，组成多级层次的包结构。比如如下的目录结构：<br><img src="http://www.liaoxuefeng.com/files/attachments/00138836605526535c9bebcbf414c3dae2430c50bbeef29000/0" alt=""></p>
+<p>文件<code>www.py</code>的模块名就是<code>mycompany.web.www</code>，两个文件<code>utils.py</code>的模块名分别是<code>mycompany.utils</code>和<code>mycompany.web.utils</code>。</p>
+<p>自己创建模块时要注意命名，不能和Python自带的模块名称冲突。例如，系统自带了<code>sys</code>模块，自己的模块就不可命名为<code>sys.py</code>，否则将无法导入系统自带的<code>sys</code>模块。</p>
+<p><code>mycompany.web</code>也是一个模块，请指出该模块对应的<code>.py</code>文件。</p>
+<h3 id="使用模块"><a href="#使用模块" class="headerlink" title="使用模块"></a>使用模块</h3><p>Python本身就内置了很多非常有用的模块，只要安装完毕，这些模块就可以立刻使用。</p>
+<p>我们以内建的sys模块为例，编写一个hello的模块：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/env python3</span><br><span class="line"># -*- coding: utf-8 -*-</span><br><span class="line"></span><br><span class="line">&apos; a test module &apos;</span><br><span class="line"></span><br><span class="line">__author__ = &apos;Michael Liao&apos;</span><br><span class="line"></span><br><span class="line">import sys</span><br><span class="line"></span><br><span class="line">def test():</span><br><span class="line">    args = sys.argv</span><br><span class="line">    if len(args)==1:</span><br><span class="line">            print(&apos;Hello, world!&apos;)</span><br><span class="line">    elif len(args)==2:</span><br><span class="line">        print(&apos;Hello, %s!&apos; % args[1])</span><br><span class="line">    else:</span><br><span class="line">        print(&apos;Too many arguments!&apos;)</span><br><span class="line"></span><br><span class="line">if __name__==&apos;__main__&apos;:</span><br><span class="line">    test()</span><br></pre></td></tr></table></figure></p>
+<p>第1行和第2行是标准注释，第1行注释可以让这个<code>hello.py</code>文件直接在Unix/Linux/Mac上运行，第2行注释表示<code>.py</code>文件本身使用标准UTF-8编码；</p>
+<p>第4行是一个字符串，表示模块的文档注释，任何模块代码的第一个字符串都被视为模块的文档注释；</p>
+<p>第6行使用<code>__author__</code>变量把作者写进去，这样当你公开源代码后别人就可以瞻仰你的大名；</p>
+<p>以上就是Python模块的标准文件模板，当然也可以全部删掉不写，但是，按标准办事肯定没错。</p>
+<p>后面开始就是真正的代码部分。</p>
+<p>你可能注意到了，使用sys模块的第一步，就是导入该模块：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import sys</span><br></pre></td></tr></table></figure></p>
+<h3 id="安装第三方模块"><a href="#安装第三方模块" class="headerlink" title="安装第三方模块"></a>安装第三方模块</h3>
       
     </div>
     
@@ -326,7 +357,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/java/" rel="tag">#java</a>
+            <a href="/tags/Python/" rel="tag">#Python</a>
           
         </div>
       
@@ -335,17 +366,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/11/17/java编写端口扫描器/" rel="next" title="java编写的端口扫描器">
-                <i class="fa fa-chevron-left"></i> java编写的端口扫描器
+              <a href="/2017/01/01/从零开始学Python--函数式编程/" rel="next" title="从零开始学Python">
+                <i class="fa fa-chevron-left"></i> 从零开始学Python
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/11/17/从零开始学JavaScript/" rel="prev" title="从零开始学JavaScript">
-                从零开始学JavaScript <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -371,8 +398,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/11/17/MD5加密工具类/"
-           data-title="MD5加密工具类" data-url="http://github.magicdu.cn/2016/11/17/MD5加密工具类/">
+      <div class="ds-thread" data-thread-key="2017/01/02/从零开始学Python--模块/"
+           data-title="从零开始学Python" data-url="http://github.magicdu.cn/2017/01/02/从零开始学Python--模块/">
       </div>
     
   </div>
@@ -492,7 +519,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#博主信息"><span class="nav-number">1.</span> <span class="nav-text">博主信息</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#模块"><span class="nav-number">1.</span> <span class="nav-text">模块</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用模块"><span class="nav-number">1.1.</span> <span class="nav-text">使用模块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装第三方模块"><span class="nav-number">1.2.</span> <span class="nav-text">安装第三方模块</span></a></li></ol></li></ol></div>
             
           </div>
         </section>
