@@ -85,12 +85,12 @@
 而面向对象的程序设计把计算机程序视为一">
 <meta property="og:type" content="article">
 <meta property="og:title" content="从零开始学Python">
-<meta property="og:url" content="http://github.magicdu.cn/2017/01/04/从零开始学Python--面向对象编程/index.html">
+<meta property="og:url" content="http://github.magicdu.cn/2017/01/05/从零开始学Python--面向对象编程/index.html">
 <meta property="og:site_name" content="Stack Overflow">
 <meta property="og:description" content="面向对象编程面向对象编程——Object Oriented Programming，简称OOP，是一种程序设计思想。OOP把对象作为程序的基本单元，一个对象包含了数据和操作数据的函数。
 面向过程的程序设计把计算机程序视为一系列的命令集合，即一组函数的顺序执行。为了简化程序设计，面向过程把函数继续切分为子函数，即把大块函数通过切割成小块函数来降低系统的复杂度。
 而面向对象的程序设计把计算机程序视为一">
-<meta property="og:updated_time" content="2017-01-04T09:16:06.046Z">
+<meta property="og:updated_time" content="2017-01-05T09:44:02.237Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="从零开始学Python">
 <meta name="twitter:description" content="面向对象编程面向对象编程——Object Oriented Programming，简称OOP，是一种程序设计思想。OOP把对象作为程序的基本单元，一个对象包含了数据和操作数据的函数。
@@ -255,8 +255,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-01-04T17:16:06+08:00" content="2017-01-04">
-              2017-01-04
+            <time itemprop="dateCreated" datetime="2017-01-05T17:44:02+08:00" content="2017-01-05">
+              2017-01-05
             </time>
           </span>
 
@@ -285,8 +285,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2017/01/04/从零开始学Python--面向对象编程/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/01/04/从零开始学Python--面向对象编程/" itemprop="commentsCount"></span>
+                <a href="/2017/01/05/从零开始学Python--面向对象编程/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/01/05/从零开始学Python--面向对象编程/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -341,8 +341,15 @@
 <p>方法就是与实例绑定的函数，和普通函数不同，方法可以直接访问实例的数据；</p>
 <p>通过在实例上调用方法，我们就直接操作了对象内部的数据，但无需知道方法内部的实现细节。</p>
 <p>和静态语言不同，Python允许对实例变量绑定任何数据，也就是说，对于两个实例变量，虽然它们都是同一个类的不同实例，但拥有的变量名称都可能不同：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; bart = Student(&apos;Bart Simpson&apos;, 59)</span><br><span class="line">&gt;&gt;&gt; lisa = Student(&apos;Lisa Simpson&apos;, 87)</span><br><span class="line">&gt;&gt;&gt; bart.age = 8</span><br><span class="line">&gt;&gt;&gt; bart.age</span><br><span class="line">8</span><br><span class="line">&gt;&gt;&gt; lisa.age</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;</span><br><span class="line">AttributeError: &apos;Student&apos; object has no attribute &apos;age&apos;</span><br></pre></td></tr></table></figure></p>
-<h3 id="访问限制"><a href="#访问限制" class="headerlink" title="访问限制"></a>访问限制</h3><p>###继承和多态</p>
-
+<h3 id="访问限制"><a href="#访问限制" class="headerlink" title="访问限制"></a>访问限制</h3><p>在Class内部，可以有属性和方法，而外部代码可以通过直接调用实例变量的方法来操作数据，这样，就隐藏了内部的复杂逻辑。</p>
+<p>但是，从前面Student类的定义来看，外部代码还是可以自由地修改一个实例的name、score属性：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; bart = Student(&apos;Bart Simpson&apos;, 98)</span><br><span class="line">&gt;&gt;&gt; bart.score</span><br><span class="line">98</span><br><span class="line">&gt;&gt;&gt; bart.score = 59</span><br><span class="line">&gt;&gt;&gt; bart.score</span><br><span class="line">59</span><br></pre></td></tr></table></figure></p>
+<p>如果要让内部属性不被外部访问，可以把属性的名称前加上两个下划线<strong>，在Python中，实例的变量名如果以</strong>开头，就变成了一个私有变量（private），只有内部可以访问，外部不能访问，所以，我们把Student类改一改：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span><span class="params">(object)</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, name, score)</span>:</span></span><br><span class="line">        self.__name = name</span><br><span class="line">        self.__score = score</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">print_score</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">'%s: %s'</span> % (self.__name, self.__score))</span><br></pre></td></tr></table></figure></p>
+<p>改完后，对于外部代码来说，没什么变动，但是已经无法从外部访问实例变量<code>.__name</code>和实例变量<code>.__score</code>了：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; bart = Student(&apos;Bart Simpson&apos;, 98)</span><br><span class="line">&gt;&gt;&gt; bart.__name</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;</span><br><span class="line">AttributeError: &apos;Student&apos; object has no attribute &apos;__name&apos;</span><br></pre></td></tr></table></figure></p>
+<p>这样就确保了外部代码不能随意修改对象内部的状态，这样通过访问限制的保护，代码更加健壮。</p>
+<p>但是如果外部代码要获取<code>name</code>和<code>score</code>怎么办？可以给<code>Student</code>类增加<code>get_name</code>和<code>get_score</code>这样的方法：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span><span class="params">(object)</span>:</span></span><br><span class="line">    ...</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get_name</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.__name</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get_score</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.__score</span><br></pre></td></tr></table></figure></p>
+<p>如果又要允许外部代码修改score怎么办？可以再给Student类增加set_score方法：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span><span class="params">(object)</span>:</span></span><br><span class="line">    ...</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">set_score</span><span class="params">(self, score)</span>:</span></span><br><span class="line">        self.__score = score</span><br></pre></td></tr></table></figure></p>
+<p>你也许会问，原先那种直接通过<code>bart.score = 59</code>也可以修改啊，为什么要定义一个方法大费周折？因为在方法中，可以对参数做检查，避免传入无效的参数：</p>
+<h3 id="继承和多态"><a href="#继承和多态" class="headerlink" title="继承和多态"></a>继承和多态</h3>
       
     </div>
     
@@ -403,8 +410,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/01/04/从零开始学Python--面向对象编程/"
-           data-title="从零开始学Python" data-url="http://github.magicdu.cn/2017/01/04/从零开始学Python--面向对象编程/">
+      <div class="ds-thread" data-thread-key="2017/01/05/从零开始学Python--面向对象编程/"
+           data-title="从零开始学Python" data-url="http://github.magicdu.cn/2017/01/05/从零开始学Python--面向对象编程/">
       </div>
     
   </div>
@@ -524,7 +531,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#面向对象编程"><span class="nav-number">1.</span> <span class="nav-text">面向对象编程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#类和实例"><span class="nav-number">1.1.</span> <span class="nav-text">类和实例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#访问限制"><span class="nav-number">1.2.</span> <span class="nav-text">访问限制</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#面向对象编程"><span class="nav-number">1.</span> <span class="nav-text">面向对象编程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#类和实例"><span class="nav-number">1.1.</span> <span class="nav-text">类和实例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#访问限制"><span class="nav-number">1.2.</span> <span class="nav-text">访问限制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#继承和多态"><span class="nav-number">1.3.</span> <span class="nav-text">继承和多态</span></a></li></ol></li></ol></div>
             
           </div>
         </section>
