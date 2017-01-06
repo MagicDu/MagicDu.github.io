@@ -64,7 +64,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="java," />
+  <meta name="keywords" content="Python," />
 
 
 
@@ -80,16 +80,19 @@
 
 
 
-<meta name="description">
+<meta name="description" content="面向对象高级编程使用slots正常情况下，当我们定义了一个class，创建了一个class的实例后，我们可以给该实例绑定任何属性和方法，这就是动态语言的灵活性。先定义class：
+12class Student(object):    pass">
 <meta property="og:type" content="article">
-<meta property="og:title" content="MD5加密工具类">
-<meta property="og:url" content="http://github.magicdu.cn/2016/11/17/MD5加密工具类/index.html">
+<meta property="og:title" content="从零开始学Python">
+<meta property="og:url" content="http://github.magicdu.cn/2017/01/06/从零开始学Python--面向对象高级编程/index.html">
 <meta property="og:site_name" content="Stack Overflow">
-<meta property="og:description">
-<meta property="og:updated_time" content="2016-11-17T12:41:22.452Z">
+<meta property="og:description" content="面向对象高级编程使用slots正常情况下，当我们定义了一个class，创建了一个class的实例后，我们可以给该实例绑定任何属性和方法，这就是动态语言的灵活性。先定义class：
+12class Student(object):    pass">
+<meta property="og:updated_time" content="2017-01-06T09:45:09.334Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MD5加密工具类">
-<meta name="twitter:description">
+<meta name="twitter:title" content="从零开始学Python">
+<meta name="twitter:description" content="面向对象高级编程使用slots正常情况下，当我们定义了一个class，创建了一个class的实例后，我们可以给该实例绑定任何属性和方法，这就是动态语言的灵活性。先定义class：
+12class Student(object):    pass">
 
 
 
@@ -107,7 +110,7 @@
   };
 </script>
 
-  <title> MD5加密工具类 | Stack Overflow </title>
+  <title> 从零开始学Python | Stack Overflow </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -237,7 +240,7 @@
             
             
               
-                MD5加密工具类
+                从零开始学Python
               
             
           </h1>
@@ -249,8 +252,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-17T20:41:22+08:00" content="2016-11-17">
-              2016-11-17
+            <time itemprop="dateCreated" datetime="2017-01-06T17:45:09+08:00" content="2017-01-06">
+              2017-01-06
             </time>
           </span>
 
@@ -263,8 +266,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/工具类/" itemprop="url" rel="index">
-                    <span itemprop="name">工具类</span>
+                  <a href="/categories/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
                   </a>
                 </span>
 
@@ -279,8 +282,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/11/17/MD5加密工具类/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/17/MD5加密工具类/" itemprop="commentsCount"></span>
+                <a href="/2017/01/06/从零开始学Python--面向对象高级编程/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/01/06/从零开始学Python--面向对象高级编程/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -303,9 +306,16 @@
       
 
       
-        <p><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="http://music.163.com/outchain/player?type=2&id=26508242&auto=0&height=66"></iframe><br><a id="more"></a><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.dzq.utils;</span><br><span class="line">&lt;!-- more --&gt;</span><br><span class="line"><span class="keyword">import</span> java.math.BigInteger;</span><br><span class="line"><span class="keyword">import</span> java.security.MessageDigest;</span><br><span class="line"><span class="keyword">import</span> java.security.NoSuchAlgorithmException;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MD5Utils</span> </span>&#123;</span><br><span class="line">	<span class="comment">/**</span><br><span class="line">	 * 使用md5的算法进行加密</span><br><span class="line">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">md5</span><span class="params">(String plainText)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">byte</span>[] secretBytes = <span class="keyword">null</span>;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			secretBytes = MessageDigest.getInstance(<span class="string">"md5"</span>).digest(</span><br><span class="line">					plainText.getBytes());</span><br><span class="line">		&#125; <span class="keyword">catch</span> (NoSuchAlgorithmException e) &#123;</span><br><span class="line">			<span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(<span class="string">"没有md5这个算法！"</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		String md5code = <span class="keyword">new</span> BigInteger(<span class="number">1</span>, secretBytes).toString(<span class="number">16</span>);</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">32</span> - md5code.length(); i++) &#123;</span><br><span class="line">			md5code = <span class="string">"0"</span> + md5code;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> md5code;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h2 id="博主信息"><a href="#博主信息" class="headerlink" title="博主信息"></a>博主信息</h2><p><em>博客园 <a href="http://www.cnblogs.com/xiaoduc-org/" target="_blank" rel="external">@xiaoduc</a>
-</em>CSDN   <a href="http://blog.csdn.net/xiaoduc" target="_blank" rel="external">@xiaoduc</a></p>
+        <h2 id="面向对象高级编程"><a href="#面向对象高级编程" class="headerlink" title="面向对象高级编程"></a>面向对象高级编程</h2><h3 id="使用slots"><a href="#使用slots" class="headerlink" title="使用slots"></a>使用<strong>slots</strong></h3><p>正常情况下，当我们定义了一个class，创建了一个class的实例后，我们可以给该实例绑定任何属性和方法，这就是动态语言的灵活性。先定义class：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<p>然后，尝试给实例绑定一个属性：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; s = Student()</span><br><span class="line">&gt;&gt;&gt; s.name = &apos;Michael&apos; # 动态给实例绑定一个属性</span><br><span class="line">&gt;&gt;&gt; print(s.name)</span><br><span class="line">Michael</span><br></pre></td></tr></table></figure></p>
+<p>还可以尝试给实例绑定一个方法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; def set_age(self, age): # 定义一个函数作为实例方法</span><br><span class="line">...     self.age = age</span><br><span class="line">...</span><br><span class="line">&gt;&gt;&gt; from types import MethodType</span><br><span class="line">&gt;&gt;&gt; s.set_age = MethodType(set_age, s) # 给实例绑定一个方法</span><br><span class="line">&gt;&gt;&gt; s.set_age(25) # 调用实例方法</span><br><span class="line">&gt;&gt;&gt; s.age # 测试结果</span><br><span class="line">25</span><br></pre></td></tr></table></figure></p>
+<p>但是，给一个实例绑定的方法，对另一个实例是不起作用的：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; s2 = Student() # 创建新的实例</span><br><span class="line">&gt;&gt;&gt; s2.set_age(25) # 尝试调用方法</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;</span><br><span class="line">AttributeError: &apos;Student&apos; object has no attribute &apos;set_age&apos;</span><br></pre></td></tr></table></figure></p>
+<p>为了给所有实例都绑定方法，可以给class绑定方法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; def set_score(self, score):</span><br><span class="line">...     self.score = score</span><br><span class="line">...</span><br><span class="line">&gt;&gt;&gt; Student.set_score = set_score</span><br></pre></td></tr></table></figure></p>
+<p>给class绑定方法后，所有实例均可调用：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; s.set_score(100)</span><br><span class="line">&gt;&gt;&gt; s.score</span><br><span class="line">100</span><br><span class="line">&gt;&gt;&gt; s2.set_score(99)</span><br><span class="line">&gt;&gt;&gt; s2.score</span><br><span class="line">99</span><br></pre></td></tr></table></figure></p>
+<p>通常情况下，上面的set_score方法可以直接定义在class中，但动态绑定允许我们在程序运行的过程中动态给class加上功能，这在静态语言中很难实现。<br><strong>使用<strong>slots</strong></strong><br>但是，如果我们想要限制实例的属性怎么办？比如，只允许对<code>Student</code>实例添加name和age属性。</p>
+<p>为了达到限制的目的，Python允许在定义class的时候，定义一个特殊的<code>__slots__</code>变量，来限制该class实例能添加的属性：</p>
 
       
     </div>
@@ -326,7 +336,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/java/" rel="tag">#java</a>
+            <a href="/tags/Python/" rel="tag">#Python</a>
           
         </div>
       
@@ -335,17 +345,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/11/17/java编写端口扫描器/" rel="next" title="java编写的端口扫描器">
-                <i class="fa fa-chevron-left"></i> java编写的端口扫描器
+              <a href="/2017/01/06/从零开始学Python--面向对象编程/" rel="next" title="从零开始学Python">
+                <i class="fa fa-chevron-left"></i> 从零开始学Python
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/11/17/从零开始学JavaScript/" rel="prev" title="从零开始学JavaScript">
-                从零开始学JavaScript <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -371,8 +377,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/11/17/MD5加密工具类/"
-           data-title="MD5加密工具类" data-url="http://github.magicdu.cn/2016/11/17/MD5加密工具类/">
+      <div class="ds-thread" data-thread-key="2017/01/06/从零开始学Python--面向对象高级编程/"
+           data-title="从零开始学Python" data-url="http://github.magicdu.cn/2017/01/06/从零开始学Python--面向对象高级编程/">
       </div>
     
   </div>
@@ -492,7 +498,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#博主信息"><span class="nav-number">1.</span> <span class="nav-text">博主信息</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#面向对象高级编程"><span class="nav-number">1.</span> <span class="nav-text">面向对象高级编程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用slots"><span class="nav-number">1.1.</span> <span class="nav-text">使用slots</span></a></li></ol></li></ol></div>
             
           </div>
         </section>
