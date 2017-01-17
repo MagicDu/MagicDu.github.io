@@ -86,13 +86,13 @@
 多进程+多线程模式。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="从零开始学Python">
-<meta property="og:url" content="http://github.magicdu.cn/2017/01/16/从零开始学Python--线程和进程/index.html">
+<meta property="og:url" content="http://github.magicdu.cn/2017/01/17/从零开始学Python--线程和进程/index.html">
 <meta property="og:site_name" content="Stack Overflow">
 <meta property="og:description" content="线程和进程多任务的实现有3种方式：
 多进程模式；
 多线程模式；
 多进程+多线程模式。">
-<meta property="og:updated_time" content="2017-01-16T08:04:11.933Z">
+<meta property="og:updated_time" content="2017-01-17T01:47:48.521Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="从零开始学Python">
 <meta name="twitter:description" content="线程和进程多任务的实现有3种方式：
@@ -258,8 +258,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-01-16T16:04:11+08:00" content="2017-01-16">
-              2017-01-16
+            <time itemprop="dateCreated" datetime="2017-01-17T09:47:48+08:00" content="2017-01-17">
+              2017-01-17
             </time>
           </span>
 
@@ -288,8 +288,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2017/01/16/从零开始学Python--线程和进程/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/01/16/从零开始学Python--线程和进程/" itemprop="commentsCount"></span>
+                <a href="/2017/01/17/从零开始学Python--线程和进程/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/01/17/从零开始学Python--线程和进程/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -318,7 +318,14 @@
 <p>多进程+多线程模式。<br><a id="more"></a><br>同时执行多个任务通常各个任务之间并不是没有关联的，而是需要相互通信和协调，有时，任务1必须暂停等待任务2完成后才能继续执行，有时，任务3和任务4又不能同时执行，所以，多进程和多线程的程序的复杂度要远远高于我们前面写的单进程单线程的程序。</p>
 <p>因为复杂度高，调试困难，所以，不是迫不得已，我们也不想编写多任务。但是，有很多时候，没有多任务还真不行。想想在电脑上看电影，就必须由一个线程播放视频，另一个线程播放音频，否则，单线程实现的话就只能先把视频播放完再播放音频，或者先把音频播放完再播放视频，这显然是不行的。</p>
 <p>Python既支持多进程，又支持多线程，我们会讨论如何编写这两种多任务程序。</p>
-<h3 id="多进程"><a href="#多进程" class="headerlink" title="多进程"></a>多进程</h3><h3 id="多线程"><a href="#多线程" class="headerlink" title="多线程"></a>多线程</h3>
+<h3 id="多进程"><a href="#多进程" class="headerlink" title="多进程"></a>多进程</h3><p>要让Python程序实现多进程（multiprocessing），我们先了解操作系统的相关知识。</p>
+<p>Unix/Linux操作系统提供了一个<code>fork()</code>系统调用，它非常特殊。普通的函数调用，调用一次，返回一次，但是<code>fork()</code>调用一次，返回两次，因为操作系统自动把当前进程（称为父进程）复制了一份（称为子进程），然后，分别在父进程和子进程内返回。</p>
+<p>子进程永远返回0，而父进程返回子进程的ID。这样做的理由是，一个父进程可以fork出很多子进程，所以，父进程要记下每个子进程的ID，而子进程只需要调用<code>getppid()</code>就可以拿到父进程的ID。</p>
+<p>Python的os模块封装了常见的系统调用，其中就包括<code>fork</code>，可以在Python程序中轻松创建子进程：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">import os</span><br><span class="line"></span><br><span class="line">print(&apos;Process (%s) start...&apos; % os.getpid())</span><br><span class="line"># Only works on Unix/Linux/Mac:</span><br><span class="line">pid = os.fork()</span><br><span class="line">if pid == 0:</span><br><span class="line">    print(&apos;I am child process (%s) and my parent is %s.&apos; % (os.getpid(), os.getppid()))</span><br><span class="line">else:</span><br><span class="line">    print(&apos;I (%s) just created a child process (%s).&apos; % (os.getpid(), pid))</span><br></pre></td></tr></table></figure></p>
+<p>运行结果如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Process (876) start...</span><br><span class="line">I (876) just created a child process (877).</span><br><span class="line">I am child process (877) and my parent is 876.</span><br></pre></td></tr></table></figure></p>
+<p>由于Windows没有<code>fork</code>调用，上面的代码在Windows上无法运行。由于Mac系统是基于BSD（Unix的一种）内核，所以，在Mac下运行是没有问题的，推荐大家用Mac学Python！</p>
+<p>有了<code>fork</code>调用，一个进程在接到新任务时就可以复制出一个子进程来处理新任务，常见的Apache服务器就是由父进程监听端口，每当有新的http请求时，就<code>fork</code>出子进程来处理新的http请求。</p>
+<h3 id="多线程"><a href="#多线程" class="headerlink" title="多线程"></a>多线程</h3>
       
     </div>
     
@@ -379,8 +386,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/01/16/从零开始学Python--线程和进程/"
-           data-title="从零开始学Python" data-url="http://github.magicdu.cn/2017/01/16/从零开始学Python--线程和进程/">
+      <div class="ds-thread" data-thread-key="2017/01/17/从零开始学Python--线程和进程/"
+           data-title="从零开始学Python" data-url="http://github.magicdu.cn/2017/01/17/从零开始学Python--线程和进程/">
       </div>
     
   </div>
