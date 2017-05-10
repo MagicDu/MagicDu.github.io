@@ -10,7 +10,7 @@
     
     <title>
         
-            tags | 
+            Hello World | 
         
         Stack Overflow
     </title>
@@ -48,7 +48,7 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="http://github.magicdu.cn">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="tags | Stack Overflow">
+    <meta property="og:title" content="Hello World | Stack Overflow">
     <meta property="og:description" content="世界很大，我很小">
     
 
@@ -210,6 +210,41 @@
 
                     <!-- Post TOC -->
 
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+    <!-- Left aligned menu below button -->
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn">
+        
+
+        <!--
+        <li class="mdl-menu__item">
+            Some Action
+        </li>
+        -->
+    </ul>
+
+
+
 
 <!-- Layouts -->
 
@@ -235,7 +270,7 @@
         
     
             <p class="article-headline-p">
-                tags
+                Hello World
             </p>
         </div>
 
@@ -254,7 +289,7 @@
     <!-- Author Name & Date -->
     <div>
         <strong>MagicDo</strong>
-        <span>11月 13, 2016</span>
+        <span>5月 10, 2017</span>
     </div>
 
     <div class="section-spacer"></div>
@@ -275,7 +310,7 @@
         </button>
         <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
             <li class="mdl-menu__item">在其它设备中阅读本文章</li>
-            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAAB5UlEQVR42u3ay3HDMAwFQPXftFOB6AdQji1hecokI5KbA4b4HK9HrAMDAwMDAwMD42cYR7zOvlrv1vsqugMGBsYwxpvQdnJw8lVv/+gOGBgYIxlnAS4Pkeudz3jNO2BgYGAst+gF0OT3GBgYGNcG3Pyr5K8YGBgYVyWxZwf0Hnxfy8UxMDBuyMiL8p/7+V/7GxgYGLdiXDD0sNHO/KGZEQwMjB9m5AlqNTj2dsbAwMBYB9z1eEQ+PJE3A/JwXHgaYmBgPJqRB8feA7H6lHzzb8XAwBjJyFPNnbZl3lTAwMDASJLJaLt41LWX0Jb7GxgYGA9lJAWv3tOw9+yLTsTAwBjJWB/ZK7HtJLflmREMDIyHMnoJ7WWJaHEQDQMDYzIjaShWr56E4F5ijIGBMZPxCUw19a0mtBgYGHMYeVm/Gljz/ZvDGRgYGGMYvRJ/tZS/vycGBsZkRnXwKzogfmL2Cm0YGBjTGNWVp7jVp161MIeBgTGHccSrl9zmrYI80cXAwJjJSILsOiBWL1QNuBgYGBh5S3InTc0DffRIxcDAwAjCaLWRme9fHgvDwMDA2Cju543M8h0wMDBGMvIRil4BrvcQ/EgujoGBcUPGzgBEXvrfaWRiYGBMZtx3YWBgYGBgYGB8df0BbLpzqDt73DkAAAAASUVORK5CYII=">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACZUlEQVR42u3aQY7bMBAEQP//08k1l6y6OSQjOKWTsdDKLBngED3z+fXV1wcPDw8PDw8PD+9lvE98/Xl/8jn5y99WsrY2PDw8vJu8h612cM8acvK9eHh4eDd5STHIMQ+L+HFzH60NDw8P72W8/P6ft/X8SI2Hh4f3TbxJ0JA/GQ8PD+/NvGQTz4/X7Xa/KwTBw8PDu8M70QDb9fml/T08PLz/mFePNAUNqmgR8RG5XiEeHh7eYd6k+bR2aF7b+pM4Aw8PD+8OL49Z2/ggCR3mg7BR3cPDw8M7xps3n/Jn5kWiDnbx8PDwrvCSmKBtibVhRLLpR8UMDw8P7wpv19fnR+fJaOy2uoeHh4e3xDsxQjp5WvtfeHh4ePd5u1pc7XjBWpstat3h4eHhHeZNWl/z8YJ2GGvxSI2Hh4e3ldfGsmvjAm2jKwkj6rqHh4eHt4mXYyabeB4BPyw9eSl4eHh4h3lrAcFaAVg7oOcBLh4eHt4dXnKcbWPWdjigHbcaHanx8PDwtvLWQthJrLA2pvDwM+Dh4eH9U958zLQ4CpdP21AY8PDw8JZ4e2OI/BXkryx/Gh4eHt59XhtPrG3ubezblhw8PDy807x5LNsGFm1RaZtheHh4eKd57dW2wZKmWluWHoa38PDw8A7z1gKFXYWhPZQvDl3h4eHhHeBN4on2qD0pDHh4eHhv47VB6iQ4mIQUDyUKDw8P72W8eUQ7aaEdLwx4eHh4x3jt4uoodinIwMPDw7vPm4cRSaTbDijkLxcPDw/vJq+NANrFJcfuvDH2EHPg4eHhHeZ934WHh4eHh4eHh/eC6ze50jAT2OgKSAAAAABJRU5ErkJggg==">
         </ul>
     
 
@@ -303,7 +338,7 @@
 
     <!-- Share Weibo -->
     
-        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=tags&url=http://github.magicdu.cn//tags/index.html&pic=&searchPic=false&style=simple" target="_blank">
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=Hello World&url=http://github.magicdu.cn//2017/05/10/hello-world/index.html&pic=&searchPic=false&style=simple" target="_blank">
             <li class="mdl-menu__item">
                 分享到微博
             </li>
@@ -312,7 +347,7 @@
 
     <!-- Share Twitter -->
     
-        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=tags&url=http://github.magicdu.cn//tags/index.html&via=MagicDo" target="_blank">
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=Hello World&url=http://github.magicdu.cn//2017/05/10/hello-world/index.html&via=MagicDo" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Twitter
             </li>
@@ -321,7 +356,7 @@
 
     <!-- Share Facebook -->
     
-        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://github.magicdu.cn//tags/index.html" target="_blank">
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://github.magicdu.cn//2017/05/10/hello-world/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Facebook
             </li>
@@ -330,7 +365,7 @@
 
     <!-- Share Google+ -->
     
-        <a class="post_share-link" href="https://plus.google.com/share?url=http://github.magicdu.cn//tags/index.html" target="_blank">
+        <a class="post_share-link" href="https://plus.google.com/share?url=http://github.magicdu.cn//2017/05/10/hello-world/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Google+
             </li>
@@ -354,7 +389,8 @@
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        
+        <p>欢迎来到破玉的个人世界,这是我的第一篇博客</p>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="http://music.163.com/outchain/player?type=2&id=33166563&auto=0&height=66"></iframe>
     
 
     
@@ -377,11 +413,27 @@
             <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
     <!-- Prev Nav -->
     
+        <a href="/2017/05/10/MD5加密工具类/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
+    
 
     <!-- Section Spacer -->
     <div class="section-spacer"></div>
 
     <!-- Next Nav -->
+    
+        <a href="/2017/05/10/从零开始学css3/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
     
 </nav>
 
@@ -533,6 +585,14 @@ It will not impact the appearance and can give developers a lot of support :)
 </aside>
 
                     
+
+                    
+                        <!-- Footer Top Button -->
+                        <div class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
 
                     
 

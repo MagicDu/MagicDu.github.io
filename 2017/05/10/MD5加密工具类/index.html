@@ -10,7 +10,7 @@
     
     <title>
         
-            tags | 
+            MD5加密工具类 | 
         
         Stack Overflow
     </title>
@@ -27,7 +27,7 @@
     <meta name="theme-color" content="#0097A7">
     <meta name="author" content="MagicDo">
     <meta name="description" content="世界很大，我很小">
-    <meta name="keywords" content="null">
+    <meta name="keywords" content="null,java">
 
     <!--iOS -->
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
@@ -48,9 +48,9 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="http://github.magicdu.cn">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="tags | Stack Overflow">
+    <meta property="og:title" content="MD5加密工具类 | Stack Overflow">
     <meta property="og:description" content="世界很大，我很小">
-    
+    <meta property="og:article:tag" content="java"> 
 
     <!--[if lte IE 9]>
         <link rel="stylesheet" href="/css/ie-blocker.css">
@@ -210,6 +210,41 @@
 
                     <!-- Post TOC -->
 
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+    <!-- Left aligned menu below button -->
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#博主信息"><span class="post-toc-number">1.</span> <span class="post-toc-text">博主信息</span></a></li></ol>
+
+        <!--
+        <li class="mdl-menu__item">
+            Some Action
+        </li>
+        -->
+    </ul>
+
+
+
 
 <!-- Layouts -->
 
@@ -235,7 +270,7 @@
         
     
             <p class="article-headline-p">
-                tags
+                MD5加密工具类
             </p>
         </div>
 
@@ -254,7 +289,7 @@
     <!-- Author Name & Date -->
     <div>
         <strong>MagicDo</strong>
-        <span>11月 13, 2016</span>
+        <span>5月 10, 2017</span>
     </div>
 
     <div class="section-spacer"></div>
@@ -275,7 +310,7 @@
         </button>
         <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
             <li class="mdl-menu__item">在其它设备中阅读本文章</li>
-            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAAB5UlEQVR42u3ay3HDMAwFQPXftFOB6AdQji1hecokI5KbA4b4HK9HrAMDAwMDAwMD42cYR7zOvlrv1vsqugMGBsYwxpvQdnJw8lVv/+gOGBgYIxlnAS4Pkeudz3jNO2BgYGAst+gF0OT3GBgYGNcG3Pyr5K8YGBgYVyWxZwf0Hnxfy8UxMDBuyMiL8p/7+V/7GxgYGLdiXDD0sNHO/KGZEQwMjB9m5AlqNTj2dsbAwMBYB9z1eEQ+PJE3A/JwXHgaYmBgPJqRB8feA7H6lHzzb8XAwBjJyFPNnbZl3lTAwMDASJLJaLt41LWX0Jb7GxgYGA9lJAWv3tOw9+yLTsTAwBjJWB/ZK7HtJLflmREMDIyHMnoJ7WWJaHEQDQMDYzIjaShWr56E4F5ijIGBMZPxCUw19a0mtBgYGHMYeVm/Gljz/ZvDGRgYGGMYvRJ/tZS/vycGBsZkRnXwKzogfmL2Cm0YGBjTGNWVp7jVp161MIeBgTGHccSrl9zmrYI80cXAwJjJSILsOiBWL1QNuBgYGBh5S3InTc0DffRIxcDAwAjCaLWRme9fHgvDwMDA2Cju543M8h0wMDBGMvIRil4BrvcQ/EgujoGBcUPGzgBEXvrfaWRiYGBMZtx3YWBgYGBgYGB8df0BbLpzqDt73DkAAAAASUVORK5CYII=">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAAC0UlEQVR42u3aW3LbMBAEQN3/0s4B7EAzWCamiOaXyqbIbbjKW/t4fR15vbCxsbGxsbGxsbFvyX7F1/f7//aE5Pk/hDW+800k2NjY2I9mv/nX/w25DmJ9QO1hreNJYsbGxsY+h70GJAElx7R+TpSKypixsbGxsZMXt5iksGnfiI2NjY3dJrA2uLxE2XsaNjY2NnbeoNnD7P3kFr00bGxs7Nuz20HvHT7/wnwbGxsb+5bsf3dNRsjrImczHmxsbOyHsvNRazuC3Wst7Q0eooYXNjY29kPZCT4/jr30li8A7YGxsbGxn82er9Hs3blGTtpM9XgAGxsb+8PZ6xcnpHV6y7+bHMGoaMHGxsY+jL3XymkHtHlZUqcrbGxs7CPZeXN/77d7rf9kIIGNjY2NfRUgbxLlA+O8yHkTCTY2NvYB7LwkaBv9UViDJZ7RfBsbGxv7Eex2FWYyuL02sSVjBmxsbOxns/cSVf7KfAyQDA/ysTQ2Njb2Oewc3zZ32nDz0qJdzcTGxsY+h92uwuy16ZMrOTJsbGxs7EmDPmrHx8VMvpTZpklsbGxs7HwkMAm9vbMdTmNjY2OfwM4T1bx5dO1xJEUINjY29rPZ9Ze3yo+9p+V/krqphI2Njf04djIGyBtJeRsoOaBktBwtFWFjY2MfwN5LJG2Kmhx0+3ZsbGzs09jr47iqZb/XlmrXfUZ5GxsbG/sD2e3odB5usWoTFyfY2NjY2O3YNS9mWuQkoWJjY2Ofxm6vYrAap5b5qDi6ExsbG/uh7DYZJKG3B5e8JVnHHE1FsLGxsT+cfVXSWiekNglNipy6AsPGxsZ+BLtdjmnbT0nhkS/uJEMCbGxsbOw8gbWf21R0waoQNjY2NnYZUNsw2mtX/adSBBsbG/tD2O2jk2b9pHi4arSAjY2NfQK7HfS2g4TJsDZf9KkTGDY2NvYj2Odc2NjY2NjY2NjY2Le5/gAuZNi7y0wc0wAAAABJRU5ErkJggg==">
         </ul>
     
 
@@ -287,7 +322,7 @@
     </button>
     <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
         <li class="mdl-menu__item">
-        
+        <a class="post_tag-link" href="/tags/java/">java</a>
     </ul>
     
 
@@ -303,7 +338,7 @@
 
     <!-- Share Weibo -->
     
-        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=tags&url=http://github.magicdu.cn//tags/index.html&pic=&searchPic=false&style=simple" target="_blank">
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=MD5加密工具类&url=http://github.magicdu.cn//2017/05/10/MD5加密工具类/index.html&pic=&searchPic=false&style=simple" target="_blank">
             <li class="mdl-menu__item">
                 分享到微博
             </li>
@@ -312,7 +347,7 @@
 
     <!-- Share Twitter -->
     
-        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=tags&url=http://github.magicdu.cn//tags/index.html&via=MagicDo" target="_blank">
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=MD5加密工具类&url=http://github.magicdu.cn//2017/05/10/MD5加密工具类/index.html&via=MagicDo" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Twitter
             </li>
@@ -321,7 +356,7 @@
 
     <!-- Share Facebook -->
     
-        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://github.magicdu.cn//tags/index.html" target="_blank">
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://github.magicdu.cn//2017/05/10/MD5加密工具类/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Facebook
             </li>
@@ -330,7 +365,7 @@
 
     <!-- Share Google+ -->
     
-        <a class="post_share-link" href="https://plus.google.com/share?url=http://github.magicdu.cn//tags/index.html" target="_blank">
+        <a class="post_share-link" href="https://plus.google.com/share?url=http://github.magicdu.cn//2017/05/10/MD5加密工具类/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Google+
             </li>
@@ -354,7 +389,10 @@
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        
+        <p><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="http://music.163.com/outchain/player?type=2&id=26508242&auto=0&height=66"></iframe><br><a id="more"></a><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.dzq.utils;</span><br><span class="line">&lt;!-- more --&gt;</span><br><span class="line"><span class="keyword">import</span> java.math.BigInteger;</span><br><span class="line"><span class="keyword">import</span> java.security.MessageDigest;</span><br><span class="line"><span class="keyword">import</span> java.security.NoSuchAlgorithmException;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MD5Utils</span> </span>&#123;</span><br><span class="line">	<span class="comment">/**</span><br><span class="line">	 * 使用md5的算法进行加密</span><br><span class="line">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">md5</span><span class="params">(String plainText)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">byte</span>[] secretBytes = <span class="keyword">null</span>;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			secretBytes = MessageDigest.getInstance(<span class="string">"md5"</span>).digest(</span><br><span class="line">					plainText.getBytes());</span><br><span class="line">		&#125; <span class="keyword">catch</span> (NoSuchAlgorithmException e) &#123;</span><br><span class="line">			<span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(<span class="string">"没有md5这个算法！"</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		String md5code = <span class="keyword">new</span> BigInteger(<span class="number">1</span>, secretBytes).toString(<span class="number">16</span>);</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">32</span> - md5code.length(); i++) &#123;</span><br><span class="line">			md5code = <span class="string">"0"</span> + md5code;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> md5code;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="博主信息"><a href="#博主信息" class="headerlink" title="博主信息"></a>博主信息</h2><p><em>博客园 <a href="http://www.cnblogs.com/xiaoduc-org/" target="_blank" rel="external">@xiaoduc</a>
+</em>CSDN   <a href="http://blog.csdn.net/xiaoduc" target="_blank" rel="external">@xiaoduc</a></p>
+
     
 
     
@@ -377,11 +415,27 @@
             <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
     <!-- Prev Nav -->
     
+        <a href="/2017/05/10/从零开始学Python--面向对象编程/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
+    
 
     <!-- Section Spacer -->
     <div class="section-spacer"></div>
 
     <!-- Next Nav -->
+    
+        <a href="/2017/05/10/hello-world/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
     
 </nav>
 
@@ -533,6 +587,14 @@ It will not impact the appearance and can give developers a lot of support :)
 </aside>
 
                     
+
+                    
+                        <!-- Footer Top Button -->
+                        <div class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
 
                     
 

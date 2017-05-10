@@ -10,8 +10,6 @@
     
     <title>
         
-            tags | 
-        
         Stack Overflow
     </title>
 
@@ -48,7 +46,7 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="http://github.magicdu.cn">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="tags | Stack Overflow">
+    <meta property="og:title" content="Stack Overflow">
     <meta property="og:description" content="世界很大，我很小">
     
 
@@ -210,6 +208,41 @@
 
                     <!-- Post TOC -->
 
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+    <!-- Left aligned menu below button -->
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#毕业了"><span class="post-toc-number">1.</span> <span class="post-toc-text">毕业了</span></a></li></ol>
+
+        <!--
+        <li class="mdl-menu__item">
+            Some Action
+        </li>
+        -->
+    </ul>
+
+
+
 
 <!-- Layouts -->
 
@@ -235,7 +268,7 @@
         
     
             <p class="article-headline-p">
-                tags
+                
             </p>
         </div>
 
@@ -254,7 +287,7 @@
     <!-- Author Name & Date -->
     <div>
         <strong>MagicDo</strong>
-        <span>11月 13, 2016</span>
+        <span>5月 10, 2017</span>
     </div>
 
     <div class="section-spacer"></div>
@@ -275,7 +308,7 @@
         </button>
         <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
             <li class="mdl-menu__item">在其它设备中阅读本文章</li>
-            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAAB5UlEQVR42u3ay3HDMAwFQPXftFOB6AdQji1hecokI5KbA4b4HK9HrAMDAwMDAwMD42cYR7zOvlrv1vsqugMGBsYwxpvQdnJw8lVv/+gOGBgYIxlnAS4Pkeudz3jNO2BgYGAst+gF0OT3GBgYGNcG3Pyr5K8YGBgYVyWxZwf0Hnxfy8UxMDBuyMiL8p/7+V/7GxgYGLdiXDD0sNHO/KGZEQwMjB9m5AlqNTj2dsbAwMBYB9z1eEQ+PJE3A/JwXHgaYmBgPJqRB8feA7H6lHzzb8XAwBjJyFPNnbZl3lTAwMDASJLJaLt41LWX0Jb7GxgYGA9lJAWv3tOw9+yLTsTAwBjJWB/ZK7HtJLflmREMDIyHMnoJ7WWJaHEQDQMDYzIjaShWr56E4F5ijIGBMZPxCUw19a0mtBgYGHMYeVm/Gljz/ZvDGRgYGGMYvRJ/tZS/vycGBsZkRnXwKzogfmL2Cm0YGBjTGNWVp7jVp161MIeBgTGHccSrl9zmrYI80cXAwJjJSILsOiBWL1QNuBgYGBh5S3InTc0DffRIxcDAwAjCaLWRme9fHgvDwMDA2Cju543M8h0wMDBGMvIRil4BrvcQ/EgujoGBcUPGzgBEXvrfaWRiYGBMZtx3YWBgYGBgYGB8df0BbLpzqDt73DkAAAAASUVORK5CYII=">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACbUlEQVR42u3aQY7bMBAEQP//08k1wMLabo5IOUbpZBiSzOKBpHvm9eerrxceHh4eHh4eHt6H8V7x9e/9P599987rb/KnkrHh4eHhneT9stS+GUryngR5PX312PDw8PAO8pLNIMck0/FucR+NDQ8PD+/DeNGh9vL7d4zr+/Hw8PC+g3f9nsmGgYeHh/e/8JI//GthQRvOPpa14OHh4cW8SQFs9+eH63t4eHh4P3h1S1O5GeQbw5amKzw8PLwNvEnxKS//JwHu4jaw9o8BDw8Pb8xrXzRpSG1jjnyy8PDw8M7w5ot1PvRfhlW2YeHh4eE9xUuW+LYMttaY1cYTdUqNh4eHdxNvLYCYT02OqZsJ8PDw8Dbz8kAhL2vl20kbFidIPDw8vJO8NcYkPhiFDu+excPDw9vMWwtS82Di3qP2Df8Y8PDw8G7lLR5hxzFu2/i1uDHg4eHhbeC1C3deGJsX1YpJwcPDw9vM23fMzUONYtGfFMDw8PDwNvRz5kX9djNoN5X20I+Hh4d3ntcGte1EzN+Wb0t4eHh453l5i0DSbJrf2TatLm4MeHh4eGNeG0NcH4LbltMtbQp4eHh4B3l5vNvGGfkROT/oRzEuHh4e3gbeXSWu5DA9v25LqfHw8PAGvPZa+/kihC1Lbnh4eHjnee2ivHYIXnvPYmSMh4eHd4TXBhPJhpGHDjkbDw8P79N4a02lkybX6+lItpai6QoPDw/vIV67rCfsQ0dqPDw8vEd5+aDz+HUeZODh4eGd5+VhRP2TZUjRls3w8PDwzvMmEUAbJaw1sxaFNzw8PLzNvO+78PDw8PDw8PDwPuD6Cw0lB0r+o8ODAAAAAElFTkSuQmCC">
         </ul>
     
 
@@ -303,7 +336,7 @@
 
     <!-- Share Weibo -->
     
-        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=tags&url=http://github.magicdu.cn//tags/index.html&pic=&searchPic=false&style=simple" target="_blank">
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=&url=http://github.magicdu.cn//2017/05/10/毕业了/index.html&pic=&searchPic=false&style=simple" target="_blank">
             <li class="mdl-menu__item">
                 分享到微博
             </li>
@@ -312,7 +345,7 @@
 
     <!-- Share Twitter -->
     
-        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=tags&url=http://github.magicdu.cn//tags/index.html&via=MagicDo" target="_blank">
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=&url=http://github.magicdu.cn//2017/05/10/毕业了/index.html&via=MagicDo" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Twitter
             </li>
@@ -321,7 +354,7 @@
 
     <!-- Share Facebook -->
     
-        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://github.magicdu.cn//tags/index.html" target="_blank">
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://github.magicdu.cn//2017/05/10/毕业了/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Facebook
             </li>
@@ -330,7 +363,7 @@
 
     <!-- Share Google+ -->
     
-        <a class="post_share-link" href="https://plus.google.com/share?url=http://github.magicdu.cn//tags/index.html" target="_blank">
+        <a class="post_share-link" href="https://plus.google.com/share?url=http://github.magicdu.cn//2017/05/10/毕业了/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Google+
             </li>
@@ -354,7 +387,25 @@
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        
+        <h2 id="毕业了"><a href="#毕业了" class="headerlink" title="毕业了"></a>毕业了</h2><p>  四年了，过得好快，浑然不觉。昨天拍的毕业照，几天以后就要分别，或者现在就要分别了。</p>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=28853828&auto=0&height=66"></iframe>
+
+<a id="more"></a>
+<p>记得大一刚来时自己还是一个毛头小子，对计算机一窍不通，也并没有考虑过自己会从事这一个行业，并且对自己的未来有了些许的担心，那时候上C语言的课真是一窍不通，连个简单的比较大小排序的程序都不会写，还被老师说了一顿，期末考试差点挂科呀，真是好险，但是自己学的真的很烂。那时候成天想着玩，连图书馆也没去过，每天最幸福的事就是能够看看《海贼王》和《火影忍者》那时候只觉得“颓废”的感觉好幸福啊。</p>
+<p>《大一慢》</p>
+<p>看看大一刚来时</p>
+<p>大家勤勤恳恳</p>
+<p>读书多，上课早</p>
+<p>夜晚教室全是学霸</p>
+<p>晴朗的早晨跑个早操</p>
+<p>大一的时光变得慢</p>
+<p>快递，网速都很慢</p>
+<p>一节课能刷10分钟朋友圈</p>
+<p>大一的ta很好看</p>
+<p>卖萌装傻嘻嘻哈</p>
+<p>你见了便会爱ta</p>
+<p>​                        ——未完成的诗</p>
+
     
 
     
@@ -382,6 +433,14 @@
     <div class="section-spacer"></div>
 
     <!-- Next Nav -->
+    
+        <a href="/2017/05/10/从零开始学Python--面向对象高级编程/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
     
 </nav>
 
@@ -533,6 +592,14 @@ It will not impact the appearance and can give developers a lot of support :)
 </aside>
 
                     
+
+                    
+                        <!-- Footer Top Button -->
+                        <div class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
 
                     
 
