@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+    <!-- 
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.3.0 -->
+
+    <!-- Title -->
+    
+    <title>
+        
+            从零开始学CSS3 | 
+        
+        Stack Overflow
+    </title>
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/img/favicon.ico">
+    <link rel="icon" sizes="192x192" href="/img/favicon.ico">
+    <link rel="apple-touch-icon" href="/img/favicon.ico">
+
+    <!-- Meta & Info -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#0097A7">
+    <meta name="author" content="MagicDo">
+    <meta name="description" content="世界很大，我很小">
+    <meta name="keywords" content="null,css">
+
+    <!--iOS -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-title" content="Title">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="480">
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Stack Overflow">
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="http://github.magicdu.cn">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="从零开始学CSS3 | Stack Overflow">
+    <meta property="og:description" content="世界很大，我很小">
+    <meta property="og:article:tag" content="css"> 
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import CSS -->
+    <link rel="stylesheet" href="/css/material.min.css">
+    <link rel="stylesheet" href="/css/style.min.css">
+    <!-- Config CSS -->
+
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+  }
+
+  a {
+    color: #00838F;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #0097A7 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #0097A7 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #0097A7 !important;
+  }
+
+  .toTop {
+    background: #757575 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #757575;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #757575;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #757575;
+  }
+
+  .post-toc a:hover {
+    color: #00838F;
+    text-decoration: underline;
+  }
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body{
+        background-color: #F5F5F5;
+      }
+
+      /* blog_info bottom background */
+      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
+        background-color: #fff;
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/queue.js"></script>
+
+    <!-- UC Browser Compatible -->
+    <script>
+        var agent = navigator.userAgent.toLowerCase();
+        if(agent.indexOf('ucbrowser')>0) {
+            document.write("<link rel=\"stylesheet\" href=\"/css/uc.css\">");
+            alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+        }
+    </script>
+
+    
+
+    
+
+    <!-- Bing Background -->
+    
+
+    <!-- Custom Head -->
+    
+</head>
+
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+    <!-- Left aligned menu below button -->
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#背景、边框和补丁"><span class="post-toc-number">1.</span> <span class="post-toc-text">背景、边框和补丁</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#背景相关属性"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">背景相关属性</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#背景图片固定"><span class="post-toc-number">1.1.1.</span> <span class="post-toc-text">背景图片固定</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#CSS3新增的背景相关属性"><span class="post-toc-number">1.1.2.</span> <span class="post-toc-text">CSS3新增的背景相关属性</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#CSS3新增的多背景图片"><span class="post-toc-number">1.1.3.</span> <span class="post-toc-text">CSS3新增的多背景图片</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#边框相关属性"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">边框相关属性</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#CSS3提供的渐变边框"><span class="post-toc-number">1.2.1.</span> <span class="post-toc-text">CSS3提供的渐变边框</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#CSS3提供的圆角边框"><span class="post-toc-number">1.2.2.</span> <span class="post-toc-text">CSS3提供的圆角边框</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#CSS3-提供的图片边框"><span class="post-toc-number">1.2.3.</span> <span class="post-toc-text">CSS3 提供的图片边框</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#补丁相关属性"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">补丁相关属性</span></a></li></ol></li></ol>
+
+        <!--
+        <li class="mdl-menu__item">
+            Some Action
+        </li>
+        -->
+    </ul>
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
+    
+        
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+            <script>
+    var randomNum = Math.floor(Math.random() * 19 + 1);
+
+    $('.post_thumbnail-random').css('background-image', 'url(' + '/img/random/material-' + randomNum + '.png' + ')');
+</script>
+
+        
+    
+            <p class="article-headline-p">
+                从零开始学CSS3
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/avatar1.png" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>MagicDo</strong>
+        <span>6月 02, 2017</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+        <button id="article-functions-qrcode-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+            <i class="material-icons" role="presentation">devices other</i>
+            <span class="visuallyhidden">devices other</span>
+        </button>
+        <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
+            <li class="mdl-menu__item">在其它设备中阅读本文章</li>
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQ4AAAEOCAAAAABd2qZ5AAADg0lEQVR42u3aOW4kQQwEQP3/07vuAoJamWRV7xjRliBN1xFjUDy+/nj+eb4Q4MCBAwcOHDhw4MDxwRxf8VNs8O2tfP1k3/zd5C44cODAgeMGR3K9n37z04GeP//TZZ7XSdDru+DAgQMHjmscm4PmYS8JqGdBn8lw4MCBA8cncOTv3gvhezIcOHDgwPE5HKewZl/AqUQRBw4cOHDc5kjC4Smy5yQwBzpQ6MSBAwcOHBc42oGDT/751fkOHDhw4MDxjaN9kiGDttiXl/zasBrdCAcOHDhwHOXIA1Uenm8U9fIvIzk/Dhw4cOC4x/FcsMu33Bx3Vv4rLtymcDhw4MCBY8HxvFzy11mAbENvnuC1qR0OHDhw4LjBkRDk427JCnvW2RdZz3fgwIEDB46SI9lmVv6bNajy3fNG1y+hGgcOHDhwXODYlOfyxKkdVpiF/HYMAgcOHDhwnOXIGzY5yvBY5fDE87vFSXDgwIEDx1GO/cYJYpvUtQMTq68BBw4cOHAc5Tg7lNa2iPL2VR5E25PjwIEDB44bHLMRt+EAQRwC86Lh4UCLAwcOHDgOcbQjAjOadmShLVzm58SBAwcOHDc42jRs/8l23KENwHWAx4EDBw4cr3AkS9dluHidTWuqDsk4cODAgeMyx76dkzSNEqB2IG+WIuLAgQMHjtscs2Pty4tt0M3D8C9v4cCBAweOoxxtIMw3y9tCm5A/+ycABw4cOHC8yTFrKeWDBcln8svkfFEKhwMHDhw41hxJca0dIMjfbXfc8OHAgQMHjvc58s3altJm0KEN0kmahwMHDhw47nHsg2tClq8za1O1iSUOHDhw4LjNcTa5SjhmJcVNgC8CLQ4cOHDgOMSRjw4kYXLWQEp23IR5HDhw4MDxJse+tNceMU/z2uGJYlwDBw4cOHC8zjELhPs2UjsG0SacOHDgwIHjNkfSBNoU4zYDbTlNy4QDBw4cOM5ytM9+qK4tPs5aYsWOOHDgwIHjKMdmEG0zZNCWI/PSZL0CDhw4cOC4wLEPrvnnZ+MR+chFG5hx4MCBA8c9jjxktiMO7WU26dyxWikOHDhw4PhPHG2Rrk0XkzCcJ3I4cODAgeMzOdqC3QZ0s2YUznHgwIEDxzWO5CizMtwsEG6GFV5qO+HAgQMHjvVAQ3KZpJw3G4/Yj1bgwIEDB47bHB4cOHDgwIEDBw4cOHB82PMXqhQ+p9KUXt4AAAAASUVORK5CYII=">
+        </ul>
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-link" href="/tags/css/">css</a>
+    </ul>
+    
+
+    <!-- Share -->
+    <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=从零开始学CSS3&url=http://github.magicdu.cn//2017/06/02/从零开始学CSS3-背景、边框和补丁/index.html&pic=&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=从零开始学CSS3&url=http://github.magicdu.cn//2017/06/02/从零开始学CSS3-背景、边框和补丁/index.html&via=MagicDo" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://github.magicdu.cn//2017/06/02/从零开始学CSS3-背景、边框和补丁/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=http://github.magicdu.cn//2017/06/02/从零开始学CSS3-背景、边框和补丁/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <h2 id="背景、边框和补丁"><a href="#背景、边框和补丁" class="headerlink" title="背景、边框和补丁"></a>背景、边框和补丁</h2><p>除了字体、文本相关属性之外，HTML网页上最常用的CSS属性应该就是背景和边框相关属性了。通过使用背景，可以为HTML控件增加各种各样的背景颜色、背景图片；通过边框相关属性，可以为HTML控件增加各种颜色、各种线性、粗细不等的边框。<br><a id="more"></a></p>
+<h3 id="背景相关属性"><a href="#背景相关属性" class="headerlink" title="背景相关属性"></a>背景相关属性</h3><p>背景相关属性用于控制背景色、背景图片等属性。在控制背景图片的同时，还可控制背景图片的排列方式。有如下几个常用的背景相关属性。</p>
+<ul>
+<li>background:设置对象的背景样式。该属性是一个复合属性，可用于同时设置背景色、背景图片、背景重复模式等属性。为了更好的控制背景，一般不建议通过该属性来控制背景。</li>
+<li>background-attachment:设置背景图片是随对象内容滚动还是固定的。在指定该属性之前，必须先指定background-image属性。该属性有如下两个值:</li>
+</ul>
+<p>1.scrool:指定背景图片会随组件里的内容的滚动而滚动。这是默认值</p>
+<p>2.fixed:背景图片固定，不会随组件里的内容的滚动而滚动。</p>
+<ul>
+<li>background-color:用于设置背景色。如果同时设置了背景色和背景图片，则背景图片将覆盖背景色。</li>
+<li>background-image:用于设置背景图片。如果同时设置了背景色和背景图片，则背景图片将覆盖背景色。该属性需要使用url()函数指定图片地址，图片地址既可以是相对地址，也可以是绝对地址。</li>
+<li>background-position:用于设置对象背景图片的位置。该属性，应该是两个值。他们既可是实际的长度值，也可是百分比。如果只指定了一个值，该值将对应横坐标。<br>纵坐标将默认为50%；如果指定了两个值，那么第二个值将对应纵坐标。在指定该属性之前，必须指定background-image属性。</li>
+<li>background-repeat:适用于CSS1，用于设置对象的背景图片是否平铺。在指定该属性之前，必须现指定background-iamge属性。该属性有repeat、no-repeat、repeat-x,repeat-y 4个值，分别对应在纵向和横向同时平铺、不平铺、仅在横向平铺、仅在纵向平铺。</li>
+</ul>
+<p>示例：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">title</span>&gt;</span>background<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span><span class="undefined"></span><br><span class="line">		div&#123;</span><br><span class="line">			border:1px solid #000;</span><br><span class="line">			height: 50px;</span><br><span class="line">			width: 200px;</span><br><span class="line">		&#125;</span><br><span class="line">	</span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 灰色背景 --&gt;</span></span><br><span class="line">background-color: #aaa;</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"background-color: #aaa"</span>&gt;</span>测试文字<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 以默认样式指定背景图片，将会在横向、纵向上平铺 --&gt;</span></span><br><span class="line">background-image: url(wjc.gif);</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"background-image: url(wjc.gif);"</span>&gt;</span>测试文字<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 不平铺的背景图片 --&gt;</span></span><br><span class="line">background-image: url(wjc.gif); background-repeat: no-repeat;</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"background-image: url(wjc.gif); background-repeat: no-repeat;"</span>&gt;</span>测试文字<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 仅横向平铺的背景图片 --&gt;</span></span><br><span class="line">background-image: url(wjc.gif);background-repeat: repeat-x;</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"background-image: url(wjc.gif);background-repeat: repeat-x;"</span>&gt;</span>测试文字<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 不平铺，并锁定图片位置 --&gt;</span></span><br><span class="line">background-image: url(wjc.gif);background-repeat: no-repeat;background-position: 35% 80%</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"background-image: url(wjc.gif);background-repeat: no-repeat;background-position: 35% 80%"</span>&gt;</span>测试文字<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 不平铺，并锁定图片位置 --&gt;</span></span><br><span class="line">background-image: url(wjc.gif);background-repeat: no-repeat;background-position: 30px 8px</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"background-image: url(wjc.gif);background-repeat: no-repeat;background-position: 30px 8px"</span>&gt;</span>测试文字<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 不平铺，并锁定图片位置 --&gt;</span></span><br><span class="line">background-image: url(wjc.gif);background-repeat: no-repeat;background-position: center bottom</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"background-image: url(wjc.gif);background-repeat: no-repeat;background-position: center bottom;"</span>&gt;</span>测试文字<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="背景图片固定"><a href="#背景图片固定" class="headerlink" title="背景图片固定"></a>背景图片固定</h4><p>在默认情况下，组件里的背景图片会随滚动条而滚动，但如果把background-attachment属性设置为fixed,那么背景图片就会被固定在该组件中。不会随着滚动条的滚动而滚动。<br>示例：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">    <span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">title</span>&gt;</span>background-attachment<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span><span class="undefined"></span><br><span class="line">		</span><br><span class="line">	</span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span> <span class="attr">style</span>=<span class="string">"background-image: url(wjc.gif);background-attachment: fixed;"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">ul</span> <span class="attr">style</span>=<span class="string">"font-size:30pt;"</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="javascript"></span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">15</span>; i++) &#123;</span><br><span class="line">				<span class="built_in">document</span>.writeln(<span class="string">"&lt;li&gt;苏菲的世界&lt;li&gt;"</span>);</span><br><span class="line">			&#125;</span><br><span class="line">		</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="CSS3新增的背景相关属性"><a href="#CSS3新增的背景相关属性" class="headerlink" title="CSS3新增的背景相关属性"></a>CSS3新增的背景相关属性</h4><ul>
+<li>background-clip:该属性用于设置背景覆盖的范围。</li>
+<li>background-origin:该属性用于设置背景覆盖的起点。该属性与前面介绍的backgroud-position有些类似</li>
+<li>background-size:该属性用于设置背景图片的大小。该属性由两个值组成，分别代表图片的宽度、高度。宽度和高度支持下面3种写法：长度值（20px）百分比（80%）auto（指定背景图片保持纵横比缩放）</li>
+</ul>
+<p>对于一个HTML组件来说，它由元素内容区（content）、内补丁区（padding）、边框区（border）和外补丁区（margin）组成。</p>
+<p>在CSS2中，元素的背景覆盖区为内补丁区（padding）和内容区（content）;在CSS3中则可以指定背景需要覆盖哪个范围。背景覆盖的范围由background-clip属性指定，该属性支持如下几个属性值。</p>
+<ul>
+<li>border-box:指定背景覆盖边框区（border）内补丁区（padding）和内容区(content)</li>
+<li>no-clip:指定背景覆盖边框区（border）、内补丁区（padding）、内容区（content）</li>
+<li>padding-box:指定背景覆盖内补丁区（padding）、内容区（content）</li>
+<li>content-box:指定背景只覆盖内容区（content）</li>
+</ul>
+<p>示例代码：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">title</span>&gt;</span>background-clip<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span><span class="undefined"></span><br><span class="line">		div&#123;</span><br><span class="line">			border: 10px dotted #444;</span><br><span class="line">			padding: 12px;</span><br><span class="line">			height: 30px;</span><br><span class="line">			width: 200px;</span><br><span class="line">		&#125;</span><br><span class="line">	</span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">	background-image: url(wjc.gif);</span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"background-image: url(wjc.gif);"</span>&gt;</span>测试文字<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	background-image: url(wic.gif);background-clip: no-clip;</span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"background-image: url(wic.gif);background-clip: no-clip;"</span>&gt;</span>测试文字<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	background-image: url(wic.gif);background-clip: padding-box;</span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"background-image: url(wic.gif);background-clip: padding-box;"</span>&gt;</span>测试文字<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	background-image: url(wic.gif);background-clip: content-box;</span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"background-image: url(wic.gif);background-clip: content-box;"</span>&gt;</span>测试文字<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>从上面示例看出，只有当省略background-clip属性或者指定background-clip属性为no-clip时，背景图片才会覆盖边框区。</p>
+<p>与此类似，background-origin属性用于指定背景从哪里覆盖，可以指定如下几个属性值。</p>
+<ul>
+<li>border:指定背景图片从边框区开始覆盖</li>
+<li>padding:指定背景图片从内补丁区开始覆盖</li>
+<li>content:指定背景图片从内容区开始覆盖<br>需要指出的是Firefox、Opera的最新版本暂不支持该属性，在chrome、Safari中使用该属性需要把属性写成-webkit-background-origin.</li>
+</ul>
+<p>在CSS3以前，当我们为HTML元素设置背景图片时，该图片铺到该组件上，图片大小总是该图片的原始大小。CSS3的出现改变了这种现状，background-size属性可控制背景图片的大小。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">title</span>&gt;</span>background-size<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span><span class="undefined"></span><br><span class="line">		div&#123;</span><br><span class="line">			border: 1px solid #000;</span><br><span class="line">			height: 50px;</span><br><span class="line">			width: 200px;</span><br><span class="line">		&#125;</span><br><span class="line">	</span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">background-image: url(wjc.gif);</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"background-image: url(wjc.gif);"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">background-image: url(wjc.gif); -webkit-background-size:100% 80%;background-size: 100% 80%</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"background-image: url(wjc.gif); -webkit-background-size:100% 80%;background-size: 100% 80%"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">background-image: url(wjc.gif); -webkit-background-size:20% auto;background-size: 20% auto</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"background-image: url(wjc.gif); -webkit-background-size:20% auto;background-size: 20% auto"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">background-image: url(wjc.gif); -webkit-background-size:auto 50%;background-size: auto 50%</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"background-image: url(wjc.gif); -webkit-background-size:auto 50%;background-size: auto 50%"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">background-image: url(wjc.gif); -webkit-background-size:60px 30px;background-size: 60px 30px</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"background-image: url(wjc.gif); -webkit-background-size:60px 30px;background-size: 60px 30px"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">background-image: url(wjc.gif); -webkit-background-size:40px auto;background-size: 40px auto</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"background-image: url(wjc.gif); -webkit-background-size:40px auto;background-size: 40px auto"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">background-image: url(wjc.gif); -webkit-background-size:auto 20px;background-size: auto 20px</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"background-image: url(wjc.gif); -webkit-background-size:auto 20px;background-size: auto 20px"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="CSS3新增的多背景图片"><a href="#CSS3新增的多背景图片" class="headerlink" title="CSS3新增的多背景图片"></a>CSS3新增的多背景图片</h4><p>在CSS3以前，每个组件只能指定一种背景图片，如果同时指定背景颜色和背景图片，那么，背景图片会覆盖背景颜色。CSS3允许指定多个背景图片，这些背景图片会依次覆盖。多背景图片依然是通过background-image、background-repeat、background-position、background-size等属性来控制的。只是CSS3允许指定多个属性值（多个属性值之间以英文逗号隔开），这样即可实现多背景图片的效果。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">title</span>&gt;</span>muiti-back<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span><span class="undefined"></span><br><span class="line">		div#div1&#123;</span><br><span class="line">			border: 1px solid #000;</span><br><span class="line">			height: 160px;</span><br><span class="line">			width: 500px;</span><br><span class="line">			background-image: url(snow.gif),url(face.gif),url(sky.gif);</span><br><span class="line">			background-repeat: repeat-y,repeat-x,repeat;</span><br><span class="line">			background-position: center top,left center,left top;</span><br><span class="line">		&#125;</span><br><span class="line">	</span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"div1"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="边框相关属性"><a href="#边框相关属性" class="headerlink" title="边框相关属性"></a>边框相关属性</h3><p>边框相关属性用于设置目标对象的边框特征，包括颜色、粗细，以及使用的线型。边框相关属性有如下几个。</p>
+<ul>
+<li>border:这是一个复合属性，用于设置目标组件的边框样式。可同时设置边框的粗细、线型、颜色。</li>
+<li>border-color:用于设置组件的边框颜色。如果提供4个参数值，则将用于设置4个biankuang的颜色。如果提供两个参数值，则第一个用于设置上下两个边框的颜色。第二个用于设置左右两个边框的颜色。如果提供3个参数值，则第一个用于设置上边框的颜色。第二个用于设置左右两个边框的颜色，第三个用于设置下边框的颜色。</li>
+<li>border-style:用于设置组件的边框线型。如果提供4个参数值，则将按上右下左的顺序一次设置4个边框的线型；如果只提供一个参数值，则将用于设置4个边框的线型；如果提供两个参数值，则第一个用于设置上下两个边框的线型，第二个用于设置左右两个边框的线型；如果提供3个参数值，则一个用于设置上边框的线型，第二个用于设置左右两个边框的线宽，第三个用于设置下边框的线宽。</li>
+<li>border-top:这是一个复合属性，用于设置目标组件的上边框样式。同时可设置边框的粗细、线型、颜色。</li>
+<li>border-top-color:用于设置目标组件的上边框颜色。</li>
+<li>border-top-style:用于设置目标组件上边框的线型。</li>
+<li>border-style-width:用于设置目标组件上边框的线宽</li>
+<li>border-right:这是一个复合属性，用于设置目标组件的右边框样式。可同时设置右边框的粗细、线型、颜色</li>
+<li>border-right-color:用于设置目标组件的右边框颜色</li>
+<li>border-right-style:用于设置目标组件右边框的线型</li>
+<li>border-right-width:用于设置目标组件右边框的线宽</li>
+<li>border-bottom:这是一个复合属性，用于设置目标组件下边框的样式。可同时设置边框的粗细、线型、颜色</li>
+<li>border-bottom-color:用于设置目标组件下边框的颜色。</li>
+<li>border-bottom-style:用于设置目标组件下边框的线型。</li>
+<li>border-bottom-width:用于设置目标组件的左边框的线宽。</li>
+<li>border-left:这是一个复合属性，用于设置目标组件左边框的样式。可同时设置边框的粗细、线型、颜色</li>
+<li>border-left-color:用于设置目标组件左边框的颜色。</li>
+<li>border-left-style:用于设置目标组件左边框的线型。</li>
+<li>border-left-width:用于设置目标组件的左边框的线宽。</li>
+</ul>
+<p>在上面的边框相关属性中，边框颜色可以是任何有效的颜色值，而线宽可以是任何有效的长度值，线型可以支持如下值。</p>
+<ul>
+<li>none:无边框</li>
+<li>hidden:隐藏边框</li>
+<li>dotted:点线边框</li>
+<li>dashed:虚线边框</li>
+<li>solid:实线边框</li>
+<li>double:双线边框</li>
+<li>groove:3D凹槽边框</li>
+<li>ridge:3D凸槽边框</li>
+<li>inset:3D凹入边框</li>
+<li>outset:3D凸出边框</li>
+</ul>
+<p>示例代码：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">title</span>&gt;</span>border<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span><span class="undefined"></span><br><span class="line">		div&#123;</span><br><span class="line">			width: 300px;</span><br><span class="line">			height: 40px;</span><br><span class="line">		&#125;</span><br><span class="line">	</span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"border: 5px solid #666"</span>&gt;</span>宽度为5的灰色实线边框<span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"border: 2px dashed #666"</span>&gt;</span>宽度为2的灰色虚线边框<span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"border: 2px dotted #666"</span>&gt;</span>宽度为2的灰色点线边框<span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"border: 5px groove #666"</span>&gt;</span>宽度为5的灰色凹槽边框<span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"border: 8px inset #666"</span>&gt;</span>宽度为8的灰色凹入边框<span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"border: 8px outset #666"</span>&gt;</span>宽度为8的灰色凸出边框<span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"border-width: 8px 2px;border-style: solid dashed; border-color: #ccc #444"</span>&gt;</span></span><br><span class="line">	上下两个边框样式为 8px solid #ccc<span class="tag">&lt;<span class="name">br</span>/&gt;</span></span><br><span class="line">	左右两个边框样式为 2px dashed #444</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"border-width: 8px;border-style: solid;border-color: #ccc #ccc #444 #444"</span>&gt;</span>四个边框颜色不同做出立体效果<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="CSS3提供的渐变边框"><a href="#CSS3提供的渐变边框" class="headerlink" title="CSS3提供的渐变边框"></a>CSS3提供的渐变边框</h4><p>CSS3提供了如下4个属性来支持渐变边框</p>
+<ul>
+<li>border-top-colors:该属性用于设置目标组件上边框的颜色。如果设置上边框的宽度是Npx，那么就可以为该属性设置N种颜色，每种颜色1px的宽度。但如果设置的颜色数量小于边框的宽度，那么最后一个颜色将会覆盖该边框剩下的宽度。</li>
+<li>border-rigtht-colors:该属性用于设置右边框颜色。含义同上边框</li>
+<li>border-bottom-colors:该属性用于设置下边框颜色。含义同上边框</li>
+<li>border-left-colors:该属性用于设置左边框颜色。含义同上边框</li>
+</ul>
+<p>目前四个属性只有firefox浏览器才支持，而且使用该属性必须在前面增加-moz-前缀<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">title</span>&gt;</span><span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span><span class="undefined"></span><br><span class="line">		div&#123;</span><br><span class="line">			width: 300px;</span><br><span class="line">			height: 40px;</span><br><span class="line">		&#125;</span><br><span class="line">	</span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"border: 10px solid white;</span><br><span class="line">-moz-border-bottom-colors:#555 #666 #777 #888 #999 #aaa #bbb #ccc #ddd #eee;</span><br><span class="line">-moz-border-top-colors:#555 #666 #777 #888 #999 #aaa #bbb #ccc #ddd #eee;</span><br><span class="line">-moz-border-left-colors:#555 #666 #777 #888 #999 #aaa #bbb #ccc #ddd #eee;</span><br><span class="line">-moz-border-right-colors:#555 #666 #777 #888 #999 #aaa #bbb #ccc #ddd #eee;"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="CSS3提供的圆角边框"><a href="#CSS3提供的圆角边框" class="headerlink" title="CSS3提供的圆角边框"></a>CSS3提供的圆角边框</h4><p>CSS3为支持圆角边框提供了如下属性。</p>
+<p>border-radius:该属性用于指定圆角边框的圆角半径（半径越大，圆角的程度越大）。如果该属性指定一个长度，则4个圆角都使用该长度作为半径；如果指定2个长度，则第一个长度作为左上角、右下角半径，第二个作为右上角、左下角的半径；如果指定3个长度，则第一个长度将作为左上角的半径，第二个将作为右上角、左下角的半径，第三个作为右下角的半径</p>
+<ul>
+<li>border-top-left-radius:该属性用于指定左上角的圆角半径。</li>
+<li>border-top-right-radius:该属性用于指定右上角的圆角半径。</li>
+<li>border-bottom-right-radius:该属性用于指定右下角的圆角半径</li>
+<li>border-bottom-left-radius:该属性用于指定左下角的圆角半径</li>
+</ul>
+<p>示例代码：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">title</span>&gt;</span>border-radius<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span><span class="undefined"></span><br><span class="line">		div&#123;</span><br><span class="line">			width: 300px;</span><br><span class="line">			height: 60px;</span><br><span class="line">		&#125;</span><br><span class="line">	</span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"border: 3px solid black;border-radius: 20px;"</span>&gt;</span>半径为20px的圆角边框<span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"border:3px dotted black;border-radius: 20px"</span>&gt;</span>半径为20px的圆角边框<span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"background-color: #aaa;border-radius: 20px"</span>&gt;</span>半径为20px的圆角边框(不显示边框)<span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"border: 3px solid black;border-radius: 16px 40px;"</span>&gt;</span>半径为16px 40px的圆角边框<span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"border:3px solid black;border-radius: 10px 20px 30px;"</span>&gt;</span>半径为10px 20px 30px 的圆角边框<span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"border:3px solid black;border-radius: 10px 20px 30px 40px;"</span>&gt;</span>半径为10px 20px 30px 40px 的圆角边框<span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"border: 3px solid black;</span><br><span class="line">border-top-left-radius: 30px;</span><br><span class="line">border-top-right-radius: 20px;</span><br><span class="line">border-bottom-left-radius: 10px;</span><br><span class="line">border-bottom-right-radius: 40px;"</span>&gt;</span>分开4个角指定半径<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="CSS3-提供的图片边框"><a href="#CSS3-提供的图片边框" class="headerlink" title="CSS3 提供的图片边框"></a>CSS3 提供的图片边框</h4><p>CSS3为图片边框提供了如下属性。</p>
+<p>border-image:该属性的值比较复杂，应该遵守如下格式：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">border-image-source</span>&gt;</span> <span class="tag">&lt;<span class="name">border-image-slice</span>&gt;</span>[/<span class="tag">&lt;<span class="name">border-image-width</span>&gt;</span>]? <span class="tag">&lt;<span class="name">border-image-repeat</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>上面的语法可以分为4个部分。</p>
+<ul>
+<li>border-image-source:指定边框图片。该值可以使none(没有边框图片)或者使用url()函数指定图片</li>
+<li>border-image-slice:该属性可以指定1~4个数值或者百分比数值，这四个数值用于控制如何对图片进行切割。假设指定了10 20 30 40，这四个数值分别指定切割边框图片时上边框为10像素，有边框为20像素，下边框为30像素，左边框为40像素。</li>
+<li>border-image-width:该属性用于指定图片边框的宽度。该属性可指定1~4个长度值、数值、百分比数值或auto。如果指定1个值，则四个边框的宽度都等于该值；如果指定了2个值，那么第一个值将作为上下边框的宽度，第二个值作为左右边框的宽度。如果指定了3个值，则第一个值作为上边框的宽度，第二个值作为左右边框的宽度，第三个值作为下边框的宽度。</li>
+<li>border-image-repeat:该属性用于指定边框图片的覆盖方式，支持stretch（拉伸覆盖）、repeat(平铺覆盖)、round(取整覆盖)三种覆盖方式。</li>
+</ul>
+<p>示例代码：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>image-border<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span><span class="undefined"></span><br><span class="line">        div&#123;</span><br><span class="line">            width: 400px;</span><br><span class="line">            height: 45px;</span><br><span class="line">        &#125;</span><br><span class="line">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">border-image:url(border.jpg) 27</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"-o-border-image:url(border.jpg) 27;</span><br><span class="line">-moz-border-image:url(border.jpg) 27;</span><br><span class="line">-webkit-border-image:url(border.jpg) 27;</span><br><span class="line">"</span>&gt;</span>默认边框宽度<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">border-image:url(border.jpg) 27/27px</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"-o-border-image:url(border.jpg) 27/27px;</span><br><span class="line">-moz-border-image:url(border.jpg) 27/27px;</span><br><span class="line">-webkit-border-image:url(border.jpg) 27/27px;</span><br><span class="line">"</span>&gt;</span>指定边框宽度27px，默认拉伸边框图片<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">border-image:url(border.jpg) 27/27px repeat</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"-o-border-image:url(border.jpg) 27/27px repeat;</span><br><span class="line">-moz-border-image:url(border.jpg) 27/27px repeat;</span><br><span class="line">-webkit-border-image:url(border.jpg) 27/27px repeat;</span><br><span class="line">"</span>&gt;</span>指定边框宽度27px，平铺图片<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">border-image:url(border.jpg) 27/27px round</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"-o-border-image:url(border.jpg) 27/27px round;</span><br><span class="line">-moz-border-image:url(border.jpg) 27/27px round;</span><br><span class="line">-webkit-border-image:url(border.jpg) 27/27px round;</span><br><span class="line">"</span>&gt;</span>指定边框宽度27px，以round方式平铺图片<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">border-image:url(border.jpg) 27/27px stretch round</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"-o-border-image:url(border.jpg) 27/27px stretch round;</span><br><span class="line">-moz-border-image:url(border.jpg) 27/27px stretch round;</span><br><span class="line">-webkit-border-image:url(border.jpg) 27/27px stretch round;</span><br><span class="line">"</span>&gt;</span>指定边框宽度27px，横向stretch,纵向round方式平铺图片<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="补丁相关属性"><a href="#补丁相关属性" class="headerlink" title="补丁相关属性"></a>补丁相关属性</h3><ul>
+<li>margin:该属性可以同时设置上下左右4个边的外补丁的距离。该属性允许设置4个长度，分别对应4个长度，分别对应于上下左右4个边的补丁距离；如果只设置了1个长度，则该值将作为上下左右的4个边的外补丁距离；如果设置了2个长度，则前一个长度将作为上下的外补丁，后一个长度将作为左右的外补丁距离；如果设置了3个长度的，则第一个长度将作为上边的外补丁距离，第二个长度将作为左右的补丁距离，第三个长度将作为下边的外补丁的距离。</li>
+<li>margin-top:设置上边的外补丁距离。</li>
+<li>margin-right:设置右边的外补丁距离</li>
+<li>margin-bottom:设置下边的外补丁距离</li>
+<li>margin-left:设置左边的外补丁距离</li>
+</ul>
+<p>示例代码：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>text<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span><span class="undefined"></span><br><span class="line">        div&#123;</span><br><span class="line">            width: 300px;</span><br><span class="line">            height: 45px;</span><br><span class="line">            border: 1px solid black;</span><br><span class="line">        &#125;</span><br><span class="line">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">margin:30px 50px;</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"margin: 30px 50px"</span>&gt;</span>测试文字 测试文字 测试文字 测试文字 测试文字 测试文字  测试文字 测试文字</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">margin: 10px 30px 2px 60px</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"margin: 10px 40px 10px 90px"</span>&gt;</span>测试文字 测试文字 测试文字 测试文字 测试文字 测试文字 测试文字 测试文字<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+
+
+
+
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+        <a href="/2017/06/02/从零开始学Python--模块/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2017/06/02/java编写端口扫描器/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/img/sidebar_header.png);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="/img/avatar1.png" alt="MagicDo's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        johndu@magicdu.cn
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="#" target="_blank" title="Email Me">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        
+                        Email Me
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/" target="_self">
+                
+                    <i class="material-icons sidebar-material-icons">home</i>
+                
+                主页
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">inbox</i>
+                
+                    归档
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/archives/2019/10/">十月 2019<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/06/">六月 2017<span class="sidebar_archives-count">20</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Categories  -->
+    
+
+    <!-- Pages  -->
+    
+
+    <!-- Article Number  -->
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Sidebar Divider -->
+
+    <div class="sidebar-divider"></div>
+
+
+<!-- Theme Material -->
+
+    <a href="https://github.com/viosey/hexo-theme-material"  class="sidebar-footer-text-a" target="_blank">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+            主题 - Material
+            <span class="sidebar-badge badge-circle">i</span>
+        </div>
+    </a>
+
+
+<!-- Help & Support -->
+<!--
+
+-->
+
+<!-- Feedback -->
+<!--
+
+-->
+
+<!-- About Theme -->
+<!--
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+        <a href="https://twitter.com/twitter" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-twitter.png);">
+                <span class="visuallyhidden">Twitter</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Facebook -->
+    
+        <a href="https://www.facebook.com/facebook" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-facebook.png);">
+                <span class="visuallyhidden">Facebook</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Google + -->
+    
+        <a href="https://www.google.com/" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-gplus.png);">
+                <span class="visuallyhidden">Google Plus</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Weibo -->
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+        <a href="https://github.com/magicdu" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-github.png);">
+                <span class="visuallyhidden">Github</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
+</div>
+
+
+        <!--Copyright-->
+        <div id="copyright">
+            Copyright&nbsp;©&nbsp;
+            <script type="text/javascript">
+                var fd = new Date();
+                document.write(fd.getFullYear());
+            </script>
+            &nbsp;Stack Overflow
+        </div>
+
+        <!-- Paradox Footer Right Section -->
+
+        <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
+            </div>
+        </div>
+    
+</footer>
+
+
+                    <!-- Import File -->
+<script src="/js/lazyload.min.js"></script>
+<script src="/js/js.min.js"></script>
+<script src="/js/nprogress.js"></script>
+
+<script type="text/javascript">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Swiftye -->
+
+
+<!-- Local Search-->
+
+
+<!-- Window Load-->
+<script>
+    $(window).load(function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+</script>
+
+<!-- MathJax Load-->
+
+
+                </main>
+            </div>
+        </body>
+    
+</html>

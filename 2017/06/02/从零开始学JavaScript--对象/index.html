@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+    <!-- 
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.3.0 -->
+
+    <!-- Title -->
+    
+    <title>
+        
+            从零开始学JavaScript--对象 | 
+        
+        Stack Overflow
+    </title>
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/img/favicon.ico">
+    <link rel="icon" sizes="192x192" href="/img/favicon.ico">
+    <link rel="apple-touch-icon" href="/img/favicon.ico">
+
+    <!-- Meta & Info -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#0097A7">
+    <meta name="author" content="MagicDo">
+    <meta name="description" content="世界很大，我很小">
+    <meta name="keywords" content="null,js">
+
+    <!--iOS -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-title" content="Title">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="480">
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Stack Overflow">
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="http://github.magicdu.cn">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="从零开始学JavaScript--对象 | Stack Overflow">
+    <meta property="og:description" content="世界很大，我很小">
+    <meta property="og:article:tag" content="js"> 
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import CSS -->
+    <link rel="stylesheet" href="/css/material.min.css">
+    <link rel="stylesheet" href="/css/style.min.css">
+    <!-- Config CSS -->
+
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+  }
+
+  a {
+    color: #00838F;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #0097A7 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #0097A7 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #0097A7 !important;
+  }
+
+  .toTop {
+    background: #757575 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #757575;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #757575;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #757575;
+  }
+
+  .post-toc a:hover {
+    color: #00838F;
+    text-decoration: underline;
+  }
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body{
+        background-color: #F5F5F5;
+      }
+
+      /* blog_info bottom background */
+      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
+        background-color: #fff;
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/queue.js"></script>
+
+    <!-- UC Browser Compatible -->
+    <script>
+        var agent = navigator.userAgent.toLowerCase();
+        if(agent.indexOf('ucbrowser')>0) {
+            document.write("<link rel=\"stylesheet\" href=\"/css/uc.css\">");
+            alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+        }
+    </script>
+
+    
+
+    
+
+    <!-- Bing Background -->
+    
+
+    <!-- Custom Head -->
+    
+</head>
+
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+    <!-- Left aligned menu below button -->
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#JavaScript的对象"><span class="post-toc-number">1.</span> <span class="post-toc-text">JavaScript的对象</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#面向对象"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">面向对象</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#面向对象方法的特性"><span class="post-toc-number">1.1.1.</span> <span class="post-toc-text">面向对象方法的特性</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#类"><span class="post-toc-number">1.1.2.</span> <span class="post-toc-text">类</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#对象"><span class="post-toc-number">1.1.3.</span> <span class="post-toc-text">对象</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#创建对象"><span class="post-toc-number">1.1.4.</span> <span class="post-toc-text">创建对象</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#对象的属性"><span class="post-toc-number">1.1.5.</span> <span class="post-toc-text">对象的属性</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#释放对象"><span class="post-toc-number">1.1.6.</span> <span class="post-toc-text">释放对象</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#本地对象"><span class="post-toc-number">1.1.7.</span> <span class="post-toc-text">本地对象</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#内置对象"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">内置对象</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Global-对象"><span class="post-toc-number">1.2.1.</span> <span class="post-toc-text">Global 对象</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Object对象"><span class="post-toc-number">1.2.2.</span> <span class="post-toc-text">Object对象</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Function对象"><span class="post-toc-number">1.2.3.</span> <span class="post-toc-text">Function对象</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Array对象"><span class="post-toc-number">1.2.4.</span> <span class="post-toc-text">Array对象</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#String对象"><span class="post-toc-number">1.2.5.</span> <span class="post-toc-text">String对象</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Date对象"><span class="post-toc-number">1.2.6.</span> <span class="post-toc-text">Date对象</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#RegExp-正则表达式-对象"><span class="post-toc-number">1.2.7.</span> <span class="post-toc-text">RegExp(正则表达式)对象</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Math-对象"><span class="post-toc-number">1.2.8.</span> <span class="post-toc-text">Math 对象</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Error对象"><span class="post-toc-number">1.2.9.</span> <span class="post-toc-text">Error对象</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#JSON对象"><span class="post-toc-number">1.2.10.</span> <span class="post-toc-text">JSON对象</span></a></li></ol></li></ol></li></ol>
+
+        <!--
+        <li class="mdl-menu__item">
+            Some Action
+        </li>
+        -->
+    </ul>
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
+    
+        
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+            <script>
+    var randomNum = Math.floor(Math.random() * 19 + 1);
+
+    $('.post_thumbnail-random').css('background-image', 'url(' + '/img/random/material-' + randomNum + '.png' + ')');
+</script>
+
+        
+    
+            <p class="article-headline-p">
+                从零开始学JavaScript--对象
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/avatar1.png" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>MagicDo</strong>
+        <span>6月 02, 2017</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+        <button id="article-functions-qrcode-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+            <i class="material-icons" role="presentation">devices other</i>
+            <span class="visuallyhidden">devices other</span>
+        </button>
+        <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
+            <li class="mdl-menu__item">在其它设备中阅读本文章</li>
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAACz0lEQVR42u3a0W7bMAwF0Pz/T2+vA4qml6S2OdTxU9AYso4DlOClXr+uvF7Y2NjY2NjY2NjYj2S/4uvr/X/+5evn/NvJHpL7sbGxsW9g//Cvv4X5bp0e9cCesbGxsS9gvy8Y7xnV1ZKnJGWysBo2NjY2dnx/Ulp6LQo2NjY29il2HjZ9G/EcKnXY2NjY2NWAZv75/ROrRfQfZWnY2NjYj2dXh6xP+Pwf5tvY2NjYj2SXjzC2Wo68jFULXvPwJTY2NvYidvXxveM7k9fRLFe9DgwbGxv7Y9nJQpNNRKFPHEXlB32wsbGxb2AnZSwftVYHD3lg1GuEsLGxsW9gny0k83JYbXIKPyE2Njb2UnZvoST6yf8+P9ATfYuNjY29lD2J3SfNSbXByMcMB8YD2NjY2CvY8+akOu6dD3oPFDBsbGzsD2fP25Kzgf6kFSnMt7GxsbEvYM8P5eQHbqpj4PxVYmNjY+9m54PVs4F+tV3p7RwbGxv7HvZ8670RwqmjOT+8VmxsbOyl7LOB0ammojcMLhQwbGxs7KXsHH9qW3/j8GW5gGFjY2N/ODs/ZJO3BPlqk7i/3LpgY2NjL2UnS0Rj1OJoYf700eFLbGxs7EXsU8FQst2k2FSHAYVSh42Njb2UnQT3vcPx88IzaV2iuo2NjY29gl0dl+aNRzV+6r3oQrCFjY2NvZRdhSUtQa9pyXnV9gkbGxv7ZnavYOTjhF57U/1hsLGxsXezX/HVi/WrDU/ymqqDZ2xsbOzd7OpVfRGTYXBUlvKyio2Njb2UXS1gURAfxEATdh5XYWNjY9/DzhnzTZwd5RbaJ2xsbOwL2L1C0guMTj0rHwNjY2NjY+cRUnXoO2lgCjEWNjY2NnY8jq22OnmT01sTGxsb+x52L1SaHNzpBf3N+7GxsbFXs6uD3jysT4rl5FWOWhFsbGzsFex7LmxsbGxsbGxsbOzHXL8BKCnDpsGkEkcAAAAASUVORK5CYII=">
+        </ul>
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-link" href="/tags/js/">js</a>
+    </ul>
+    
+
+    <!-- Share -->
+    <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=从零开始学JavaScript--对象&url=http://github.magicdu.cn//2017/06/02/从零开始学JavaScript--对象/index.html&pic=&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=从零开始学JavaScript--对象&url=http://github.magicdu.cn//2017/06/02/从零开始学JavaScript--对象/index.html&via=MagicDo" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://github.magicdu.cn//2017/06/02/从零开始学JavaScript--对象/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=http://github.magicdu.cn//2017/06/02/从零开始学JavaScript--对象/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <h2 id="JavaScript的对象"><a href="#JavaScript的对象" class="headerlink" title="JavaScript的对象"></a>JavaScript的对象</h2><h3 id="面向对象"><a href="#面向对象" class="headerlink" title="面向对象"></a>面向对象</h3><h4 id="面向对象方法的特性"><a href="#面向对象方法的特性" class="headerlink" title="面向对象方法的特性"></a>面向对象方法的特性</h4><p>1.抽象性<br>2.继承性<br>3.多态性（重载和覆盖）<br><a id="more"></a></p>
+<h4 id="类"><a href="#类" class="headerlink" title="类"></a>类</h4><p>类是用来描述抽象的一种载体，它记录了哪些属性和行为是具有通性的。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span>  <span class="title">Car</span></span>&#123;</span><br><span class="line">    <span class="built_in">String</span> color;<span class="comment">//属性</span></span><br><span class="line">    <span class="keyword">void</span> shift()&#123;<span class="comment">//行为</span></span><br><span class="line">        <span class="comment">//换挡</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//创建一个redCar对象</span></span><br><span class="line">Car redCar=<span class="keyword">new</span> Car();</span><br></pre></td></tr></table></figure></p>
+<p>可以看到，一个类并不是一个单纯数据集合，它还包括了行为，这是面向对象的另一个特点，封装性。类是描述一类事物的共同特性的，它是抽象、没有具体含义的。而对象是类的实例。</p>
+<h4 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h4><p>对象从概念上讲，就是类的实现，把抽象的变为具体的。javascript将对象定义为：无序属性的集合，属性可以是任何类型的值，包括其他对象或者函数，当函数作为对象属性时被叫做<em>方法</em><br>也就是对象的行为。</p>
+<h4 id="创建对象"><a href="#创建对象" class="headerlink" title="创建对象"></a>创建对象</h4><p>语法<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> 对象名=<span class="keyword">new</span> 构造函数();</span><br></pre></td></tr></table></figure></p>
+<p>javascript 创建对象与绝大多数面向对象语言是一样的，都使用new关键字来实例化一个类，创建该类的一个对象。更确切的说法是，以new关键字来调用构造函数来创建一个对象。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj=<span class="keyword">new</span> <span class="built_in">String</span>();</span><br><span class="line">obj=<span class="keyword">new</span> <span class="built_in">Object</span>;<span class="comment">//Object 本身也是对象</span></span><br><span class="line">alert(<span class="string">'obj对象的构造函数为：'</span>+obj.constructor);</span><br><span class="line">alert(<span class="string">'Object对象的原型为：'</span>+<span class="built_in">Object</span>.prototype);</span><br></pre></td></tr></table></figure></p>
+<h4 id="对象的属性"><a href="#对象的属性" class="headerlink" title="对象的属性"></a>对象的属性</h4><p>从对象定义的角度来看，他可以理解成一个包含很多值的集合，而实际应用中就是使用集合的某一属性参与程序执行。</p>
+<p>1.访问属性<br>无论是函数还是变量，作为对象的属性，他们都可以通过.号来访问，如果对象的属性任然是一个对象，那么还可以通过重复使用.号来进行访问，例如<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a=<span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line"><span class="comment">//显示对象a的constructor属性的prototype属性</span></span><br><span class="line">alert(a.constructor.prototype);</span><br></pre></td></tr></table></figure></p>
+<p>2.添加属性</p>
+<p>在javascript中，对象的属性都与普通的函数或其他变量一样，都可以动态的生成</p>
+<p>例如<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a=<span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line">a.x=<span class="number">1</span>;<span class="comment">//生成变量属性</span></span><br><span class="line">a[<span class="string">"func"</span>]=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="comment">//生成函数属性</span></span><br><span class="line">    ++<span class="keyword">this</span>.x;<span class="comment">//this表示对象a本身</span></span><br><span class="line">&#125;</span><br><span class="line">a.func();</span><br><span class="line">alert(a.x);<span class="comment">//显示为2</span></span><br></pre></td></tr></table></figure></p>
+<p>直接对指定的属性名赋值，就可以生成一个对象的属性，这不需要使用var关键字进行声明</p>
+<p>3.删除属性</p>
+<p>删除属性首选delete运算符。从资源释放的角度来说，只需要把需要删除的属性设置为null就可以了。</p>
+<p>例如：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a=<span class="keyword">new</span> <span class="built_in">Object</span>;</span><br><span class="line">a.x=<span class="keyword">new</span> <span class="built_in">Object</span>;</span><br><span class="line"><span class="comment">//释放属性所引用的对象</span></span><br><span class="line">a.x=<span class="literal">null</span>;</span><br></pre></td></tr></table></figure></p>
+<h4 id="释放对象"><a href="#释放对象" class="headerlink" title="释放对象"></a>释放对象</h4><p>在任何编程语言中，释放不再使用的内存空间都是很重要的事。javascript和Java一样提供了自动回收内存的机制–垃圾收集器。</p>
+<h4 id="本地对象"><a href="#本地对象" class="headerlink" title="本地对象"></a>本地对象</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Global       <span class="built_in">Object</span>          <span class="built_in">Function</span>      <span class="built_in">Array</span></span><br><span class="line"><span class="built_in">String</span>       <span class="built_in">Boolean</span>         <span class="built_in">Number</span>        <span class="built_in">Math</span></span><br><span class="line"><span class="built_in">Date</span>         <span class="built_in">RegExp</span>          <span class="built_in">Error</span>         <span class="built_in">EvalError</span></span><br><span class="line"><span class="built_in">RangeError</span>   <span class="built_in">ReferenceError</span>  <span class="built_in">SyntaxError</span>   <span class="built_in">TypeError</span></span><br></pre></td></tr></table></figure>
+<p>不依赖于浏览器而实现的对象称为本地对象</p>
+<h3 id="内置对象"><a href="#内置对象" class="headerlink" title="内置对象"></a>内置对象</h3><h4 id="Global-对象"><a href="#Global-对象" class="headerlink" title="Global 对象"></a>Global 对象</h4><p>Global对象 是javascript对象模型中最高级，它拥有最大的执行环境，一切声明的变量和函数都是它的属性，Global对象具有以下特性：</p>
+<p>Global 对象没有Construct属性，所以它无法通过new操作符被当作类来调用</p>
+<p>Global 对象也没有call属性，所以他也无法像函数那样调用</p>
+<p>最重要的是Global对象只是一个概念，表示全局对象，他是根据宿主的实现而产生的。在浏览器中Global对象就是window对象</p>
+<p>Global对象拥有很多属性，如NaN、Infinity、undefined、属性以及parseInt()、parseFloat()等方法属性，当程序开始运行之前，Global对象就已经被系统创建了，并且它的属性也都已经被赋值了，所以在程序中可以直接使用parseInt等函数</p>
+<p>1.全局执行环境<br>JavaScript中有两种执行环境，全局环境和函数环境</p>
+<ul>
+<li>在全局执行环境中代码执行之前，系统会为执行环境创建一个用来管理当前执行环境中所有标识符的对象，也就是管理当前执行环境中声明的所有变量和函数，这个对象就是Global对象，在浏览器中就是window对象</li>
+<li>任何在全局执行环境中声明的变量和函数都会作为Global对象的属性存在，属性名，就是定义时所使用的标识符，属性值就是变量值或者函数对象</li>
+<li>如果出现重复定义的变量或者函数，只要标识符相同，后定义的值就会覆盖原先的值<br>例如：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    alert(<span class="string">'a'</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params">x,y</span>)</span>&#123;</span><br><span class="line">    alert(<span class="string">'aa'</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> a=<span class="number">10</span>;</span><br><span class="line">alert(a);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>上面程序中，alert函数最终结果将显示10，并且不会引发任何程序错误，因为在javascript中，这几句代码只是改变了Global对象a属性的值而已。<br>2.浏览器中的Global对象</p>
+<p>window对象就是浏览器中的全局对象</p>
+<p>3.this指针</p>
+<p>this关键字表示对某个对象的引用，可以把它理解为引用类型的变量，但它的值是由系统确定的，也就是说，this无法被赋值</p>
+<p>在javascript中，this很强很复杂，任何地方都能使用this，并且根据this出现的位子，它的含义也是有所不同的。</p>
+<ul>
+<li>在全局执行环境中，使用this，表示Global对象，在浏览器中就是window对象</li>
+<li>当在函数执行环境中使用this时，情况就有些复杂了。如果函数没有明显的非window对象属性，而只是定义了函数，不管这个函数是不是定义在另一个函数中，这个函数中的this仍然表示window对象。如果函数显式的作为一个非window对象的属性，那么函数中的this就代表这个对象</li>
+</ul>
+<p>例如：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> o=<span class="keyword">new</span> <span class="built_in">Object</span>；</span><br><span class="line">o.func=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;  <span class="comment">//对象o的func属性为一个函数</span></span><br><span class="line">    alert(<span class="string">"作为属性的函数："</span>+(<span class="keyword">this</span>===o));<span class="comment">//判断this是否为函数所绑定的对象,true</span></span><br><span class="line">    (<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        alert(<span class="string">"普通函数："</span>+(<span class="keyword">this</span>===<span class="built_in">window</span>));<span class="comment">//判断this是否为window对象,true</span></span><br><span class="line">    &#125;)();</span><br><span class="line">&#125;</span><br><span class="line">o.func();</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>当通过new对象运算符来调用函数时，函数被当做一个构造函数，this指向构造函数创建出来的对象<h4 id="Object对象"><a href="#Object对象" class="headerlink" title="Object对象"></a>Object对象</h4>Object对象是所有对象的基础，任何其他对象都是从Object对象扩展而来的，或者说是继承，而这一切的实现都是由“原型”来完成的。</li>
+</ul>
+<p>1.原型对象</p>
+<p>原型对象是对象的一个属性，也就是Prototype内部的属性，每个对象(包括宿主对象)都有这个内部属性，它本身也是一个对象<br>在javascript中，每个对象，都不是直接包含具体的属性，而是通过原型进行属性的共享。<br>例如：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Object</span>.prototype.num=<span class="number">20</span>;</span><br><span class="line">alert(<span class="string">"添加原型属性:"</span>+<span class="built_in">Object</span>.num);</span><br><span class="line"><span class="built_in">Object</span>.num=<span class="number">10</span>;</span><br><span class="line">alert(<span class="string">"添加对象属性"</span>+<span class="built_in">Object</span>.num);</span><br></pre></td></tr></table></figure></p>
+<p>实际上，当获取一个对象的属性时，系统首先检测对象是否直接包含这个属性，如果不包含，那就去对象的原型属性中再查找这个属性，如果也没找到，就会返回undefined</p>
+<p>表面上看着原型似乎没有存在的必要，但是，它是用来实现继承的关键对象</p>
+<p>2.原型链</p>
+<p>要理解javascript如何实现继承，必须先区分一个概念：每个对象都具有Prototype内部属性，但不是每个对象都可以通过”对象.prototype”访问到这个属性，只有拥有Construct内部属性的对象(也就是构造函数)才能直接访问到Prototype属性，因为这些对象可以被理解为类，而在面向对象的概念中，只有类才能被继承、扩展.</p>
+<p>任何对象都有Prototype属性，当然也包括prototype对象本身。当程序试图获取String对象中属性名为a的属性时，系统会执行如下步骤。</p>
+<p>①查找String对象是否有名为a的属性，如果有，返回程序</p>
+<p>②查找String对象的prototype属性对象，是否有名为a的属性，如果有，返回程序</p>
+<p>③查找属性对象的prototype属性对象中是否有名为a的属性，如果没有，则继续查找下一个原型对象的prototype属性对象，直到它为null</p>
+<p>每个对象都隐式或者显式的关联有一个原型对象，并且这个原型对象可能也隐式或者显式的关联有另一个原型对象，这称为原型链。原型链使得原型中的属性得以共享。例如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Object</span>.prototype.a=<span class="number">3.14</span>;</span><br><span class="line">alert(<span class="string">"Object对象的实例:"</span>+<span class="keyword">new</span> <span class="built_in">Object</span>().a);</span><br><span class="line">alert(<span class="string">"String对象:"</span>+<span class="built_in">String</span>.a);</span><br></pre></td></tr></table></figure>
+<p>当扩展了Object的原型后，所有本地对象都拥有了这个属性，因为所有的本地对象都可以继承自Object对象。但原型链是有先后顺序的，也就是说，扩展了Object原型，String对象就可以得到新的扩展，反之，则不行。</p>
+<p>3.原型扩展</p>
+<p>有两种方式可以扩展原型，不管那种方式都会对原型所在的原型链产生影响。</p>
+<p>①：属性扩展</p>
+<p>对构造函数的原型对象进行属性扩展后，扩展结果对继承此原型的对象都有效，通常用在扩展javascript对象的功能。</p>
+<p>例如，javascript中字符串类型，没有去掉空格的方法，而通过原型扩展，可以给javascript中的字符串都扩展此功能。例如：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">String</span>.prototype.trim=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="comment">//逻辑处理</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//就可以这样使用</span></span><br><span class="line"><span class="string">"a b"</span>.trim();</span><br></pre></td></tr></table></figure></p>
+<p>②： 对象赋值<br>当用户对自定义的类进行扩展时，最直接、最简单的方法就是直接对构造函数的原型进行赋值，例如：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">String</span>.prototype=<span class="built_in">Object</span>.prototype</span><br></pre></td></tr></table></figure></p>
+<p>这样，String类就完全继承了Object类的所有属性，<em>但是，上面这个例子无法运行，因为所有内置对象的prototype属性都只有只读特性</em></p>
+<h4 id="Function对象"><a href="#Function对象" class="headerlink" title="Function对象"></a>Function对象</h4><p>当开发者使用function关键字定义了一个函数的时候，在系统内部的实际上是创建了Function类的一个对象实例，也就是说，javascript中的函数也是对象<br>例如：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> func=<span class="keyword">new</span> <span class="built_in">Function</span>(<span class="string">"a"</span>,<span class="string">"b"</span>,<span class="string">"return a-b"</span>);</span><br><span class="line">alert(func(<span class="number">3</span>,<span class="number">4</span>));</span><br></pre></td></tr></table></figure></p>
+<p>在javascript中，无论是通过function关键字定义一个函数护着通过Function类创建一个函数，他们都是等价的。但是通过Function类创建函数具有无可比拟的动态性，它允许程序运行期间动态的创建函数。</p>
+<p>语法：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> 函数名=<span class="keyword">new</span> <span class="built_in">Function</span>(形参<span class="number">1</span>，形参<span class="number">2</span>,....,形参n，函数体);</span><br></pre></td></tr></table></figure></p>
+<p> 通过Function构造函数创建一个函数，从形势上来说读者更容易理解为创建了一个对象实例，这刚好解释了对象的Call属性：函数是一个包含了”参数列表”以及”函数体”的对象，他们都是以字符串格式作为函数对象的属性存在的。</p>
+<p>除了通过”函数名()”的方式调用函数外，函数对象还有两个方法属性，用来实现动态的函数调用</p>
+<p>①：apply(this参数,函数参数数组)<br>apply方法可以动态的改变函数中this的引用 例如：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj=<span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line"><span class="keyword">var</span> func1=<span class="keyword">new</span> <span class="built_in">Function</span>(<span class="string">"a"</span>,<span class="string">"b"</span>,<span class="string">"alert(\"function1\"+(this===window)+\",\"+(a-b))"</span>);</span><br><span class="line"><span class="keyword">var</span> func2=<span class="function"><span class="keyword">function</span>(<span class="params">a,b</span>)</span>&#123;</span><br><span class="line">    alert(<span class="string">"func2:"</span>+(<span class="keyword">this</span>===obj)+<span class="string">","</span>+(a-b))</span><br><span class="line">&#125;</span><br><span class="line">func1(<span class="number">3</span>,<span class="number">4</span>);</span><br><span class="line">func2.appply(obj,[<span class="number">3</span>,<span class="number">4</span>]);</span><br></pre></td></tr></table></figure></p>
+<p>apply方法有两个参数，一个是改变函数中的this引用，在一个就是传递给函数本身的参数列表，他们被放在一个数组中。在需要动态改变函数this引用的情况下，就可以使用这个方法</p>
+<p>② call(this参数,函数参数1，函数参数2,…函数参数n)</p>
+<p>call方法就是apply的最佳替代者，他可以不用传递数组，例如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj=<span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line"><span class="keyword">var</span> func1=<span class="keyword">new</span> <span class="built_in">Function</span>(<span class="string">"a"</span>,<span class="string">"b"</span>,<span class="string">"alert(\"apply:\"+(this===window)+\",\"+(a-b))"</span>);</span><br><span class="line"><span class="keyword">var</span> func2=<span class="function"><span class="keyword">function</span>(<span class="params">a,b</span>)</span>&#123;</span><br><span class="line">    alert(<span class="string">"call:"</span>+(<span class="keyword">this</span>===obj)+<span class="string">","</span>+(a-b))</span><br><span class="line">&#125;</span><br><span class="line">func1.apply(<span class="literal">null</span>,[<span class="number">3</span>,<span class="number">4</span>]);</span><br><span class="line">func2.call(obj,<span class="number">3</span>,<span class="number">4</span>);</span><br></pre></td></tr></table></figure>
+<p>call和apply的区别就是传递参数的形式不同，对他们来说，当”this”参数不是一个有效对象时，函数中的this引用指向Global对象。</p>
+<p>1.函数执行环境</p>
+<p>相对于单纯的全局执行环境，函数执行环境多了至少一层被包含的关系，对于嵌套函数来说，被包含的层数可能会很多。这对于函数执行环境中的标识符管理来说会更复杂。</p>
+<ul>
+<li>像全局执行环境那样，在函数执行环境中的代码执行之前，系统也会为执行环境创建一个用来管理当前执行环境中所有标识符的对象。在javascript中，称这个对象为活动对象。不像Global对象，活动对象无法通过代码访问到，但它的作用跟Global对象是相同的。</li>
+<li>在任何函数执行环境中声明的变量和函数都会作为活动对象的属性存在，属性名就是定义时使用的标识符，属性值就是变量值或者函数对象。</li>
+<li>如果出现重复定义的变量或函数，只要标识符相同，后定义的值就会覆盖原先的值。</li>
+<li>当在函数执行环境中检索一个标识符P时，也就是调用一个名字为P的属性，如果活动对象没有名为P的属性，那么系统会扩展检索范围为包含当前执行环境的上层环境。如果知道Global对象没有P属性，那么将引起程序错误。例如：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> <span class="built_in">parseInt</span>=<span class="function"><span class="keyword">function</span>(<span class="params">x</span>)</span>&#123;</span><br><span class="line">        alert(x&lt;&lt;<span class="number">1</span>^<span class="number">2</span>|<span class="number">3</span>&amp;<span class="number">4</span>&gt;&gt;&gt;x);</span><br><span class="line">        <span class="built_in">parseInt</span>(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">func();</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>上例中使用parseInt的结果并不是解析整数，而是弹出一个对话框并显示运算结果。因为parseInt是Global对象的而属性，当在函数执行环境中给活动对象定义了重名的属性时，系统会优先检索当前环境中的属性。所以在func()函数中使用parseInt属性时，它的值已经被改变了。如果要使用解析整数的parseInt，必须使用window.parseInt() 。</p>
+<p>2.arguments 对象</p>
+<p>当一个函数要被执行的时候，系统会在执行函数体代码前做一些初始化的工作，其中之一就是为函数对象创建一个arguments对象属性<br>arguments对象只能使用函数体中，并用来管理函数的实际参数。</p>
+<p>①caller/callee属性<br>caller属性并不是arguments对象的，而是函数本身的属性。它显示了函数的调用者。如果函数在全局执行环境中被调用，那么它的值为null，如果在另一个函数中被调用，它的值就是个函数。</p>
+<p>例如：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a=<span class="keyword">new</span> <span class="built_in">Function</span>(<span class="string">"alert('a:'+a.caller)"</span>);</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">b</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    a();</span><br><span class="line">    alert(<span class="string">'b:'</span>+b.caller);</span><br><span class="line">&#125;b();</span><br></pre></td></tr></table></figure></p>
+<p>如果在函数体外部使用caller属性，将始终得到null<br>calle是arguments对象的属性，表示正在执行的函数，也就是函数本身，例如：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    alert(<span class="built_in">arguments</span>.callee)</span><br><span class="line">&#125;)()</span><br></pre></td></tr></table></figure></p>
+<p>在匿名函数中，无法获取函数对象的引用。所以arguments对象提供了calle属性，通常它与直接引用函数对象是等价的，起码在功能上是这样。但他们并不是同一个对象，所以最好使用calle属性，而避免直接使用函数对象。</p>
+<p>②length属性</p>
+<p>length是arguments对象属性，表示函数被调用时传递的参数个数。可以使用一个小于length的整数，采用数组元素的访问方式来访问arguments对象，例如：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">argc</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    alert(<span class="built_in">arguments</span>[<span class="number">0</span>]+<span class="built_in">arguments</span>[<span class="number">1</span>]);</span><br><span class="line">&#125;</span><br><span class="line">argc(<span class="number">1</span>,<span class="number">2</span>);</span><br></pre></td></tr></table></figure></p>
+<p>虽然arguments对象属性，表示函数被调用时实际传递的参数个数。但他不是Array类型的一个实例。</p>
+<p>3.构造函数</p>
+<p>构造函数在javascript中见对象的Construct属性描述。每个对象都有一指向创建自己的构造函数的属性：constructor。通过“对象.constructor” 就可以访问到这个构造函数。</p>
+<p>构造函数是创建一切对象的工具，当使用new操作符来调用构造函数F创建对象的时候，构造函数F会执行一系列步骤来完成这个对象的创建。</p>
+<ul>
+<li>创建一个本地对象O(为对象分配内存空间等系统操作)。</li>
+<li><p>设置O的class属性为”Object”或者其他本地类型，例如”Number”、”String”等。这是根据<br>构造函数的类型来确定的。</p>
+</li>
+<li><p>设置O的prototype属性为Object.prototype或者其他本地对象的原型，例如Number.prototype、String.prototype等。这是根据构造函数类型确定的</p>
+</li>
+<li>调用F的Call属性，将O作为this的值。</li>
+<li>如果Call的返回值的类型是对象(指函数体内的return语句)，返回这个对象</li>
+<li>返回O</li>
+</ul>
+<p>如何使用构造函数：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">Constructor</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.a=<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Array</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">var</span> obj=<span class="keyword">new</span> Constructor();</span><br><span class="line">    alert(<span class="string">"obj对象是否为Array类的实例："</span>+(obj <span class="keyword">instanceof</span> <span class="built_in">Array</span>)+<span class="string">"\n\n属性a："</span>+obj.a);</span><br><span class="line">    又例如：</span><br><span class="line"><span class="string">``</span><span class="string">`javascript</span><br><span class="line">    function Constructor()&#123;</span><br><span class="line">        this.a=1;</span><br><span class="line">    &#125;</span><br><span class="line">    var obj=new Constructor();</span><br><span class="line">    alert("obj对象是否为Array类的实例:"+(obj instanceof Array) +"\n\n属性a:"+obj.a);</span></span><br></pre></td></tr></table></figure></p>
+<p>如果函数的返回值是对象，那么构造函数的结果将得到这个对象，并且函数中的this跟这个对象没有任何关系。</p>
+<p>如果函数没有返回值，或者返回值不是对象(例如返回一个整数)，那么构造函数的结果将是构造函数执行流程中创建的新的本地对象。并且函数中的this指向这个对象。</p>
+<p>开发人员只需要知道构造函数能创建一个继承了Object原型属性的对象就可以了。</p>
+<p>在javascript中有两类构造函数，一类是系统已经定义好的，例如Object、Function等，另一类就是可以由用户自己定义的函数对象。</p>
+<p>1）.内置构造函数</p>
+<p>内置构造函数指拥有Construct内部属性的内置对象，他们的Prototype属性可以直接访问到。但是这个属性是只读的，也就是不能被赋值。</p>
+<p>这些构造函数的执行过程如下，以Function对象为例。</p>
+<p>①创建一个新的本地对象F</p>
+<p>②设置F的class属性为Function</p>
+<p>③设置F的Prototype属性为Function.prototype</p>
+<p>④设置F的Construct属性为“Function实例构造函数”</p>
+<p>⑤设置F的constructor属性为Function对象</p>
+<p>⑥设置F的prototype属性为一个Object对象实例，并且这个对象的constructor属性值为F</p>
+<p>⑦返回F</p>
+<p>例如：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Constructor</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="comment">//...</span></span><br><span class="line">&#125;</span><br><span class="line">alert(Constructor.prototype.constructor===Constructor);<span class="comment">//结果为true</span></span><br><span class="line">alert(Constructor.prototype <span class="keyword">instanceof</span> <span class="built_in">Object</span>);</span><br><span class="line"><span class="comment">//原型对象是Object构造函数的实例</span></span><br></pre></td></tr></table></figure></p>
+<p>上面代码演示了，一个构造函数的原型属性的构造器是它本身，但这并不是说原型对象是由构造函数自身创建的，实际上是由Object构造函数创建的。</p>
+<p>2）.Function实例构造函数</p>
+<p>通过new Function()或者function关键字创建的函数对象，都是Function构造函数的实例，为了与Function对象区分，我们在这里将其称为”function对象”</p>
+<p>function对象是除了内置构造函数外唯一拥有的Construct属性的本地对象(有些宿主对象也有Construct属性)，当一个function对象F被当作构造函数调用时，它的执行过程如下：</p>
+<p>①创建一个新的本地对象O</p>
+<p>②设置O的class属性为”Object”</p>
+<p>③如果F.prototype属性值是一个对象，设置O的prototype属性为F.prototype，否则设置O的Prototype属性为Object.prototype</p>
+<p>④调用F的Call属性，将O作为this的值</p>
+<p>⑤如果Call的返回值类型是对象(指函数体内的return语句)，返回这个对象，它的constructor属性为创建它的构造函数。</p>
+<p>⑥设置O的constructor属性为F.prototype.constructor对象</p>
+<p>⑦返回O</p>
+<p>下面看看构造函数的执行过程<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//定义函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Constructor</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.a=<span class="number">3</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//调用构造函数</span></span><br><span class="line"><span class="keyword">var</span> obj=<span class="keyword">new</span> Constructor();</span><br><span class="line">alert(<span class="string">"属性a："</span>+obj.a+<span class="string">"\n属性b："</span>+obj.b+<span class="string">"\n构造函数："</span>+obj.constructor);</span><br></pre></td></tr></table></figure></p>
+<p>若构造函数执行前扩展了原型，情况就不一样了<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//当作原型的对象</span></span><br><span class="line"><span class="keyword">var</span> p=<span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line">p.a=<span class="number">1</span>;</span><br><span class="line">p.b=<span class="number">2</span>;</span><br><span class="line"><span class="comment">//定义函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Constructor</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.a=<span class="number">3</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//改变构造函数原型</span></span><br><span class="line">Constructor.prototype=p;</span><br><span class="line"><span class="comment">//调用构造函数</span></span><br><span class="line"><span class="keyword">var</span> obj=<span class="keyword">new</span> Constructor();</span><br><span class="line">alert(<span class="string">"属性a："</span>+obj.a+<span class="string">"\n属性b:"</span>+obj.b+<span class="string">"\n构造函数："</span>+obj.constructor);</span><br></pre></td></tr></table></figure></p>
+<p>4.类的模拟</p>
+<p>面向对象最重要的概念是继承，继承可以只对基类做需要的扩展，而不需要重写整个基类的代码，例如：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//扩展原型</span></span><br><span class="line"><span class="built_in">Object</span>.prototype.shift=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    alert(<span class="keyword">this</span>.color);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> redCar=<span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line">redCar.color=<span class="string">"红色"</span>;</span><br><span class="line"><span class="keyword">var</span> blueCar=<span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line">blueCar.color=<span class="string">"蓝色"</span>;</span><br><span class="line">redCar.shift();</span><br><span class="line">blueCar.shift();</span><br></pre></td></tr></table></figure></p>
+<p>上面代码扩展了Object构造函数的原型，使shift方法可以重用，但这导致了一个新的问题。如果想要创建一个具有不同行为的shift方法给另一个类型的对象，就不行了，因为属性同名了。并且内置构造函数的prototype属性只能扩展，不能替换。</p>
+<p>满足这些要求的只有function对象，它本身是构造函数，而且prototype属性可以扩展和替换，最重要的是从格式上都是最贴近类的。<br>例如：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//创建Car类型</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Car</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.color=<span class="literal">null</span>;<span class="comment">//可省略</span></span><br><span class="line">    <span class="keyword">this</span>.shift=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        alert(<span class="keyword">this</span>.color+<span class="string">"汽车"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> redCar=<span class="keyword">new</span> Car();</span><br><span class="line">redCar.color=<span class="string">"红色"</span>;</span><br><span class="line"><span class="keyword">var</span> blueCar=<span class="keyword">new</span> Car();</span><br><span class="line">blueCar.color=<span class="string">"蓝色"</span>;</span><br><span class="line">redCar.shift();</span><br><span class="line">blueCar.shift();</span><br><span class="line"><span class="comment">//创建Plane类型</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Plane</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.shift=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        alert(<span class="keyword">this</span>.color+<span class="string">"飞机"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> redPlane=<span class="keyword">new</span> Plane();</span><br><span class="line">redPlane.color=<span class="string">"红色"</span>;</span><br><span class="line"><span class="keyword">var</span> bluePlane=<span class="keyword">new</span> Plane();</span><br><span class="line">bluePlane.color=<span class="string">"蓝色"</span>;</span><br><span class="line">redPlane.shift();</span><br><span class="line">bluePlane.shift();</span><br></pre></td></tr></table></figure></p>
+<h4 id="Array对象"><a href="#Array对象" class="headerlink" title="Array对象"></a>Array对象</h4><p>在javascript中，数组也是对象，这就是为什么数组的长度可以自动变更的原因。当使用一对方括号来创建一个数组的时候，实际上调用了Array构造函数来创建一个Array类的实例。<br>创建数组有两种方式<br>语法：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> 数组名=<span class="keyword">new</span> <span class="built_in">Array</span>(元素<span class="number">1</span>,元素<span class="number">2</span>,...元素n);</span><br></pre></td></tr></table></figure></p>
+<p>或者：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> 数组名=<span class="keyword">new</span> <span class="built_in">Array</span>(数组长度);</span><br></pre></td></tr></table></figure></p>
+<p>1.删除数组元素<br>最简单的删除数组元素的方法就是将指定数组元素赋值为null，或者使用delete操作符<br>例如：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr=<span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>);</span><br><span class="line">arr[<span class="number">1</span>]=<span class="literal">null</span>;</span><br><span class="line"><span class="keyword">delete</span> arr[<span class="number">2</span>];</span><br><span class="line">alert(<span class="string">"数组长度为："</span>+arr.length);</span><br></pre></td></tr></table></figure></p>
+<p>2.线性结构<br>javascript中的数组是十分强大的对象类型之一，一个数组就可以模拟所有的线性结构。</p>
+<p>Array实例对象的方法允许从数组两端访问或者删除数组元素，这种特性直接就可以达到模拟线性结构的要求。关于push()、pop()、unshift()、shift()方法的使用说明，请自行查阅。</p>
+<p>3.排序算法<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr=<span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">4</span>,<span class="number">9</span>,<span class="number">3</span>,<span class="number">8</span>,<span class="number">15</span>);</span><br><span class="line"><span class="comment">//从小到大排序</span></span><br><span class="line">arr.sort(<span class="function"><span class="keyword">function</span>(<span class="params">a,b</span>)</span>&#123; <span class="keyword">return</span> a-b;&#125;);</span><br><span class="line">alert(<span class="string">"从小到大："</span>+arr);</span><br><span class="line"><span class="comment">//反置数组中的元素顺序</span></span><br><span class="line">arr.reverse();</span><br><span class="line">alert(<span class="string">"从大到小："</span>+arr);</span><br></pre></td></tr></table></figure></p>
+<h4 id="String对象"><a href="#String对象" class="headerlink" title="String对象"></a>String对象</h4><p>①通过一对双引号或者单引号创建的变量是String类型的一个值，是基本类型</p>
+<p>②内置对象String是一个构造函数，类型是Function</p>
+<p>③通过new 操作符来调用String构造函数创建的String实例对象，是Object类型的一个值，Object类型表示对象类型，不是基本类型</p>
+<p>例如：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//定义一个String 类型变量</span></span><br><span class="line"><span class="keyword">var</span> str=<span class="string">"abc"</span>;</span><br><span class="line"><span class="comment">//通过String 构造函数创建一个Object类型的字符串对象</span></span><br><span class="line"><span class="keyword">var</span> strObj=<span class="keyword">new</span> <span class="built_in">String</span>(<span class="string">"abc"</span>);</span><br><span class="line">alert(<span class="string">"str的类型："</span>+(<span class="keyword">typeof</span> str)+<span class="string">"\nstrObj的类型："</span>+(<span class="keyword">typeof</span>(strObj))+<span class="string">"\nString 构造函数类型："</span>+(<span class="keyword">typeof</span> <span class="built_in">String</span>));</span><br></pre></td></tr></table></figure></p>
+<h4 id="Date对象"><a href="#Date对象" class="headerlink" title="Date对象"></a>Date对象</h4><p>1.Date实例对象<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> now=<span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line">alert(now);</span><br></pre></td></tr></table></figure></p>
+<p>2.时间比较<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//先后比较</span></span><br><span class="line"><span class="keyword">var</span> a=<span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line"><span class="keyword">var</span> b=<span class="keyword">new</span> <span class="built_in">Date</span>(<span class="number">1900</span>,<span class="number">1</span>,<span class="number">1</span>);</span><br><span class="line">alert(a&gt;b);<span class="comment">//结果为true</span></span><br><span class="line"><span class="comment">//相等比较</span></span><br><span class="line"><span class="keyword">var</span> a=<span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line"><span class="keyword">var</span> b=<span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line">alert(a==b);<span class="comment">//返回false</span></span><br><span class="line">alert(a.valueOf()==b.valueOf())<span class="comment">//true</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="RegExp-正则表达式-对象"><a href="#RegExp-正则表达式-对象" class="headerlink" title="RegExp(正则表达式)对象"></a>RegExp(正则表达式)对象</h4><p>1.创建正则表达式</p>
+<p>语法：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> 对象名=<span class="regexp">/表达式/</span>;</span><br></pre></td></tr></table></figure></p>
+<p>或者：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> 对象名=<span class="keyword">new</span> <span class="built_in">RegExp</span>(表达式);</span><br></pre></td></tr></table></figure></p>
+<p>例如：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//方式1</span></span><br><span class="line"><span class="keyword">var</span> regExp=<span class="regexp">/^http[s]?:\/\//</span>;</span><br><span class="line">alert(regExp.test(<span class="string">"http://"</span>));<span class="comment">//true</span></span><br><span class="line"><span class="comment">//方式2</span></span><br><span class="line">regExp=<span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">"^http[s]?:\/\/"</span>);</span><br><span class="line">alert(regExp.test(<span class="string">"https://"</span>));<span class="comment">//true</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="Math-对象"><a href="#Math-对象" class="headerlink" title="Math 对象"></a>Math 对象</h4><p>Math对象提供丰富的数学函数</p>
+<p>Math.sqrt(n):计算n的平方根</p>
+<p>Math.abs(n)：计算n的绝对值</p>
+<h4 id="Error对象"><a href="#Error对象" class="headerlink" title="Error对象"></a>Error对象</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//创建Error类实例</span></span><br><span class="line"><span class="keyword">var</span> custError=<span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">"自定义错误"</span>);</span><br><span class="line"><span class="comment">//抛出异常</span></span><br><span class="line"><span class="keyword">throw</span> custError；</span><br></pre></td></tr></table></figure>
+<h4 id="JSON对象"><a href="#JSON对象" class="headerlink" title="JSON对象"></a>JSON对象</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">JSON</span>.parse(<span class="string">'&#123;"name":"ken","sex":"male"&#125;'</span>);<span class="comment">//把字符串解析成对象</span></span><br><span class="line"><span class="built_in">JSON</span>.stringify(&#123;name:<span class="string">"ken"</span>,sex:<span class="string">"male"</span>&#125;);<span class="comment">//结果就是parse的参数</span></span><br></pre></td></tr></table></figure>
+
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+
+
+
+
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+        <a href="/2017/06/02/从零开始学Python--高级特性/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2017/06/02/从零开始学Python--面向对象编程/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/img/sidebar_header.png);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="/img/avatar1.png" alt="MagicDo's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        johndu@magicdu.cn
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="#" target="_blank" title="Email Me">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        
+                        Email Me
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/" target="_self">
+                
+                    <i class="material-icons sidebar-material-icons">home</i>
+                
+                主页
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">inbox</i>
+                
+                    归档
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/archives/2019/10/">十月 2019<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/06/">六月 2017<span class="sidebar_archives-count">20</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Categories  -->
+    
+
+    <!-- Pages  -->
+    
+
+    <!-- Article Number  -->
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Sidebar Divider -->
+
+    <div class="sidebar-divider"></div>
+
+
+<!-- Theme Material -->
+
+    <a href="https://github.com/viosey/hexo-theme-material"  class="sidebar-footer-text-a" target="_blank">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+            主题 - Material
+            <span class="sidebar-badge badge-circle">i</span>
+        </div>
+    </a>
+
+
+<!-- Help & Support -->
+<!--
+
+-->
+
+<!-- Feedback -->
+<!--
+
+-->
+
+<!-- About Theme -->
+<!--
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+        <a href="https://twitter.com/twitter" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-twitter.png);">
+                <span class="visuallyhidden">Twitter</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Facebook -->
+    
+        <a href="https://www.facebook.com/facebook" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-facebook.png);">
+                <span class="visuallyhidden">Facebook</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Google + -->
+    
+        <a href="https://www.google.com/" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-gplus.png);">
+                <span class="visuallyhidden">Google Plus</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Weibo -->
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+        <a href="https://github.com/magicdu" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-github.png);">
+                <span class="visuallyhidden">Github</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
+</div>
+
+
+        <!--Copyright-->
+        <div id="copyright">
+            Copyright&nbsp;©&nbsp;
+            <script type="text/javascript">
+                var fd = new Date();
+                document.write(fd.getFullYear());
+            </script>
+            &nbsp;Stack Overflow
+        </div>
+
+        <!-- Paradox Footer Right Section -->
+
+        <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
+            </div>
+        </div>
+    
+</footer>
+
+
+                    <!-- Import File -->
+<script src="/js/lazyload.min.js"></script>
+<script src="/js/js.min.js"></script>
+<script src="/js/nprogress.js"></script>
+
+<script type="text/javascript">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Swiftye -->
+
+
+<!-- Local Search-->
+
+
+<!-- Window Load-->
+<script>
+    $(window).load(function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+</script>
+
+<!-- MathJax Load-->
+
+
+                </main>
+            </div>
+        </body>
+    
+</html>

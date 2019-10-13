@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+    <!-- 
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.3.0 -->
+
+    <!-- Title -->
+    
+    <title>
+        
+            feign 源码解析 | 
+        
+        Stack Overflow
+    </title>
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/img/favicon.ico">
+    <link rel="icon" sizes="192x192" href="/img/favicon.ico">
+    <link rel="apple-touch-icon" href="/img/favicon.ico">
+
+    <!-- Meta & Info -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#0097A7">
+    <meta name="author" content="MagicDo">
+    <meta name="description" content="世界很大，我很小">
+    <meta name="keywords" content="null,feign">
+
+    <!--iOS -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-title" content="Title">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="480">
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Stack Overflow">
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="http://github.magicdu.cn">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="feign 源码解析 | Stack Overflow">
+    <meta property="og:description" content="世界很大，我很小">
+    <meta property="og:article:tag" content="feign"> 
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import CSS -->
+    <link rel="stylesheet" href="/css/material.min.css">
+    <link rel="stylesheet" href="/css/style.min.css">
+    <!-- Config CSS -->
+
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+  }
+
+  a {
+    color: #00838F;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #0097A7 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #0097A7 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #0097A7 !important;
+  }
+
+  .toTop {
+    background: #757575 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #757575;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #757575;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #757575;
+  }
+
+  .post-toc a:hover {
+    color: #00838F;
+    text-decoration: underline;
+  }
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body{
+        background-color: #F5F5F5;
+      }
+
+      /* blog_info bottom background */
+      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
+        background-color: #fff;
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/queue.js"></script>
+
+    <!-- UC Browser Compatible -->
+    <script>
+        var agent = navigator.userAgent.toLowerCase();
+        if(agent.indexOf('ucbrowser')>0) {
+            document.write("<link rel=\"stylesheet\" href=\"/css/uc.css\">");
+            alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+        }
+    </script>
+
+    
+
+    
+
+    <!-- Bing Background -->
+    
+
+    <!-- Custom Head -->
+    
+</head>
+
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+    <!-- Left aligned menu below button -->
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#feign-服务调用流程"><span class="post-toc-number">1.</span> <span class="post-toc-text">feign  服务调用流程</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#源码解析"><span class="post-toc-number">2.</span> <span class="post-toc-text">源码解析</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#扫描EnableFeignClients-注解"><span class="post-toc-number">3.</span> <span class="post-toc-text">扫描EnableFeignClients 注解</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#bean-注入-ioc容器"><span class="post-toc-number">4.</span> <span class="post-toc-text">bean 注入 ioc容器</span></a></li></ol>
+
+        <!--
+        <li class="mdl-menu__item">
+            Some Action
+        </li>
+        -->
+    </ul>
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
+    
+        
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+            <script>
+    var randomNum = Math.floor(Math.random() * 19 + 1);
+
+    $('.post_thumbnail-random').css('background-image', 'url(' + '/img/random/material-' + randomNum + '.png' + ')');
+</script>
+
+        
+    
+            <p class="article-headline-p">
+                feign 源码解析
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/avatar1.png" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>MagicDo</strong>
+        <span>10月 13, 2019</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+        <button id="article-functions-qrcode-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+            <i class="material-icons" role="presentation">devices other</i>
+            <span class="visuallyhidden">devices other</span>
+        </button>
+        <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
+            <li class="mdl-menu__item">在其它设备中阅读本文章</li>
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAACz0lEQVR42u3aMXbjMAwEUN//0tl2i1g7A8obhfys/BzF5mcDA8PX15HrhY2NjY2NjY2Njf1I9itefz//zYe+ef/dk+8+Od9D/jw2Njb2Cexko+/eyY/pGpCQlvaMjY2NfQB7VrTadf3tealr94yNjY2NfV1yVopiAsbGxsbGvpedI69L16z4YWNjY2P/n2JzVzlM9vDxWRo2Njb249krm/6p1z+Wb2NjY2M/jF1fYQyiglkTkvz1tsuX2NjY2Bux85/+bcGYhcT5UeYRMjY2Nvbe7Osh+8qTeVSQDJva44jqNjY2NvYW7FmhmkWts4ChjY3rVgQbGxv7l7PbMvPpSzl5GWtjYGxsbOxd2W2Yun4EyZMrjVCRb2NjY2NvwW6bgbZEtW3PvRECNjY29gnsfHP5T/82Bm7xw0PHxsbG3pSdb6Id7qyM9fPCmTcq2NjY2LuyZwP6NvTN24a2LBWFEBsbG3tTdt6WzFZLzSPn/LixsbGxT2CvX6zJw+NZkLzSCGFjY2PvzW4HPeuty8oYa/YONjY29gns2dgoiQTy120wUP8vNjY29qbs/EOTgc6sOM2GSu3YCxsbG/sE9mx8PyswyUHc3MZgY2Njb8puY4D2ms7siGfRQhH0YmNjY2/HTmBJectH/LMIeVYOsbGxsc9hz/B56fpHgVkoUdG3Y2NjY2/KXrm+kwe9efFry95tQS82Njb2Fuw6Ol0Y3LcRQlv8sLGxsc9h51vPvywvLSuBbhtIYGNjY+/KbtcsAG7HRrOGZ6kVwcbGxv617Fe82u3mQ6I2MG6/CxsbG/sEdjtmyhuV2YG2BSzaDzY2NvYB7FlLsPJkUX6WWxdsbGxs7JVLOUnxawdV7UUibGxsbOy8FWk3Ohsk1Q0VNjY29gHsfKjUPjOLENrm5OPxADY2NvaD2c8JepNjbQ8CGxsbe2/2OQsbGxsbGxsbGxv7MesPSONm2eesdtAAAAAASUVORK5CYII=">
+        </ul>
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-link" href="/tags/feign/">feign</a>
+    </ul>
+    
+
+    <!-- Share -->
+    <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=feign 源码解析&url=http://github.magicdu.cn//2019/10/13/feign  服务调用流程/index.html&pic=&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=feign 源码解析&url=http://github.magicdu.cn//2019/10/13/feign  服务调用流程/index.html&via=MagicDo" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://github.magicdu.cn//2019/10/13/feign  服务调用流程/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=http://github.magicdu.cn//2019/10/13/feign  服务调用流程/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <h5 id="feign-服务调用流程"><a href="#feign-服务调用流程" class="headerlink" title="feign  服务调用流程"></a>feign  服务调用流程</h5><ul>
+<li>首先通过@EnableFeignClients注解开启FeignCleint</li>
+<li>根据Feign的规则实现接口，并加@FeignCleint注解</li>
+<li>程序启动后，会进行包扫描，扫描所有的@ FeignCleint的注解的类，并将这些信息注入到ioc容器中。</li>
+<li>当接口的方法被调用，通过jdk的代理，来生成具体的RequesTemplate</li>
+<li>RequesTemplate在生成Request</li>
+<li>Request交给Client去处理，其中Client可以是HttpUrlConnection、HttpClient也可以是Okhttp</li>
+<li>最后Client被封装到LoadBalanceClient类，这个类结合类Ribbon做到了负载均衡。</li>
+</ul>
+<p>我们用流程图来简单标示下服务调用的过程</p>
+<a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line">   i1(扫描EnableFeignClients 注解) --&gt; i2(扫描FeignClient 注解的接口)</span><br><span class="line">   i2 --&gt; i3(以bean的形式注入到ioc容器中)</span><br><span class="line">   i4(请求feignclient 注解的方法) --&gt; i5(根据动态代理生成request请求发给对应服务) </span><br><span class="line">   i5 --&gt; i6(解析请求结果返回)</span><br></pre></td></tr></table></figure>
+<h5 id="源码解析"><a href="#源码解析" class="headerlink" title="源码解析"></a>源码解析</h5><h5 id="扫描EnableFeignClients-注解"><a href="#扫描EnableFeignClients-注解" class="headerlink" title="扫描EnableFeignClients 注解"></a>扫描EnableFeignClients 注解</h5><p>首先在启动配置上检查是否有@EnableFeignClients注解，如果有该注解，则开启包扫描，扫描被@FeignClient注解接口。扫描到FeignClient后，将信息取出，以bean的形式注入到ioc容器中，源码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">FeignClientsRegistrar</span></span><br><span class="line">		<span class="keyword">implements</span> <span class="title">ImportBeanDefinitionRegistrar</span>, <span class="title">ResourceLoaderAware</span>, <span class="title">EnvironmentAware</span> </span>&#123;</span><br><span class="line">    .....</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">registerBeanDefinitions</span><span class="params">(AnnotationMetadata metadata,</span><br><span class="line">			BeanDefinitionRegistry registry)</span> </span>&#123;</span><br><span class="line">		registerDefaultConfiguration(metadata, registry);</span><br><span class="line">		registerFeignClients(metadata, registry);</span><br><span class="line">	&#125;</span><br><span class="line">    </span><br><span class="line">  <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">registerFeignClient</span><span class="params">(BeanDefinitionRegistry registry,</span><br><span class="line">			AnnotationMetadata annotationMetadata, Map&lt;String, Object&gt; attributes)</span> </span>&#123;</span><br><span class="line">		String className = annotationMetadata.getClassName();</span><br><span class="line">		BeanDefinitionBuilder definition = BeanDefinitionBuilder</span><br><span class="line">				.genericBeanDefinition(FeignClientFactoryBean.class);</span><br><span class="line">		validate(attributes);</span><br><span class="line">		definition.addPropertyValue(<span class="string">"url"</span>, getUrl(attributes));</span><br><span class="line">		definition.addPropertyValue(<span class="string">"path"</span>, getPath(attributes));</span><br><span class="line">		String name = getName(attributes);</span><br><span class="line">		definition.addPropertyValue(<span class="string">"name"</span>, name);</span><br><span class="line">		String contextId = getContextId(attributes);</span><br><span class="line">		definition.addPropertyValue(<span class="string">"contextId"</span>, contextId);</span><br><span class="line">		definition.addPropertyValue(<span class="string">"type"</span>, className);</span><br><span class="line">		definition.addPropertyValue(<span class="string">"decode404"</span>, attributes.get(<span class="string">"decode404"</span>));</span><br><span class="line">		definition.addPropertyValue(<span class="string">"fallback"</span>, attributes.get(<span class="string">"fallback"</span>));</span><br><span class="line">		definition.addPropertyValue(<span class="string">"fallbackFactory"</span>, attributes.get(<span class="string">"fallbackFactory"</span>));</span><br><span class="line">		definition.setAutowireMode(AbstractBeanDefinition.AUTOWIRE_BY_TYPE);</span><br><span class="line"></span><br><span class="line">		String alias = contextId + <span class="string">"FeignClient"</span>;</span><br><span class="line">		AbstractBeanDefinition beanDefinition = definition.getBeanDefinition();</span><br><span class="line"></span><br><span class="line">		<span class="keyword">boolean</span> primary = (Boolean) attributes.get(<span class="string">"primary"</span>); <span class="comment">// has a default, won't be</span></span><br><span class="line">																<span class="comment">// null</span></span><br><span class="line"></span><br><span class="line">		beanDefinition.setPrimary(primary);</span><br><span class="line"></span><br><span class="line">		String qualifier = getQualifier(attributes);</span><br><span class="line">		<span class="keyword">if</span> (StringUtils.hasText(qualifier)) &#123;</span><br><span class="line">			alias = qualifier;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		BeanDefinitionHolder holder = <span class="keyword">new</span> BeanDefinitionHolder(beanDefinition, className,</span><br><span class="line">				<span class="keyword">new</span> String[] &#123; alias &#125;);</span><br><span class="line">		BeanDefinitionReaderUtils.registerBeanDefinition(holder, registry);</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="bean-注入-ioc容器"><a href="#bean-注入-ioc容器" class="headerlink" title="bean 注入 ioc容器"></a>bean 注入 ioc容器</h5><p>在上面 registerFeignClient 方法中有这样一段代码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">BeanDefinitionBuilder definition = BeanDefinitionBuilder</span><br><span class="line">				.genericBeanDefinition(FeignClientFactoryBean.class);</span><br></pre></td></tr></table></figure>
+<p>将FeignClientFactoryBean 定义进来，而FeignClientFactoryBean 实现了FactoryBean接口，这样把bean 注入容器。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> Object <span class="title">getObject</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> getTarget();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/**</span><br><span class="line">	 * <span class="doctag">@param</span> &lt;T&gt; the target type of the Feign client</span><br><span class="line">	 * <span class="doctag">@return</span> a &#123;<span class="doctag">@link</span> Feign&#125; client created with the specified data and the context</span><br><span class="line">	 * information</span><br><span class="line">	 */</span></span><br><span class="line">	&lt;T&gt; <span class="function">T <span class="title">getTarget</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		FeignContext context = <span class="keyword">this</span>.applicationContext.getBean(FeignContext.class);</span><br><span class="line">		Feign.Builder builder = feign(context);</span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span> (!StringUtils.hasText(<span class="keyword">this</span>.url)) &#123;</span><br><span class="line">			<span class="keyword">if</span> (!<span class="keyword">this</span>.name.startsWith(<span class="string">"http"</span>)) &#123;</span><br><span class="line">				<span class="keyword">this</span>.url = <span class="string">"http://"</span> + <span class="keyword">this</span>.name;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">else</span> &#123;</span><br><span class="line">				<span class="keyword">this</span>.url = <span class="keyword">this</span>.name;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">this</span>.url += cleanPath();</span><br><span class="line">			<span class="keyword">return</span> (T) loadBalance(builder, context,</span><br><span class="line">					<span class="keyword">new</span> HardCodedTarget&lt;&gt;(<span class="keyword">this</span>.type, <span class="keyword">this</span>.name, <span class="keyword">this</span>.url));</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> (StringUtils.hasText(<span class="keyword">this</span>.url) &amp;&amp; !<span class="keyword">this</span>.url.startsWith(<span class="string">"http"</span>)) &#123;</span><br><span class="line">			<span class="keyword">this</span>.url = <span class="string">"http://"</span> + <span class="keyword">this</span>.url;</span><br><span class="line">		&#125;</span><br><span class="line">		String url = <span class="keyword">this</span>.url + cleanPath();</span><br><span class="line">		Client client = getOptional(context, Client.class);</span><br><span class="line">		<span class="keyword">if</span> (client != <span class="keyword">null</span>) &#123;</span><br><span class="line">			<span class="keyword">if</span> (client <span class="keyword">instanceof</span> LoadBalancerFeignClient) &#123;</span><br><span class="line">				<span class="comment">// not load balancing because we have a url,</span></span><br><span class="line">				<span class="comment">// but ribbon is on the classpath, so unwrap</span></span><br><span class="line">				client = ((LoadBalancerFeignClient) client).getDelegate();</span><br><span class="line">			&#125;</span><br><span class="line">			builder.client(client);</span><br><span class="line">		&#125;</span><br><span class="line">		Targeter targeter = get(context, Targeter.class);</span><br><span class="line">		<span class="keyword">return</span> (T) targeter.target(<span class="keyword">this</span>, builder, context,</span><br><span class="line">				<span class="keyword">new</span> HardCodedTarget&lt;&gt;(<span class="keyword">this</span>.type, <span class="keyword">this</span>.name, url));</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<p>上面生成对象 调用了 targeter.target, 跟踪进去调用了 feign.target</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * <span class="doctag">@author</span> Spencer Gibb</span><br><span class="line"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DefaultTargeter</span> <span class="keyword">implements</span> <span class="title">Targeter</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="keyword">public</span> &lt;T&gt; <span class="function">T <span class="title">target</span><span class="params">(FeignClientFactoryBean factory, Feign.Builder feign,</span><br><span class="line">			FeignContext context, Target.HardCodedTarget&lt;T&gt; target)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> feign.target(target);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>继续跟踪</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> &lt;T&gt; <span class="function">T <span class="title">target</span><span class="params">(Target&lt;T&gt; target)</span> </span>&#123;</span><br><span class="line">     <span class="keyword">return</span> build().newInstance(target);</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<p>跟踪到 ReflectiveFeign  返回代理对象</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line">   * creates an api binding to the &#123;<span class="doctag">@code</span> target&#125;. As this invokes reflection, care should be taken</span><br><span class="line">   * to cache the result.</span><br><span class="line">   */</span></span><br><span class="line">  <span class="meta">@SuppressWarnings</span>(<span class="string">"unchecked"</span>)</span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="keyword">public</span> &lt;T&gt; <span class="function">T <span class="title">newInstance</span><span class="params">(Target&lt;T&gt; target)</span> </span>&#123;</span><br><span class="line">    Map&lt;String, MethodHandler&gt; nameToHandler = targetToHandlersByName.apply(target);</span><br><span class="line">    Map&lt;Method, MethodHandler&gt; methodToHandler = <span class="keyword">new</span> LinkedHashMap&lt;Method, MethodHandler&gt;();</span><br><span class="line">    List&lt;DefaultMethodHandler&gt; defaultMethodHandlers = <span class="keyword">new</span> LinkedList&lt;DefaultMethodHandler&gt;();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (Method method : target.type().getMethods()) &#123;</span><br><span class="line">      <span class="keyword">if</span> (method.getDeclaringClass() == Object.class) &#123;</span><br><span class="line">        <span class="keyword">continue</span>;</span><br><span class="line">      &#125; <span class="keyword">else</span> <span class="keyword">if</span> (Util.isDefault(method)) &#123;</span><br><span class="line">        DefaultMethodHandler handler = <span class="keyword">new</span> DefaultMethodHandler(method);</span><br><span class="line">        defaultMethodHandlers.add(handler);</span><br><span class="line">        methodToHandler.put(method, handler);</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        methodToHandler.put(method, nameToHandler.get(Feign.configKey(target.type(), method)));</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    InvocationHandler handler = factory.create(target, methodToHandler);</span><br><span class="line">    T proxy = (T) Proxy.newProxyInstance(target.type().getClassLoader(),</span><br><span class="line">        <span class="keyword">new</span> Class&lt;?&gt;[] &#123;target.type()&#125;, handler);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (DefaultMethodHandler defaultMethodHandler : defaultMethodHandlers) &#123;</span><br><span class="line">      defaultMethodHandler.bindTo(proxy);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> proxy;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p>注入bean之后，通过jdk的代理，当请求Feign Client的方法时会被拦截，代码就在ReflectiveFeign类。</p>
+<p>真正的动态代理是下面的静态类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">FeignInvocationHandler</span> <span class="keyword">implements</span> <span class="title">InvocationHandler</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> Target target;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> Map&lt;Method, MethodHandler&gt; dispatch;</span><br><span class="line"></span><br><span class="line">    FeignInvocationHandler(Target target, Map&lt;Method, MethodHandler&gt; dispatch) &#123;</span><br><span class="line">      <span class="keyword">this</span>.target = checkNotNull(target, <span class="string">"target"</span>);</span><br><span class="line">      <span class="keyword">this</span>.dispatch = checkNotNull(dispatch, <span class="string">"dispatch for %s"</span>, target);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">invoke</span><span class="params">(Object proxy, Method method, Object[] args)</span> <span class="keyword">throws</span> Throwable </span>&#123;</span><br><span class="line">      <span class="keyword">if</span> (<span class="string">"equals"</span>.equals(method.getName())) &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">          Object otherHandler =</span><br><span class="line">              args.length &gt; <span class="number">0</span> &amp;&amp; args[<span class="number">0</span>] != <span class="keyword">null</span> ? Proxy.getInvocationHandler(args[<span class="number">0</span>]) : <span class="keyword">null</span>;</span><br><span class="line">          <span class="keyword">return</span> equals(otherHandler);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IllegalArgumentException e) &#123;</span><br><span class="line">          <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="string">"hashCode"</span>.equals(method.getName())) &#123;</span><br><span class="line">        <span class="keyword">return</span> hashCode();</span><br><span class="line">      &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="string">"toString"</span>.equals(method.getName())) &#123;</span><br><span class="line">        <span class="keyword">return</span> toString();</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">return</span> dispatch.get(method).invoke(args);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>最终调用了 SynchronousMethodHandler类进行拦截处理，当被拦截会根据参数生成RequestTemplate对象，该对象就是http请求的模板，代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"> <span class="function"><span class="keyword">public</span> Object <span class="title">invoke</span><span class="params">(Object[] argv)</span> <span class="keyword">throws</span> Throwable </span>&#123;</span><br><span class="line">   RequestTemplate template = buildTemplateFromArgs.create(argv);</span><br><span class="line">   Retryer retryer = <span class="keyword">this</span>.retryer.clone();</span><br><span class="line">   <span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</span><br><span class="line">     <span class="keyword">try</span> &#123;</span><br><span class="line">       <span class="keyword">return</span> executeAndDecode(template);</span><br><span class="line">     &#125; <span class="keyword">catch</span> (RetryableException e) &#123;</span><br><span class="line">       <span class="keyword">try</span> &#123;</span><br><span class="line">         retryer.continueOrPropagate(e);</span><br><span class="line">       &#125; <span class="keyword">catch</span> (RetryableException th) &#123;</span><br><span class="line">         Throwable cause = th.getCause();</span><br><span class="line">         <span class="keyword">if</span> (propagationPolicy == UNWRAP &amp;&amp; cause != <span class="keyword">null</span>) &#123;</span><br><span class="line">           <span class="keyword">throw</span> cause;</span><br><span class="line">         &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">           <span class="keyword">throw</span> th;</span><br><span class="line">         &#125;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">if</span> (logLevel != Logger.Level.NONE) &#123;</span><br><span class="line">         logger.logRetry(metadata.configKey(), logLevel);</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">continue</span>;</span><br><span class="line">     &#125;</span><br><span class="line">   &#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<p>其中有个executeAndDecode()方法，该方法是通RequestTemplate生成Request请求对象，然后根据用client获取response。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">Object <span class="title">executeAndDecode</span><span class="params">(RequestTemplate template)</span> <span class="keyword">throws</span> Throwable </span>&#123;</span><br><span class="line">    Request request = targetRequest(template);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (logLevel != Logger.Level.NONE) &#123;</span><br><span class="line">      logger.logRequest(metadata.configKey(), logLevel, request);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    Response response;</span><br></pre></td></tr></table></figure>
+<p>其中Client组件是一个非常重要的组件，Feign最终发送request请求以及接收response响应，都是由Client组件完成的，其中Client的实现类，只要有Client.Default，该类由HttpURLConnnection实现网络请求，另外还支持HttpClient、Okhttp.</p>
+<p>首先来看以下在FeignRibbonClient的自动配置类，FeignRibbonClientAutoConfiguration ，主要在工程启动的时候注入一些bean,其代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@ConditionalOnClass</span>(&#123; ILoadBalancer.class, Feign.class &#125;)</span><br><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="meta">@AutoConfigureBefore</span>(FeignAutoConfiguration.class)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FeignRibbonClientAutoConfiguration</span> </span>&#123;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Bean</span></span><br><span class="line">	<span class="meta">@ConditionalOnMissingBean</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> Client <span class="title">feignClient</span><span class="params">(CachingSpringLoadBalancerFactory cachingFactory,</span><br><span class="line">			SpringClientFactory clientFactory)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">new</span> LoadBalancerFeignClient(<span class="keyword">new</span> Client.Default(<span class="keyword">null</span>, <span class="keyword">null</span>),</span><br><span class="line">				cachingFactory, clientFactory);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在缺失配置feignClient的情况下，会自动注入new Client.Default(),跟踪Client.Default()源码，它使用的网络请求框架为HttpURLConnection，代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Response <span class="title">execute</span><span class="params">(Request request, Options options)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">      HttpURLConnection connection = convertAndSend(request, options);</span><br><span class="line">      <span class="keyword">return</span> convertResponse(connection).toBuilder().request(request).build();</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>所以说，feign是一个伪客户端，即它不做任何的请求处理。Feign通过处理注解生成request，从而实现简化HTTP API开发的目的，即开发人员可以使用注解的方式定制request api模板，在发送http request请求之前，feign通过处理注解的方式替换掉request模板中的参数，这种实现方式显得更为直接、可理解。</p>
+
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+
+
+
+
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2019/10/13/自己动手实现简单的微服务rpc调用/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/img/sidebar_header.png);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="/img/avatar1.png" alt="MagicDo's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        johndu@magicdu.cn
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="#" target="_blank" title="Email Me">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        
+                        Email Me
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/" target="_self">
+                
+                    <i class="material-icons sidebar-material-icons">home</i>
+                
+                主页
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">inbox</i>
+                
+                    归档
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/archives/2019/10/">十月 2019<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/06/">六月 2017<span class="sidebar_archives-count">20</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Categories  -->
+    
+
+    <!-- Pages  -->
+    
+
+    <!-- Article Number  -->
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Sidebar Divider -->
+
+    <div class="sidebar-divider"></div>
+
+
+<!-- Theme Material -->
+
+    <a href="https://github.com/viosey/hexo-theme-material"  class="sidebar-footer-text-a" target="_blank">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+            主题 - Material
+            <span class="sidebar-badge badge-circle">i</span>
+        </div>
+    </a>
+
+
+<!-- Help & Support -->
+<!--
+
+-->
+
+<!-- Feedback -->
+<!--
+
+-->
+
+<!-- About Theme -->
+<!--
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+        <a href="https://twitter.com/twitter" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-twitter.png);">
+                <span class="visuallyhidden">Twitter</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Facebook -->
+    
+        <a href="https://www.facebook.com/facebook" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-facebook.png);">
+                <span class="visuallyhidden">Facebook</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Google + -->
+    
+        <a href="https://www.google.com/" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-gplus.png);">
+                <span class="visuallyhidden">Google Plus</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Weibo -->
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+        <a href="https://github.com/magicdu" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-github.png);">
+                <span class="visuallyhidden">Github</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
+</div>
+
+
+        <!--Copyright-->
+        <div id="copyright">
+            Copyright&nbsp;©&nbsp;
+            <script type="text/javascript">
+                var fd = new Date();
+                document.write(fd.getFullYear());
+            </script>
+            &nbsp;Stack Overflow
+        </div>
+
+        <!-- Paradox Footer Right Section -->
+
+        <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
+            </div>
+        </div>
+    
+</footer>
+
+
+                    <!-- Import File -->
+<script src="/js/lazyload.min.js"></script>
+<script src="/js/js.min.js"></script>
+<script src="/js/nprogress.js"></script>
+
+<script type="text/javascript">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Swiftye -->
+
+
+<!-- Local Search-->
+
+
+<!-- Window Load-->
+<script>
+    $(window).load(function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+</script>
+
+<!-- MathJax Load-->
+
+
+                </main>
+            </div>
+        </body>
+    
+</html>
