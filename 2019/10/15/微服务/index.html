@@ -10,7 +10,7 @@
     
     <title>
         
-            java编写的端口扫描器 | 
+            微服务基础介绍 | 
         
         Stack Overflow
     </title>
@@ -27,7 +27,7 @@
     <meta name="theme-color" content="#0097A7">
     <meta name="author" content="MagicDo">
     <meta name="description" content="世界很大，我很小">
-    <meta name="keywords" content="null,java">
+    <meta name="keywords" content="null,feign">
 
     <!--iOS -->
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
@@ -48,9 +48,9 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="http://github.magicdu.cn">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="java编写的端口扫描器 | Stack Overflow">
+    <meta property="og:title" content="微服务基础介绍 | Stack Overflow">
     <meta property="og:description" content="世界很大，我很小">
-    <meta property="og:article:tag" content="java"> 
+    <meta property="og:article:tag" content="feign"> 
 
     <!--[if lte IE 9]>
         <link rel="stylesheet" href="/css/ie-blocker.css">
@@ -234,7 +234,7 @@
     </button>
 
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn">
-        
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#java微服务框架"><span class="post-toc-number">1.</span> <span class="post-toc-text">java微服务框架</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#系统简单介绍"><span class="post-toc-number">2.</span> <span class="post-toc-text">系统简单介绍</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#后端基本开发介绍"><span class="post-toc-number">3.</span> <span class="post-toc-text">后端基本开发介绍</span></a></li></ol>
 
         <!--
         <li class="mdl-menu__item">
@@ -270,7 +270,7 @@
         
     
             <p class="article-headline-p">
-                java编写的端口扫描器
+                微服务基础介绍
             </p>
         </div>
 
@@ -289,7 +289,7 @@
     <!-- Author Name & Date -->
     <div>
         <strong>MagicDo</strong>
-        <span>6月 02, 2017</span>
+        <span>10月 15, 2019</span>
     </div>
 
     <div class="section-spacer"></div>
@@ -310,7 +310,7 @@
         </button>
         <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
             <li class="mdl-menu__item">在其它设备中阅读本文章</li>
-            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAAC1ElEQVR42u3aUW7CMBAEUO5/6fYAiDCzTlWwX75QC4mfK7HdWT9+jrwe2NjY2NjY2NjY2B/JfsTX8/uf7/P8+tVvX73/1XNX1oyNjY19AvvNV39AusZcg6/ZyZ2v14yNjY19Djt5TF66cmSyiStrxsbGxsaeNR55A9M2P9jY2NjY6wVsvUlICmT+GhsbGxu7DmguP5VsxKxR+bcsDRsbG/vj2e2g9xNe/8N8GxsbG/sj2SvXStPSlqWkaL1ZLTY2Nvam7DayX4HlzUMycsgDJmxsbOy92SuPacfAecA0K29vDvpgY2Njb8qelahZIWnvMGt7lsYD2NjY2F/IrstAWYRmxyvbe0afwsbGxt6UHX31l4tuS1S73cMSiI2NjX0AO28whgF9OVpo3/Mm6sLGxsY+jN2C2xB/tpWz4oeNjY29N7tdUH7UJo+lklYnL4H1kR1sbGzsL2fPRrx5tJRsYr70lU3HxsbG3pV9V9uQLzR/+iw8KloRbGxs7I3Y+aA3L0hJ8NQWyNlrbGxs7HPYKw1AO+5NBgkr4wFsbGzs09h5wDQLd1pGG2xFfypsbGzsY9h5hDTD/8XRzCRgwsbGxt6VPfsXfxYGtcPdu8DY2NjYe7PbReSfTSL7qPCUh4RePgUbGxv7GPbKstpAP2+H6sajnYpgY2Njfy27/Xe/jYfyQfIKeNiBYWNjY2/NXjl889fxUL7F2NjY2Oew28M0ebsya0Jmm1i3ItjY2NjbsZM2oC176xFVO2COxgPY2NjYG7Hbqx0AJ8PanD0rnNjY2Nh7s9cPU951NDNvLfL2CRsbG/scdh7Bt6F/e/97oyhsbGzs09h5mcmLUzvEnZXDpQKGjY2NfTD7rqI1GwnURREbGxsbu2we8qFCjmnbJGxsbOzT2HeFPisb1w4JilExNjY29tbs9UFvW4RmI96ln2BjY2Nvyj7nwsbGxsbGxsbGxv6Y6xeEwnIUffLxjwAAAABJRU5ErkJggg==">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACaklEQVR42u3awW7sIBAEQP//T793jRTF2z3Y2ImKk7WygeIAs8Mc//50O/Dw8PDw8PDw8F7GO+L29f3vz9/7TJ6T/vO54eHh4e3kfdhqS9L5t+cjJmOdj4uHh4e3k7eyWf80cP5tOy4eHh7eb+GtB9btUuLh4eH9dl4SECcHRhtS4+Hh4b2TV/zhj8PiWc+P5Vrw8PDwYt76Bdh9z6+438PDw8NbL2w6PSryr9oeornh4eHh3cxLwuX8qGjTuHkiI0lM4OHh4T3Lu3a6eTFBkhr+8D4eHh7eFl57ZTWbULLRzxLHeHh4eDt5s8un9fB3drTUITUeHh7ebbw22M0Hnn3bFjfg4eHh7eStbPHtpVdSnpXPBA8PD+9Z3qxQIE/+tiVcedoCDw8Pbz8vCazbFMNVBVjJUta5Fjw8PLxlXrvp50VX15YU5CkJPDw8vJ28YXdBMD1LZ+RHFB4eHt5OXhtYzy7A8tC8Lb3Cw8PD289b+tsfB9YrF2NH0PDw8PCe4uVTaQtJ26KBlQICPDw8vP28JC1bbNOjAta2JAsPDw/vKd4sKdBOsT2WkiXGw8PDe4o3KyBILrHyJVsZCw8PD28nr00cXJuqmIXsRTICDw8P71LeSjibbOhJcqE9qIqDAQ8PD+8G3hG3WeA7K9iaLRYeHh7eTl5bOtBelbVLsxS44+Hh4W3ktSVTbYHUef9tUcKPQTkeHh7eK3ltKiHpP7/i+hCa4+Hh4b2Mlwff57+0JQvF73h4eHgbefmk2+0+X4KkpAAPDw/vDbz1C7B8E19JHEeHEx4eHt7NvL/X8PDw8PDw8PDwXtD+Aywpct5dP1u7AAAAAElFTkSuQmCC">
         </ul>
     
 
@@ -322,7 +322,7 @@
     </button>
     <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
         <li class="mdl-menu__item">
-        <a class="post_tag-link" href="/tags/java/">java</a>
+        <a class="post_tag-link" href="/tags/feign/">feign</a>
     </ul>
     
 
@@ -338,7 +338,7 @@
 
     <!-- Share Weibo -->
     
-        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=java编写的端口扫描器&url=http://github.magicdu.cn//2017/06/02/java编写端口扫描器/index.html&pic=&searchPic=false&style=simple" target="_blank">
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=微服务基础介绍&url=http://github.magicdu.cn//2019/10/15/微服务/index.html&pic=&searchPic=false&style=simple" target="_blank">
             <li class="mdl-menu__item">
                 分享到微博
             </li>
@@ -347,7 +347,7 @@
 
     <!-- Share Twitter -->
     
-        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=java编写的端口扫描器&url=http://github.magicdu.cn//2017/06/02/java编写端口扫描器/index.html&via=MagicDo" target="_blank">
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=微服务基础介绍&url=http://github.magicdu.cn//2019/10/15/微服务/index.html&via=MagicDo" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Twitter
             </li>
@@ -356,7 +356,7 @@
 
     <!-- Share Facebook -->
     
-        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://github.magicdu.cn//2017/06/02/java编写端口扫描器/index.html" target="_blank">
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://github.magicdu.cn//2019/10/15/微服务/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Facebook
             </li>
@@ -365,7 +365,7 @@
 
     <!-- Share Google+ -->
     
-        <a class="post_share-link" href="https://plus.google.com/share?url=http://github.magicdu.cn//2017/06/02/java编写端口扫描器/index.html" target="_blank">
+        <a class="post_share-link" href="https://plus.google.com/share?url=http://github.magicdu.cn//2019/10/15/微服务/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Google+
             </li>
@@ -389,10 +389,115 @@
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <p>好久没写java了，学的时候，也没学习网络编程这一块，无意中看到了一本书，于是小小复习一下java，写个端口扫描器，玩玩吧，网上这种小工具有的是，就是自己无聊写着玩玩。<br><a id="more"></a><br>源代码如下：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> javax.swing.*;</span><br><span class="line"><span class="keyword">import</span> java.awt.Dimension;</span><br><span class="line"><span class="keyword">import</span> java.awt.Font;</span><br><span class="line"><span class="keyword">import</span> java.awt.Toolkit;</span><br><span class="line"><span class="keyword">import</span> java.awt.event.*;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PortScan</span> <span class="keyword">extends</span> <span class="title">JFrame</span> </span>&#123;</span><br><span class="line">    JPanel center=<span class="keyword">new</span> JPanel();</span><br><span class="line">	Box hBox0=Box.createHorizontalBox();</span><br><span class="line">	Box hBox1= Box.createHorizontalBox();</span><br><span class="line">	Box hBox2= Box.createHorizontalBox();</span><br><span class="line">	Box hBox3= Box.createHorizontalBox();</span><br><span class="line">	<span class="keyword">private</span> JLabel state=<span class="keyword">new</span> JLabel(<span class="string">"关闭"</span>);</span><br><span class="line">	<span class="keyword">private</span> JLabel HOST=<span class="keyword">new</span> JLabel(<span class="string">"主机名:"</span>);</span><br><span class="line">	<span class="keyword">private</span> JLabel PORT=<span class="keyword">new</span> JLabel(<span class="string">"端口号:"</span>);</span><br><span class="line">	<span class="keyword">private</span> JLabel STATE=<span class="keyword">new</span> JLabel(<span class="string">"状态："</span>);</span><br><span class="line">    <span class="keyword">private</span> JButton btn1=<span class="keyword">new</span> JButton(<span class="string">"开始扫描"</span>);</span><br><span class="line">    <span class="keyword">private</span> JButton reset=<span class="keyword">new</span> JButton(<span class="string">"重置"</span>);</span><br><span class="line">    <span class="keyword">private</span> JTextField host=<span class="keyword">new</span> JTextField(<span class="number">20</span>);</span><br><span class="line">    <span class="keyword">private</span> JTextField port=<span class="keyword">new</span> JTextField(<span class="number">7</span>);</span><br><span class="line">    Font f1=<span class="keyword">new</span> Font(<span class="string">"隶书"</span>,Font.PLAIN,<span class="number">15</span>);</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		JFrame portscan=<span class="keyword">new</span> PortScan();</span><br><span class="line">		portscan.setVisible(<span class="keyword">true</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">PortScan</span><span class="params">()</span></span>&#123;</span><br><span class="line">		setTitle(<span class="string">"PortScanner"</span>);</span><br><span class="line">		setSize(<span class="number">300</span>, <span class="number">200</span>);</span><br><span class="line">		center.setLayout(<span class="keyword">new</span> BoxLayout(center,BoxLayout.Y_AXIS));</span><br><span class="line">		 Toolkit kit = Toolkit.getDefaultToolkit();</span><br><span class="line">	 	   Dimension screenSize = kit.getScreenSize();<span class="comment">//获取屏幕分辨率</span></span><br><span class="line">		  setLocation(screenSize.width/<span class="number">4</span>,screenSize.height/<span class="number">4</span>);<span class="comment">//位置</span></span><br><span class="line">		  state.setFont(f1);</span><br><span class="line">		  HOST.setFont(f1);</span><br><span class="line">		  PORT.setFont(f1);</span><br><span class="line">		  btn1.setFont(f1);</span><br><span class="line">		  reset.setFont(f1);</span><br><span class="line">		  STATE.setFont(f1);</span><br><span class="line">		 center.add(hBox0);</span><br><span class="line">		 center.add(Box.createRigidArea(<span class="keyword">new</span> Dimension(<span class="number">10</span>,<span class="number">20</span>)));</span><br><span class="line">		 center.add(hBox1);</span><br><span class="line">		 center.add(Box.createRigidArea(<span class="keyword">new</span> Dimension(<span class="number">2</span>,<span class="number">20</span>)));</span><br><span class="line">		 center.add(hBox2);</span><br><span class="line">		 center.add(Box.createRigidArea(<span class="keyword">new</span> Dimension(<span class="number">2</span>,<span class="number">20</span>)));</span><br><span class="line">		 center.add(hBox3);</span><br><span class="line">		 hBox0.add(HOST);</span><br><span class="line">		 hBox0.add(host);</span><br><span class="line">		 hBox1.add(PORT);</span><br><span class="line">		 hBox1.add(port);</span><br><span class="line">		 hBox2.add(btn1);</span><br><span class="line">		 hBox2.add(reset);</span><br><span class="line">		 hBox3.add(STATE);</span><br><span class="line">		 hBox3.add(state);</span><br><span class="line">		 add(center);</span><br><span class="line">		 btn1.addActionListener(<span class="keyword">new</span> MyActionListener());</span><br><span class="line">		 reset.addActionListener(<span class="keyword">new</span> MyActionListener());</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="class"><span class="keyword">class</span> <span class="title">MyActionListener</span> <span class="keyword">implements</span> <span class="title">ActionListener</span></span>&#123;</span><br><span class="line"></span><br><span class="line">		<span class="meta">@Override</span></span><br><span class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">actionPerformed</span><span class="params">(ActionEvent e)</span> </span>&#123;</span><br><span class="line">			String post1=host.getText();</span><br><span class="line">			<span class="keyword">int</span> port1=Integer.parseInt(port.getText());</span><br><span class="line">			<span class="keyword">if</span>(e.getActionCommand()==<span class="string">"开始扫描"</span>)&#123;</span><br><span class="line">			<span class="keyword">if</span>(	PortScannerByIP.scan(post1, port1))&#123;</span><br><span class="line">				state.setText(<span class="string">"开放"</span>);</span><br><span class="line">			&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">				state.setText(<span class="string">"关闭"</span>);</span><br><span class="line">			&#125;</span><br><span class="line">				</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">if</span>(e.getActionCommand()==<span class="string">"重置"</span>)&#123;</span><br><span class="line">				host.setText(<span class="string">""</span>);</span><br><span class="line">				port.setText(<span class="string">""</span>);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<hr>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">   <span class="keyword">import</span> java.io.IOException;</span><br><span class="line">   <span class="keyword">import</span> java.net.Socket;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PortScannerByIP</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">scan</span><span class="params">(String host,<span class="keyword">int</span> port)</span></span>&#123;</span><br><span class="line">		<span class="keyword">boolean</span> flag=<span class="keyword">true</span>;</span><br><span class="line">		Socket socket=<span class="keyword">null</span>;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			socket=<span class="keyword">new</span> Socket(host,port);</span><br><span class="line">			<span class="keyword">return</span> flag;</span><br><span class="line">		&#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">			flag=<span class="keyword">false</span>;</span><br><span class="line">			<span class="keyword">return</span> flag;</span><br><span class="line">		&#125;<span class="keyword">finally</span>&#123;</span><br><span class="line">			<span class="keyword">try</span> &#123;</span><br><span class="line">				<span class="keyword">if</span>(socket!=<span class="keyword">null</span>)</span><br><span class="line">					socket.close();</span><br><span class="line">			&#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">				e.printStackTrace();</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <p><img src="1.jpg" width="800" height="900"></p>
+<p><strong>单体结构的一些缺点</strong>：</p>
+<ul>
+<li><p>维护成本大： 当应用程序的功能越来越多、团队越来越大时，沟通成本、管理成本显著增加。当出现 bug 时，可能引起 bug 的原因组合越来越多，导致分析、定位和修复的成本增加；并且在对全局功能缺乏深度理解的情况下，容易在修复 bug 时引入新的 bug。</p>
+</li>
+<li><p>持续交付周期长： 构建和部署时间会随着功能的增多而增加，任何细微的修改都会触发部署流水线。</p>
+</li>
+<li><p>新人培养周期长： 新成员了解背景、熟悉业务和配置环境的时间越来越长。</p>
+</li>
+<li><p>技术选型成本高： 单块架构倾向于采用统一的技术平台或方案来解决所有问题，如果后续想引入新的技术或框架，成本和风险都很大。</p>
+</li>
+<li><p>可扩展性差： 随着功能的增加，垂直扩展的成本将会越来越大；而对于水平扩展而言，因为所有代码都运行在同一个进程，没办法做到针对应用程序的部分功能做独立的扩展。</p>
+<p><strong>SOA</strong></p>
+<p>SOA 设计喜欢给服务分层(如 Service Layers 模式)。我们常常见到一个 Entity 服务层的设计，美其名曰 Data Access Layer。这种设计要求所有的服务都通过这个 Entity 服务层。来获取数据。这种设计非常不灵活，比如每次数据层的改动都可能影响到所有业务层的服务。</p>
+<p><strong>微服务架构的特性</strong></p>
+<p><strong>1. 单一职责</strong></p>
+<p>微服务架构中的每个服务，都是具有业务逻辑的，符合高内聚、低耦合原则以及单一职责原则的单元，不同的服务通过“管道”的方式灵活组合，从而构建出庞大的系统。</p>
+<p><strong>2. 轻量级通信</strong></p>
+<p>服务之间通过轻量级的通信机制实现互通互联，而所谓的轻量级，通常指语言无关、平台无关的交互方式。</p>
+<p>对于轻量级通信的格式而言，我们熟悉的 XML 和 JSON，它们是语言无关、平台无关的；对于通信的协议而言，通常基于 HTTP，能让服务间的通信变得标准化、无状态化。目前大家熟悉的 REST（Representational State Transfer）是实现服务间互相协作的轻量级通信机制之一。使用轻量级通信机制，可以让团队选择更适合的语言、工具或者平台来开发服务本身。</p>
+<p><strong>3. 独立性</strong></p>
+<p>每个服务在应用交付过程中，独立地开发、测试和部署。</p>
+<p>在单块架构中所有功能都在同一个代码库，功能的开发不具有独立性；当不同小组完成多个功能后，需要经过集成和回归测试，测试过程也不具有独立性；当测试完成后，应用被构建成一个包，如果某个功能存在 bug，将导致整个部署失败或者回滚。</p>
+<p>在微服务架构中，每个服务都是独立的业务单元，与其他服务高度解耦，只需要改变当前服务本身，就可以完成独立的开发、测试和部署。</p>
+<p><strong>4. 进程隔离</strong></p>
+<p>单块架构中，整个系统运行在同一个进程中，当应用进行部署时，必须停掉当前正在运行的应用，部署完成后再重启进程，无法做到独立部署。</p>
+<p>有时候我们会将重复的代码抽取出来封装成组件，在单块架构中，组件通常的形态叫做共享库（如 jar 包或者 DLL），但是当程序运行时，所有组件最终也会被加载到同一进程中运行。</p>
+<p>在微服务架构中，应用程序由多个服务组成，每个服务都是高度自治的独立业务实体，可以运行在独立的进程中，不同的服务能非常容易地部署到不同的主机上。</p>
+<p>理论上所有服务可以部署在同一个服务器节点，但是并不推荐这么做，因为微服务架构的主旨就是高度自治和高度隔离。</p>
+</li>
+</ul>
+<h5 id="java微服务框架"><a href="#java微服务框架" class="headerlink" title="java微服务框架"></a>java微服务框架</h5><p>​        最常见的框架一个是我们在用的spring cloud  另一个是阿里的 dubbo。生态上，spring cloud  更加丰富一些，社区相对强大。说是框架，其实是个微服务的生态圈。基于spring boot （约定大于配置）</p>
+<p>下面是两个框架的对比：</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Dubbo</th>
+<th>Spring Cloud</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>服务注册中心</td>
+<td>Zookeeper</td>
+<td>Spring Cloud Netflix Eureka</td>
+</tr>
+<tr>
+<td>服务调用方式</td>
+<td>RPC</td>
+<td>REST API</td>
+</tr>
+<tr>
+<td>服务监控</td>
+<td>Dubbo-monitor</td>
+<td>Spring Boot Admin</td>
+</tr>
+<tr>
+<td>断路器</td>
+<td>不完善</td>
+<td>Spring Cloud Netflix Hystrix</td>
+</tr>
+<tr>
+<td>服务网关</td>
+<td>无</td>
+<td>Spring Cloud Netflix Zuul</td>
+</tr>
+<tr>
+<td>分布式配置</td>
+<td>无</td>
+<td>Spring Cloud Config</td>
+</tr>
+<tr>
+<td>服务跟踪</td>
+<td>无</td>
+<td>Spring Cloud Sleuth</td>
+</tr>
+<tr>
+<td>消息总线</td>
+<td>无</td>
+<td>Spring Cloud Bus</td>
+</tr>
+<tr>
+<td>数据流</td>
+<td>无</td>
+<td>Spring Cloud Stream</td>
+</tr>
+<tr>
+<td>批量任务</td>
+<td>无</td>
+<td>Spring Cloud Task</td>
+</tr>
+</tbody>
+</table>
+<p>​        微服务简单来说，就是服务的调用，服务调用呢，我们就得找到对应的服务，所以将所有的服务都注册到注册中心，我们通过服务名就能对相关服务进行调用。两种框架一种是 RPC 调用，一种是 Rest 调用，也就是一个基于Rpc 协议，一个基于http 协议。</p>
+<h5 id="系统简单介绍"><a href="#系统简单介绍" class="headerlink" title="系统简单介绍"></a>系统简单介绍</h5><p><img src="2.png" alt="1"></p>
+<p>​        系统采用前后端分离，前端框架 VUE ，后端 微服务，注册中心是采用的阿里的 nacos，数据库 mysql,消息队列 rabbit mq  ,文件存储 分布式 的  fastdfs</p>
+<p>我们以量表为例来说明整个访问过程：</p>
+<p>​        首先访问融平台前端 –&gt; 前端需要登录，请求后端网关的负载均衡，网关和授权以及其他服务都注册到注册中心。网关根据请求路径调用不同服务，请求转发到不同的服务。登录就转发到授权服务获取token。前端拿到token ，用户就可以访问有权限的模块。用户点击量表检索，前端将请求发给网关，网关鉴权后，将请求转发至量表服务，量表返回数据，网关返给前端。</p>
+<h5 id="后端基本开发介绍"><a href="#后端基本开发介绍" class="headerlink" title="后端基本开发介绍"></a>后端基本开发介绍</h5><p>​      基本技术：   mybatis-plus（<a href="https://mp.baomidou.com/" target="_blank" rel="external">https://mp.baomidou.com/</a>） 、 spring boot(<a href="http://www.ityouknow.com/spring-boot.html" target="_blank" rel="external">http://www.ityouknow.com/spring-boot.html</a>) 、mysql  </p>
+<p>​      微服务技术：nacos (注册中心)  feign（服务调用）、ribbon（负载均衡）、Hystrix(断路器)   服务熔断</p>
+<p>​      Feign是一个声明式的伪Http客户端，它使得写Http客户端变得更简单。使用Feign，只需要创建一个接口并注解。它具有可插拔的注解特性，可使用Feign 注解和JAX-RS注解。Feign支持可插拔的编码器和解码器。Feign默认集成了Ribbon，并和Eureka结合，默认实现了负载均衡的效果。</p>
+<p>​     ribbon是一个负载均衡客户端，可以很好的控制htt和tcp的一些行为。Feign默认集成了ribbon。</p>
+<p>​     在Spring Cloud可以用RestTemplate+Ribbon和Feign来调用。为了保证其高可用，单个服务通常会集群部署。由于网络原因或者自身的原因，服务并不能保证100%可用，如果单个服务出现问题，调用这个服务就会出现线程阻塞，此时若有大量的请求涌入，Servlet容器的线程资源会被消耗完毕，导致服务瘫痪。服务与服务之间的依赖性，故障会传播，会对整个微服务系统造成灾难性的严重后果，这就是服务故障的“雪崩”效应。为此呢，我们引入断路器。</p>
+<p><img src="3.png" alt="1"></p>
+<p>较底层的服务如果出现故障，会导致连锁故障。当对特定的服务的调用的不可用达到一个阀值 断路器将会被打开</p>
+<p><img src="4.png" alt="1"></p>
+<p>断路打开后，可用避免连锁故障，fallback方法可以直接返回一个固定值。</p>
+<p>demo </p>
 
     
 
@@ -416,21 +521,13 @@
             <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
     <!-- Prev Nav -->
     
-        <a href="/2017/06/02/毕业了/" id="post_nav-newer" class="prev-content">
-            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
-                <i class="material-icons">arrow_back</i>
-            </button>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            新篇
-        </a>
-    
 
     <!-- Section Spacer -->
     <div class="section-spacer"></div>
 
     <!-- Next Nav -->
     
-        <a href="/2017/06/02/从零开始学JavaScript/" id="post_nav-older" class="next-content">
+        <a href="/2019/10/15/docker 下 fastdfs集群部署/" id="post_nav-older" class="next-content">
             旧篇
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
