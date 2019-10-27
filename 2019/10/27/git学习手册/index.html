@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+    <!-- 
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.3.0 -->
+
+    <!-- Title -->
+    
+    <title>
+        
+            git 学习手册 | 
+        
+        Stack Overflow
+    </title>
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/img/favicon.ico">
+    <link rel="icon" sizes="192x192" href="/img/favicon.ico">
+    <link rel="apple-touch-icon" href="/img/favicon.ico">
+
+    <!-- Meta & Info -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#0097A7">
+    <meta name="author" content="MagicDo">
+    <meta name="description" content="世界很大，我很小">
+    <meta name="keywords" content="null,git">
+
+    <!--iOS -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-title" content="Title">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="480">
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Stack Overflow">
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="http://github.magicdu.cn">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="git 学习手册 | Stack Overflow">
+    <meta property="og:description" content="世界很大，我很小">
+    <meta property="og:article:tag" content="git"> 
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import CSS -->
+    <link rel="stylesheet" href="/css/material.min.css">
+    <link rel="stylesheet" href="/css/style.min.css">
+    <!-- Config CSS -->
+
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+  }
+
+  a {
+    color: #00838F;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #0097A7 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #0097A7 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #0097A7 !important;
+  }
+
+  .toTop {
+    background: #757575 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #757575;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #757575;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #757575;
+  }
+
+  .post-toc a:hover {
+    color: #00838F;
+    text-decoration: underline;
+  }
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body{
+        background-color: #F5F5F5;
+      }
+
+      /* blog_info bottom background */
+      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
+        background-color: #fff;
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/queue.js"></script>
+
+    <!-- UC Browser Compatible -->
+    <script>
+        var agent = navigator.userAgent.toLowerCase();
+        if(agent.indexOf('ucbrowser')>0) {
+            document.write("<link rel=\"stylesheet\" href=\"/css/uc.css\">");
+            alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+        }
+    </script>
+
+    
+
+    
+
+    <!-- Bing Background -->
+    
+
+    <!-- Custom Head -->
+    
+</head>
+
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+    <!-- Left aligned menu below button -->
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#git-安装与配置"><span class="post-toc-number">1.</span> <span class="post-toc-text">git  安装与配置</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#git-常用命令"><span class="post-toc-number">2.</span> <span class="post-toc-text">git 常用命令</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#git-init"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">git init</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#git-status"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">git status</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#git-add"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">git add</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#git-commit"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">git commit</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#git-log"><span class="post-toc-number">2.5.</span> <span class="post-toc-text">git log</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#git-add-amp-git-commit"><span class="post-toc-number">2.6.</span> <span class="post-toc-text">git  add & git commit</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#git-branch"><span class="post-toc-number">2.7.</span> <span class="post-toc-text">git branch</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#gitlab-的使用（远程仓库）"><span class="post-toc-number">3.</span> <span class="post-toc-text">gitlab 的使用（远程仓库）</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#git-clone"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">git clone</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#git-pull-amp-git-push"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">git pull & git push</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#小乌龟使用"><span class="post-toc-number">4.</span> <span class="post-toc-text">小乌龟使用</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#解决冲突"><span class="post-toc-number">5.</span> <span class="post-toc-text">解决冲突</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#分支合并"><span class="post-toc-number">6.</span> <span class="post-toc-text">分支合并</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#方法一：-直接合并"><span class="post-toc-number">6.1.</span> <span class="post-toc-text">方法一： 直接合并</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#方法二-合并某次提交"><span class="post-toc-number">6.2.</span> <span class="post-toc-text">方法二 合并某次提交</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#其他"><span class="post-toc-number">7.</span> <span class="post-toc-text">其他</span></a></li></ol>
+
+        <!--
+        <li class="mdl-menu__item">
+            Some Action
+        </li>
+        -->
+    </ul>
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
+    
+        
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+            <script>
+    var randomNum = Math.floor(Math.random() * 19 + 1);
+
+    $('.post_thumbnail-random').css('background-image', 'url(' + '/img/random/material-' + randomNum + '.png' + ')');
+</script>
+
+        
+    
+            <p class="article-headline-p">
+                git 学习手册
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/avatar1.png" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>MagicDo</strong>
+        <span>10月 27, 2019</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+        <button id="article-functions-qrcode-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+            <i class="material-icons" role="presentation">devices other</i>
+            <span class="visuallyhidden">devices other</span>
+        </button>
+        <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
+            <li class="mdl-menu__item">在其它设备中阅读本文章</li>
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACZklEQVR42u3aUW4CMQwFwL3/pdsDUODZTsIWTb4qBJsMleLw4uvnq8eFh4eHh4eHh4d3M94Vj8dP/fHol68/Pu3x72evFNaGh4eHd4T3ZqttLbqKefae6trw8PDwTvIm2/czdmFZ8bxvZsfDw8O7JS85lOflJ5kLDw8P77t5edjxLwsDHh4eXvEH/+uFFhZRDCYOZS14eHh4MS+/ZDr/99H7PTw8PLyAV25piiPavBWgWgw29pTh4eHhBbx8I55jXocO1aYrPDw8vM/y5vHBPMxNisSCXwx4eHh4S3nJdX7+2WppyV9pFgY8PDy8pbwkDsg39PkSk9kLhQEPDw9vKa93RI426METqhEGHh4e3nleHigkMUEeYSSk8jrx8PDwNvPy7btKijbx1hXXGzweHh7eZl5vE0/i2smBe/RkPDw8vM28XtNAHsVOWgSqB308PDy8k7z8eF0NDnphRzXMxcPDwzvJmzQNrDqO9+Lg0S8GPDw8vAFv37LWXpIVihYeHh7eZl4yQS9U7b0nnxcPDw/vU7wkFEiW+xo/aeQqlx88PDy8g7wrGHmpSK7Nqp+Kig0eHh7ecV6vGOStBvnXl8TN5cKAh4eHt4FX3aAnR+rqVxB9uXh4eHibedWRTzxvQaj+G/Dw8PDO8K54TMpJwuhFGFEYgYeHh7eBlxSD6pF3UmyqTQZ4eHh4n+KtCiOq23ov6i0XBjw8PLwb8HqA3sE6aVDAw8PD+7+8vIFgbUsBHh4e3nleHrn2rqbyAGJysMbDw8M7w+ttzcnRudcukMcfeHh4eOd53zfw8PDw8PDw8PBuMH4BbaKlgfqCdzsAAAAASUVORK5CYII=">
+        </ul>
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-link" href="/tags/git/">git</a>
+    </ul>
+    
+
+    <!-- Share -->
+    <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=git 学习手册&url=http://github.magicdu.cn//2019/10/27/git学习手册/index.html&pic=&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=git 学习手册&url=http://github.magicdu.cn//2019/10/27/git学习手册/index.html&via=MagicDo" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://github.magicdu.cn//2019/10/27/git学习手册/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=http://github.magicdu.cn//2019/10/27/git学习手册/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <p>   Git 是 Linux 发明 者 Linus 开发的一款新时代的版本控制系统。</p>
+<p>   首先，模式不同。SVN是集中式版本控制系统，GIT是分布式版本控制系统；</p>
+<p>   其次，传输方式不同。Git把内容按元数据方式存储，而SVN是按文件，所以Git传输速度更快。</p>
+<p>​      svn无网络时就没法用了。而git无网络时只是不能和别的机器上的仓库交互而已。<br>说git有中央服务器的，那其实是管理上视为中央服务器，其实那个仓库和你个人电脑上的仓库的地位在技术上是平等的，只是管理因素设置的不平等而已。</p>
+<a id="more"></a>
+<p>GIT:分布式版本控制,每一台机器都能当做一个中央服务器，即使断网也能提交,更新,没有网络不能远程更新代码而已</p>
+<h4 id="git-安装与配置"><a href="#git-安装与配置" class="headerlink" title="git  安装与配置"></a>git  安装与配置</h4><p> <a href="https://blog.csdn.net/qq_29281307/article/details/86503880" target="_blank" rel="external">linux 下gitlab 服务器的安装与配置</a></p>
+<p><a href="https://blog.csdn.net/qq_32786873/article/details/80570783" target="_blank" rel="external">git 在Windows下的安装与配置</a></p>
+<p><a href="https://www.jianshu.com/p/33108325fc87" target="_blank" rel="external">小乌龟的安装与配置</a></p>
+<h4 id="git-常用命令"><a href="#git-常用命令" class="headerlink" title="git 常用命令"></a>git 常用命令</h4><p><img src="/img/git.png"></p>
+<h5 id="git-init"><a href="#git-init" class="headerlink" title="git init"></a>git init</h5><p>   这个时候用到 了 第 一个命令， 代表初始化 git 仓库， 输入 git init 之后 会提示：</p>
+<p><img src="/img/git/1571964238293.png"></p>
+<p>​      可以看到 初始化成了 ， 至此 git_test 目 录已经是一个 git 仓库了 。</p>
+<h5 id="git-status"><a href="#git-status" class="headerlink" title="git status"></a>git status</h5><p>​     紧接着 我们 输入 git status 命令， 会有如下提示</p>
+<p><img src="/img/git/1571964406212.png"></p>
+<p>   然后呢，我们在这个文件夹下建立  README.md 后，再查看 git status</p>
+<p><img src="/img/git/1571964576572.png"></p>
+<p>​        这时最主要的是提示 README.md 文件 Untracked files ， 就是说 README.md 这个文件还没有被跟踪， 还没有提交在 git 仓库里呢， 而且提 示你可以使用 git add 去操作你想要提交的文件。<br>​        git status 这个命令顾 名 思义就是查看状态， 这个命令可以算是使用 最频繁的一个命令了 。</p>
+<h5 id="git-add"><a href="#git-add" class="headerlink" title="git add"></a>git add</h5><p>​      上面提示 README.md 文件还没有提交到 git 仓库里， 这个时候我们 可以随便编辑下  README.md文件， 然<br>后 输入 git add  README.md， 然后 再输入 git status :</p>
+<p><img src="/img/git/1571965287819.png"></p>
+<p>​         此时提示以下文件 Changes to be committed ， 意思就是 README.md 文件等待被提交， 当 然你可<br>以使用 git rm –cached 这个命令去移除这个缓存.</p>
+<h5 id="git-commit"><a href="#git-commit" class="headerlink" title="git commit"></a>git commit</h5><p>   接着 我们 输入 git commit -m “first commit”， 这个命令什么 意思呢？ commit 是提交的意思， -<br>m 代表是提交信息， 执行了 以上命令代表我们 已经正式进行了 第 一次提交。<br>这个时候再输入 git status ， 会提示 nothing to commit。</p>
+<p><img src="/img/git/1571965453932.png"></p>
+<h5 id="git-log"><a href="#git-log" class="headerlink" title="git log"></a>git log</h5><p>   git log 命令可以查看所有产 生的 commit 记录， 所以可以看到 已经产 生了 一条 commit 记录，<br>而提交时候的附带信息叫 ‘first commit’ 。</p>
+<p><img src="/img/git/1571965526132.png"></p>
+<h5 id="git-add-amp-git-commit"><a href="#git-add-amp-git-commit" class="headerlink" title="git  add &amp; git commit"></a>git  add &amp; git commit</h5><p>​      看到 这里估计很多 人会有疑问 ， 我想要提交直接进行 commit 不就行了 么 ， 为 什么 先要再 add<br>一次呢？ 首先 git add 是先把改动添加到 一个「暂存区 」 ， 你可以理解成是一个缓存区 域， 临<br>时保存你的改动， 而 git commit 才 是最后 真正的提交。 这样做的好处就是防止误提交</p>
+<h5 id="git-branch"><a href="#git-branch" class="headerlink" title="git branch"></a>git branch</h5><p>​        branch 即分支的意思， 分支的概念很重要， 尤其是团 队协作的时候， 假设两 个人都在做同 一<br>个项目 ， 这个时候分支就是保证两 人能协同 合作的最大利 器 了 。 举个例子， A, B俩人都在做同<br>一个项目 ， 但是不同 的模块， 这个时候A新建了 一个分支叫 a， B新建了 一个分支叫 b， 这样<br>A、 B做的所有代码改动都各自 在各自 的分支， 互不影响， 等到 俩人都把各自 的模块都做完<br>了 ， 最后 再统一把分支合并起来。基本上融平台的项目都是在 dev 分支上的。</p>
+<p>​       执行 git init 初始化git仓库之后 会默认生成一个主分支 master ， 也是你所在的默认分支， 也基<br>本是实 际开发正式环境下的分支， 一般情况下 master 分支不会轻易 直接在上面操作的， 你们<br>可以输入 git branch 查看下当 前分支情况：</p>
+<p><img src="/img/git/1571965754764.png"></p>
+<p>​      如果我们 想在此基础 上新建一个分支呢， 很简 单， 执行 git branch dev  就新建了 一个名 字叫 dev 的<br>分支， 这时候分支 dev 跟分支 master 是一模一样的内 容， 我们 再输入 git branch 查看的当 前分<br>支情况：</p>
+<p><img src="/img/git/1571965835180.png"></p>
+<p>   但是可以看到 master 分支前有个 * 号， 即虽 然新建了 一个 dev 的分支， 但是当 前所在的分支还<br>是在 master 上， 如果我们 想在 dev 分支上进行开发， 首先要先切换到 dev 分支上才 行， 所以下一<br>步要切换分支</p>
+   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout dev</span><br></pre></td></tr></table></figure>
+<p><img src="/img/git/1571965947651.png"></p>
+<p>   一步到位 新建并切换分支</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout - b dev</span><br></pre></td></tr></table></figure>
+<p>   这个命令的意思就是新建一个dev分支， 并且自 动切换到 dev 分支。</p>
+<p>   以上全是一些最基本的Git操作， 而且全是在本地环境进行操作的， 完全没有涉及到 远程<br>仓库</p>
+<h4 id="gitlab-的使用（远程仓库）"><a href="#gitlab-的使用（远程仓库）" class="headerlink" title="gitlab 的使用（远程仓库）"></a>gitlab 的使用（远程仓库）</h4><p>设置中文</p>
+<p><img src="/img/git/1571970396710.png"></p>
+<h5 id="git-clone"><a href="#git-clone" class="headerlink" title="git clone"></a>git clone</h5><p><img src="/img/git/1571966272052.png"></p>
+<p>git  http  和 ssh  的区别：</p>
+<p>http  需要账号密码</p>
+<p>ssh  需要  ssh key</p>
+<p>我们可以使用 http ,然后客户端记住密码，这样不必每次都输入密码。</p>
+<pre><code>git clone http://192.168.10.244:8008/duziqiang/test.git
+</code></pre><p><img src="/img/git/1571966331107.png"></p>
+<p>   我们切换到 test 文件夹，新建 hello.txt 并查看状态</p>
+<p><img src="/img/git/1571966414405.png"></p>
+<p>   接着 使用 git add  和 git commit </p>
+<p><img src="/img/git/1571966495894.png"></p>
+<h5 id="git-pull-amp-git-push"><a href="#git-pull-amp-git-push" class="headerlink" title="git pull &amp; git push"></a>git pull &amp; git push</h5><p>之前的 commit  只是将代码 提交到本地仓库，我们还需要将代码推送到远程仓库</p>
+<p>   一般我们 在 push 之前都会先 pull ， 这样不容易 冲突</p>
+<p><img src="/img/git/1571966638093.png"></p>
+<p>这样就把本地修改的文件 提交到了 远程仓库</p>
+<p><img src="/img/git/1571966681355.png"></p>
+<h4 id="小乌龟使用"><a href="#小乌龟使用" class="headerlink" title="小乌龟使用"></a>小乌龟使用</h4><p><img src="/img/git/1571967217213.png"></p>
+<p>克隆时，可以选择分支信息，就把对应分支克隆到本地</p>
+<p><img src="/img/git/1571967289967.png"></p>
+<p><img src="/img/git/1571966999292.png"></p>
+<p><img src="/img/git/1571967349301.png"></p>
+<p><img src="/img/git/1571967405071.png"></p>
+<h4 id="解决冲突"><a href="#解决冲突" class="headerlink" title="解决冲突"></a>解决冲突</h4><p><a href="https://blog.csdn.net/lhw_csd/article/details/81204202" target="_blank" rel="external">eclipse 解决冲突</a></p>
+<p><a href="https://www.cnblogs.com/daiyanren/p/9615698.html" target="_blank" rel="external">idea解决冲突</a></p>
+<h4 id="分支合并"><a href="#分支合并" class="headerlink" title="分支合并"></a>分支合并</h4><p>合并到哪个分支，就切换到哪个分支</p>
+<p><img src="/img/git/1572057697839.png"></p>
+<p><img src="/img/git/1572057739196.png"></p>
+<h5 id="方法一：-直接合并"><a href="#方法一：-直接合并" class="headerlink" title="方法一： 直接合并"></a>方法一： 直接合并</h5><p>然后在 该分支上 点击合并</p>
+<p><img src="/img/git/1572058065218.png"></p>
+<p>选择提交，然后点击右边三个点 </p>
+<p><img src="/img/git/1572057782652.png"></p>
+<p>在弹出框选中左下角所有分支，就可以看到所有分支的提交记录</p>
+<p><img src="/img/git/1572057859290.png"></p>
+<p>选中要合并的某次提交或者某几次提交</p>
+<p><img src="/img/git/1572058268973.png"></p>
+<p><img src="/img/git/1572058288442.png"></p>
+<p>合并成功，将合并后的信息推送到远端</p>
+<p><img src="/img/git/1572057963158.png"></p>
+<h5 id="方法二-合并某次提交"><a href="#方法二-合并某次提交" class="headerlink" title="方法二 合并某次提交"></a>方法二 合并某次提交</h5><p><img src="/img/git/1572060324606.png"></p>
+<p><img src="/img/git/1572060378422.png"></p>
+<p><strong>双击本次提交 </strong></p>
+<p><img src="/img/git/1572060438895.png"></p>
+<p>再该次提交上 右键 点击 提取此摘要</p>
+<p><img src="/img/git/1572060502359.png"></p>
+<p><img src="/img/git/1572060546030.png"></p>
+<p><img src="/img/git/1572060579419.png"></p>
+<p>日志中就可以看到，合并的提交</p>
+<p><img src="/img/git/1572060682941.png"></p>
+<p>然后将合并后的修改，推送到远程</p>
+<p><img src="/img/git/1572060651434.png"></p>
+<h4 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h4><p><a href="https://blog.csdn.net/qq_38974634/article/details/80633748" target="_blank" rel="external">git 教程</a></p>
+<p><a href="https://lab.github.com/github/hello-github-actions!" target="_blank" rel="external">github官方教程</a></p>
+
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+
+
+
+
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2019/10/15/微服务/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/img/sidebar_header.png);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="/img/avatar1.png" alt="MagicDo's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        johndu@magicdu.cn
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="#" target="_blank" title="Email Me">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        
+                        Email Me
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/" target="_self">
+                
+                    <i class="material-icons sidebar-material-icons">home</i>
+                
+                主页
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">inbox</i>
+                
+                    归档
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/archives/2019/10/">十月 2019<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/06/">六月 2017<span class="sidebar_archives-count">20</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Categories  -->
+    
+
+    <!-- Pages  -->
+    
+
+    <!-- Article Number  -->
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Sidebar Divider -->
+
+    <div class="sidebar-divider"></div>
+
+
+<!-- Theme Material -->
+
+    <a href="https://github.com/viosey/hexo-theme-material"  class="sidebar-footer-text-a" target="_blank">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+            主题 - Material
+            <span class="sidebar-badge badge-circle">i</span>
+        </div>
+    </a>
+
+
+<!-- Help & Support -->
+<!--
+
+-->
+
+<!-- Feedback -->
+<!--
+
+-->
+
+<!-- About Theme -->
+<!--
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+        <a href="https://twitter.com/twitter" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-twitter.png);">
+                <span class="visuallyhidden">Twitter</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Facebook -->
+    
+        <a href="https://www.facebook.com/facebook" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-facebook.png);">
+                <span class="visuallyhidden">Facebook</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Google + -->
+    
+        <a href="https://www.google.com/" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-gplus.png);">
+                <span class="visuallyhidden">Google Plus</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Weibo -->
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+        <a href="https://github.com/magicdu" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-github.png);">
+                <span class="visuallyhidden">Github</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
+</div>
+
+
+        <!--Copyright-->
+        <div id="copyright">
+            Copyright&nbsp;©&nbsp;
+            <script type="text/javascript">
+                var fd = new Date();
+                document.write(fd.getFullYear());
+            </script>
+            &nbsp;Stack Overflow
+        </div>
+
+        <!-- Paradox Footer Right Section -->
+
+        <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
+            </div>
+        </div>
+    
+</footer>
+
+
+                    <!-- Import File -->
+<script src="/js/lazyload.min.js"></script>
+<script src="/js/js.min.js"></script>
+<script src="/js/nprogress.js"></script>
+
+<script type="text/javascript">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Swiftye -->
+
+
+<!-- Local Search-->
+
+
+<!-- Window Load-->
+<script>
+    $(window).load(function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+</script>
+
+<!-- MathJax Load-->
+
+
+                </main>
+            </div>
+        </body>
+    
+</html>
