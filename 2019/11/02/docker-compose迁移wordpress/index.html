@@ -10,7 +10,7 @@
     
     <title>
         
-            java编写的端口扫描器 | 
+            docker-compose 迁移 wordpress | 
         
         Stack Overflow
     </title>
@@ -27,7 +27,7 @@
     <meta name="theme-color" content="#0097A7">
     <meta name="author" content="MagicDo">
     <meta name="description" content="世界很大，我很小">
-    <meta name="keywords" content="null,java">
+    <meta name="keywords" content="null,docker,docker-compose">
 
     <!--iOS -->
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
@@ -48,9 +48,9 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="http://github.magicdu.cn">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="java编写的端口扫描器 | Stack Overflow">
+    <meta property="og:title" content="docker-compose 迁移 wordpress | Stack Overflow">
     <meta property="og:description" content="世界很大，我很小">
-    <meta property="og:article:tag" content="java"> 
+    <meta property="og:article:tag" content="docker,docker-compose"> 
 
     <!--[if lte IE 9]>
         <link rel="stylesheet" href="/css/ie-blocker.css">
@@ -234,7 +234,7 @@
     </button>
 
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn">
-        
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#准备工作"><span class="post-toc-number">1.</span> <span class="post-toc-text">准备工作</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#开始迁移"><span class="post-toc-number">2.</span> <span class="post-toc-text">开始迁移</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#配置nginx-代理"><span class="post-toc-number">3.</span> <span class="post-toc-text">配置nginx 代理</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#之前的博客配置了固定链接-404-的问题"><span class="post-toc-number">4.</span> <span class="post-toc-text">之前的博客配置了固定链接 404 的问题</span></a></li></ol>
 
         <!--
         <li class="mdl-menu__item">
@@ -270,7 +270,7 @@
         
     
             <p class="article-headline-p">
-                java编写的端口扫描器
+                docker-compose 迁移 wordpress
             </p>
         </div>
 
@@ -289,7 +289,7 @@
     <!-- Author Name & Date -->
     <div>
         <strong>MagicDo</strong>
-        <span>6月 02, 2017</span>
+        <span>11月 02, 2019</span>
     </div>
 
     <div class="section-spacer"></div>
@@ -310,7 +310,7 @@
         </button>
         <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
             <li class="mdl-menu__item">在其它设备中阅读本文章</li>
-            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAAC1ElEQVR42u3aUW7CMBAEUO5/6fYAiDCzTlWwX75QC4mfK7HdWT9+jrwe2NjY2NjY2NjY2B/JfsTX8/uf7/P8+tVvX73/1XNX1oyNjY19AvvNV39AusZcg6/ZyZ2v14yNjY19Djt5TF66cmSyiStrxsbGxsaeNR55A9M2P9jY2NjY6wVsvUlICmT+GhsbGxu7DmguP5VsxKxR+bcsDRsbG/vj2e2g9xNe/8N8GxsbG/sj2SvXStPSlqWkaL1ZLTY2Nvam7DayX4HlzUMycsgDJmxsbOy92SuPacfAecA0K29vDvpgY2Njb8qelahZIWnvMGt7lsYD2NjY2F/IrstAWYRmxyvbe0afwsbGxt6UHX31l4tuS1S73cMSiI2NjX0AO28whgF9OVpo3/Mm6sLGxsY+jN2C2xB/tpWz4oeNjY29N7tdUH7UJo+lklYnL4H1kR1sbGzsL2fPRrx5tJRsYr70lU3HxsbG3pV9V9uQLzR/+iw8KloRbGxs7I3Y+aA3L0hJ8NQWyNlrbGxs7HPYKw1AO+5NBgkr4wFsbGzs09h5wDQLd1pGG2xFfypsbGzsY9h5hDTD/8XRzCRgwsbGxt6VPfsXfxYGtcPdu8DY2NjYe7PbReSfTSL7qPCUh4RePgUbGxv7GPbKstpAP2+H6sajnYpgY2Njfy27/Xe/jYfyQfIKeNiBYWNjY2/NXjl889fxUL7F2NjY2Oew28M0ebsya0Jmm1i3ItjY2NjbsZM2oC176xFVO2COxgPY2NjYG7Hbqx0AJ8PanD0rnNjY2Nh7s9cPU951NDNvLfL2CRsbG/scdh7Bt6F/e/97oyhsbGzs09h5mcmLUzvEnZXDpQKGjY2NfTD7rqI1GwnURREbGxsbu2we8qFCjmnbJGxsbOzT2HeFPisb1w4JilExNjY29tbs9UFvW4RmI96ln2BjY2Nvyj7nwsbGxsbGxsbGxv6Y6xeEwnIUffLxjwAAAABJRU5ErkJggg==">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAAC30lEQVR42u3aQXLjMAwEQP//05sHZGXPgIpLoponVyyZaB6CAsDXv0euFzY2NjY2NjY2NvYl2a94vX/rP9v8+vboyaNvj94dxoyNjY29NfvDv/4FWMJOjiM/vsNIsLGxsR/APkoAR88kIa7v1SYzbGxsbOw2lKPn18ubs44PGxsbG/t9AmsLg5UWFTY2Njb2elNpllRmrf8L9dKwsbGxL8/Oy4brfP7qfBsbGxv7wux2tWOD2YHmI4cicmxsbOxN2XliaFv5SRHS7jt7HhsbG/s57FmrqAW3CSw/xA+HhY2Njb0pOx/E5qPZlcKjvb5TRIWNjY29KXsllFlxko9vZ1dz6vk2NjY29kbs2XF8s1X0/i/DBIaNjY19c3bbxEmezIfBRXO/LGaG821sbGzsG7JXLjiuNJLalNYWJ8MKDBsbG/uG7Fk7/lWudpC8ksDqQS82Njb2zdntZi1+1sCaIT8MG7CxsbE3ZZ87GGhLhaT4WS9CsLGxsZ/AnpUBJ5QH5fhh1orCxsbG3pvdFg/rJUFylO27yYFiY2Nj78puk0f+1srxJePktnDCxsbG3pXd/tB6C2l2+fKE5hc2Njb2puyWl7/bXtZsk99ply+xsbGxb87+u2IjatmXuyejAmxsbOynsfOw1ps+7xNkUsAkifaEKzvY2NjYt2InobeJqi0h8jHzyb00bGxs7Aew80Q1KzDyw23bUlEFho2Njb0deyXE2TWdpD00TFfY2NjYj2SvDGLboPN9Z6suRbCxsbFvy25X0tZv2/dfKnuwsbGxN2XPUkKSnJKUNmsqJYPn+qYSNjY29s3ZK0lr9mvr1z2TeLCxsbGfxp4lnmLUmoe43E6qpyLY2NjYj2cn4baD4SRd5cNgbGxsbOzZYDh5q7h2Ezw/vHyJjY2NvQW73T4/jqTMWClLon2xsbGxt2avNGuStlH+CyslTZ3AsLGxsbdgP2dhY2NjY2NjY2NjX2b9ADPtSUvv6mqIAAAAAElFTkSuQmCC">
         </ul>
     
 
@@ -322,7 +322,7 @@
     </button>
     <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
         <li class="mdl-menu__item">
-        <a class="post_tag-link" href="/tags/java/">java</a>
+        <a class="post_tag-link" href="/tags/docker-docker-compose/">docker,docker-compose</a>
     </ul>
     
 
@@ -338,7 +338,7 @@
 
     <!-- Share Weibo -->
     
-        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=java编写的端口扫描器&url=http://github.magicdu.cn//2017/06/02/java编写端口扫描器/index.html&pic=&searchPic=false&style=simple" target="_blank">
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=docker-compose 迁移 wordpress&url=http://github.magicdu.cn//2019/11/02/docker-compose迁移wordpress/index.html&pic=&searchPic=false&style=simple" target="_blank">
             <li class="mdl-menu__item">
                 分享到微博
             </li>
@@ -347,7 +347,7 @@
 
     <!-- Share Twitter -->
     
-        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=java编写的端口扫描器&url=http://github.magicdu.cn//2017/06/02/java编写端口扫描器/index.html&via=MagicDo" target="_blank">
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=docker-compose 迁移 wordpress&url=http://github.magicdu.cn//2019/11/02/docker-compose迁移wordpress/index.html&via=MagicDo" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Twitter
             </li>
@@ -356,7 +356,7 @@
 
     <!-- Share Facebook -->
     
-        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://github.magicdu.cn//2017/06/02/java编写端口扫描器/index.html" target="_blank">
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://github.magicdu.cn//2019/11/02/docker-compose迁移wordpress/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Facebook
             </li>
@@ -365,7 +365,7 @@
 
     <!-- Share Google+ -->
     
-        <a class="post_share-link" href="https://plus.google.com/share?url=http://github.magicdu.cn//2017/06/02/java编写端口扫描器/index.html" target="_blank">
+        <a class="post_share-link" href="https://plus.google.com/share?url=http://github.magicdu.cn//2019/11/02/docker-compose迁移wordpress/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Google+
             </li>
@@ -389,10 +389,50 @@
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <p>好久没写java了，学的时候，也没学习网络编程这一块，无意中看到了一本书，于是小小复习一下java，写个端口扫描器，玩玩吧，网上这种小工具有的是，就是自己无聊写着玩玩。<br><a id="more"></a><br>源代码如下：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> javax.swing.*;</span><br><span class="line"><span class="keyword">import</span> java.awt.Dimension;</span><br><span class="line"><span class="keyword">import</span> java.awt.Font;</span><br><span class="line"><span class="keyword">import</span> java.awt.Toolkit;</span><br><span class="line"><span class="keyword">import</span> java.awt.event.*;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PortScan</span> <span class="keyword">extends</span> <span class="title">JFrame</span> </span>&#123;</span><br><span class="line">    JPanel center=<span class="keyword">new</span> JPanel();</span><br><span class="line">	Box hBox0=Box.createHorizontalBox();</span><br><span class="line">	Box hBox1= Box.createHorizontalBox();</span><br><span class="line">	Box hBox2= Box.createHorizontalBox();</span><br><span class="line">	Box hBox3= Box.createHorizontalBox();</span><br><span class="line">	<span class="keyword">private</span> JLabel state=<span class="keyword">new</span> JLabel(<span class="string">"关闭"</span>);</span><br><span class="line">	<span class="keyword">private</span> JLabel HOST=<span class="keyword">new</span> JLabel(<span class="string">"主机名:"</span>);</span><br><span class="line">	<span class="keyword">private</span> JLabel PORT=<span class="keyword">new</span> JLabel(<span class="string">"端口号:"</span>);</span><br><span class="line">	<span class="keyword">private</span> JLabel STATE=<span class="keyword">new</span> JLabel(<span class="string">"状态："</span>);</span><br><span class="line">    <span class="keyword">private</span> JButton btn1=<span class="keyword">new</span> JButton(<span class="string">"开始扫描"</span>);</span><br><span class="line">    <span class="keyword">private</span> JButton reset=<span class="keyword">new</span> JButton(<span class="string">"重置"</span>);</span><br><span class="line">    <span class="keyword">private</span> JTextField host=<span class="keyword">new</span> JTextField(<span class="number">20</span>);</span><br><span class="line">    <span class="keyword">private</span> JTextField port=<span class="keyword">new</span> JTextField(<span class="number">7</span>);</span><br><span class="line">    Font f1=<span class="keyword">new</span> Font(<span class="string">"隶书"</span>,Font.PLAIN,<span class="number">15</span>);</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		JFrame portscan=<span class="keyword">new</span> PortScan();</span><br><span class="line">		portscan.setVisible(<span class="keyword">true</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">PortScan</span><span class="params">()</span></span>&#123;</span><br><span class="line">		setTitle(<span class="string">"PortScanner"</span>);</span><br><span class="line">		setSize(<span class="number">300</span>, <span class="number">200</span>);</span><br><span class="line">		center.setLayout(<span class="keyword">new</span> BoxLayout(center,BoxLayout.Y_AXIS));</span><br><span class="line">		 Toolkit kit = Toolkit.getDefaultToolkit();</span><br><span class="line">	 	   Dimension screenSize = kit.getScreenSize();<span class="comment">//获取屏幕分辨率</span></span><br><span class="line">		  setLocation(screenSize.width/<span class="number">4</span>,screenSize.height/<span class="number">4</span>);<span class="comment">//位置</span></span><br><span class="line">		  state.setFont(f1);</span><br><span class="line">		  HOST.setFont(f1);</span><br><span class="line">		  PORT.setFont(f1);</span><br><span class="line">		  btn1.setFont(f1);</span><br><span class="line">		  reset.setFont(f1);</span><br><span class="line">		  STATE.setFont(f1);</span><br><span class="line">		 center.add(hBox0);</span><br><span class="line">		 center.add(Box.createRigidArea(<span class="keyword">new</span> Dimension(<span class="number">10</span>,<span class="number">20</span>)));</span><br><span class="line">		 center.add(hBox1);</span><br><span class="line">		 center.add(Box.createRigidArea(<span class="keyword">new</span> Dimension(<span class="number">2</span>,<span class="number">20</span>)));</span><br><span class="line">		 center.add(hBox2);</span><br><span class="line">		 center.add(Box.createRigidArea(<span class="keyword">new</span> Dimension(<span class="number">2</span>,<span class="number">20</span>)));</span><br><span class="line">		 center.add(hBox3);</span><br><span class="line">		 hBox0.add(HOST);</span><br><span class="line">		 hBox0.add(host);</span><br><span class="line">		 hBox1.add(PORT);</span><br><span class="line">		 hBox1.add(port);</span><br><span class="line">		 hBox2.add(btn1);</span><br><span class="line">		 hBox2.add(reset);</span><br><span class="line">		 hBox3.add(STATE);</span><br><span class="line">		 hBox3.add(state);</span><br><span class="line">		 add(center);</span><br><span class="line">		 btn1.addActionListener(<span class="keyword">new</span> MyActionListener());</span><br><span class="line">		 reset.addActionListener(<span class="keyword">new</span> MyActionListener());</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="class"><span class="keyword">class</span> <span class="title">MyActionListener</span> <span class="keyword">implements</span> <span class="title">ActionListener</span></span>&#123;</span><br><span class="line"></span><br><span class="line">		<span class="meta">@Override</span></span><br><span class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">actionPerformed</span><span class="params">(ActionEvent e)</span> </span>&#123;</span><br><span class="line">			String post1=host.getText();</span><br><span class="line">			<span class="keyword">int</span> port1=Integer.parseInt(port.getText());</span><br><span class="line">			<span class="keyword">if</span>(e.getActionCommand()==<span class="string">"开始扫描"</span>)&#123;</span><br><span class="line">			<span class="keyword">if</span>(	PortScannerByIP.scan(post1, port1))&#123;</span><br><span class="line">				state.setText(<span class="string">"开放"</span>);</span><br><span class="line">			&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">				state.setText(<span class="string">"关闭"</span>);</span><br><span class="line">			&#125;</span><br><span class="line">				</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">if</span>(e.getActionCommand()==<span class="string">"重置"</span>)&#123;</span><br><span class="line">				host.setText(<span class="string">""</span>);</span><br><span class="line">				port.setText(<span class="string">""</span>);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<hr>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">   <span class="keyword">import</span> java.io.IOException;</span><br><span class="line">   <span class="keyword">import</span> java.net.Socket;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PortScannerByIP</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">scan</span><span class="params">(String host,<span class="keyword">int</span> port)</span></span>&#123;</span><br><span class="line">		<span class="keyword">boolean</span> flag=<span class="keyword">true</span>;</span><br><span class="line">		Socket socket=<span class="keyword">null</span>;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			socket=<span class="keyword">new</span> Socket(host,port);</span><br><span class="line">			<span class="keyword">return</span> flag;</span><br><span class="line">		&#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">			flag=<span class="keyword">false</span>;</span><br><span class="line">			<span class="keyword">return</span> flag;</span><br><span class="line">		&#125;<span class="keyword">finally</span>&#123;</span><br><span class="line">			<span class="keyword">try</span> &#123;</span><br><span class="line">				<span class="keyword">if</span>(socket!=<span class="keyword">null</span>)</span><br><span class="line">					socket.close();</span><br><span class="line">			&#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">				e.printStackTrace();</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <p>  docker-compose 允许用户通过一个单独的docker-compose.yml    模板文件(YAML格式)来定义一组相关联的应用容器为一个项目(project)。</p>
+<p>​        我一直想把自己的博客迁移到docker 上来，之前看docker实战，记得里面有利用docker-compose 配置wordpress 的说明，趁着周末，拿出点时间将博客完全迁移过来。</p>
+<a id="more"></a>
+<h4 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h4><p>首先要做的是数据的备份，由于数据不多，我们首先利用mysqldump将mysql  中的数据备份出来。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqldump -u root -p wordpress_db &gt;wordpress.2019.11.02.sql</span><br></pre></td></tr></table></figure>
+<p>然后将 wordpress 的程序 备份一下，避免出现问题。</p>
+<p>安装 docker-compose</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo curl -L &quot;https://github.com/docker/compose/releases/download/1.17.1/docker-compose-$(uname -s)-$(uname -m)&quot; -o /usr/local/bin/docker-compose</span><br></pre></td></tr></table></figure>
+<p>授权：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo chmod +x /usr/local/bin/docker-compose</span><br></pre></td></tr></table></figure>
+<p><strong>编写docker-compose.yml, 在这之前需要查看自己之前的php 版本以及wordpress 版本，然后更改 以下文件的wordpress 镜像的版本。不然的化，迁移可能会有问题</strong></p>
+<p>可以去docker hub（<a href="https://hub.docker.com/_/wordpress?tab=tags&amp;page=1&amp;ordering=-last_updated" target="_blank" rel="external">https://hub.docker.com/_/wordpress?tab=tags&amp;page=1&amp;ordering=-last_updated</a>） 上查找版本，我们使用的是 apache 版本的。</p>
+<p>然后将挂载的文件夹建好</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">version:</span> <span class="string">"3"</span></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line"></span><br><span class="line"><span class="attr">  db:</span></span><br><span class="line"><span class="attr">    image:</span> mysql:<span class="number">5.7</span></span><br><span class="line"><span class="attr">    container_name:</span> mysql-wp</span><br><span class="line"><span class="attr">    volumes:</span></span><br><span class="line"><span class="bullet">      -</span> /alidata/mysql/db_data:/var/lib/mysql</span><br><span class="line"><span class="attr">    ports:</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">"13306:3306"</span></span><br><span class="line"><span class="attr">    restart:</span> always</span><br><span class="line"><span class="attr">    environment:</span></span><br><span class="line"><span class="attr">      MYSQL_ROOT_PASSWORD:</span> mypassword</span><br><span class="line"><span class="attr">      MYSQL_DATABASE:</span> wordpress</span><br><span class="line"><span class="attr">      MYSQL_USER:</span> wordpress</span><br><span class="line"><span class="attr">      MYSQL_PASSWORD:</span> wordpresspass</span><br><span class="line"></span><br><span class="line"><span class="attr">  wordpress:</span></span><br><span class="line"><span class="attr">    depends_on:</span></span><br><span class="line"><span class="bullet">      -</span> db</span><br><span class="line"><span class="attr">    image:</span> wordpress:<span class="number">4.7</span><span class="number">.0</span>-php5<span class="number">.6</span>-apache</span><br><span class="line"><span class="attr">    ports:</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">"9000:80"</span></span><br><span class="line"><span class="attr">    container_name:</span> wordpress</span><br><span class="line"><span class="attr">    volumes:</span></span><br><span class="line"><span class="bullet">      -</span> /alidata/www/wordpress:/var/www/html</span><br><span class="line"><span class="attr">    restart:</span> always</span><br><span class="line"><span class="attr">    environment:</span></span><br><span class="line"><span class="attr">      WORDPRESS_DB_HOST:</span> db:<span class="number">13306</span></span><br><span class="line"><span class="attr">      WORDPRESS_DB_USER:</span> wordpress</span><br><span class="line"><span class="attr">      WORDPRESS_DB_PASSWORD:</span> wordpresspass</span><br></pre></td></tr></table></figure>
+<h4 id="开始迁移"><a href="#开始迁移" class="headerlink" title="开始迁移"></a>开始迁移</h4><p>在 docker-compose.yml 同级目录执行以下命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker-compose up -d</span><br></pre></td></tr></table></figure>
+<p>查看日志：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker-compose logs</span><br></pre></td></tr></table></figure>
+<p>将之前备份好的数据导入到 mysql 中。建议客户端连接之前的数据库，将sql文件导入。执行之前，如果域名有变化，需要将sql文件中的域名全部替换掉再执行。</p>
+<p>然后服务器上将刚才的服务停掉 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker-compose stop</span><br></pre></td></tr></table></figure>
+<p>将挂载的wordpress 文件夹中的文件删掉，替换为自己的wordpress 文件。记得给文件夹赋权限。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker-compose start</span><br></pre></td></tr></table></figure>
+<p>这样程序就迁移成功了。</p>
+<h4 id="配置nginx-代理"><a href="#配置nginx-代理" class="headerlink" title="配置nginx 代理"></a>配置nginx 代理</h4><p>nginx  我们直接装在主机里面了，没有使用docker 管理。</p>
+<p>编写nginx 配置文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">    listen 80;</span><br><span class="line">    server_name xxx.xxx.com;</span><br><span class="line"></span><br><span class="line">    location / &#123;</span><br><span class="line">        proxy_pass http://127.0.0.1:9000;</span><br><span class="line">        proxy_redirect off;</span><br><span class="line">        proxy_set_header Host $host;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>将配置文件放在nginx 配置文件的 conf.d 文件夹中，重启nginx,访问域名即可。</p>
+<h4 id="之前的博客配置了固定链接-404-的问题"><a href="#之前的博客配置了固定链接-404-的问题" class="headerlink" title="之前的博客配置了固定链接 404 的问题"></a>之前的博客配置了固定链接 404 的问题</h4><p>需要开启apache2 的  伪静态</p>
+<p>将容器中的配置文件拷贝出来修改</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker cp wordpress:/etc/apache2/apache2.conf .</span><br></pre></td></tr></table></figure>
+<p>将</p>
+<p>AllowOverride None</p>
+<p>改为</p>
+<p>AllowOverride All</p>
+<p>修改完拷贝进去</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker cp apache2.conf wordpress:/etc/apache2/apache2.conf</span><br></pre></td></tr></table></figure>
+<p>进入容器</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker exec -it wordpress /bin/bash</span><br></pre></td></tr></table></figure>
+<p>执行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a2enmod rewrite</span><br></pre></td></tr></table></figure>
+<p>退出容器后重启容器</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker restart wordpress</span><br></pre></td></tr></table></figure>
+<p>再次访问就不会404了</p>
 
     
 
@@ -416,21 +456,13 @@
             <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
     <!-- Prev Nav -->
     
-        <a href="/2017/06/02/hello-world/" id="post_nav-newer" class="prev-content">
-            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
-                <i class="material-icons">arrow_back</i>
-            </button>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            新篇
-        </a>
-    
 
     <!-- Section Spacer -->
     <div class="section-spacer"></div>
 
     <!-- Next Nav -->
     
-        <a href="/2017/06/02/从零开始学JavaScript/" id="post_nav-older" class="next-content">
+        <a href="/2019/10/27/git学习手册/" id="post_nav-older" class="next-content">
             旧篇
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
