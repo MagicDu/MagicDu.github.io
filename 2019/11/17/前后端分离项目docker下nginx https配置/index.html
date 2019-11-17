@@ -10,7 +10,7 @@
     
     <title>
         
-            docker-compose 迁移 wordpress | 
+            前后端分离项目docker下nginx https配置 | 
         
         Stack Overflow
     </title>
@@ -27,7 +27,7 @@
     <meta name="theme-color" content="#0097A7">
     <meta name="author" content="MagicDo">
     <meta name="description" content="世界很大，我很小">
-    <meta name="keywords" content="null,docker,docker-compose">
+    <meta name="keywords" content="null,https,docker,前后端分离">
 
     <!--iOS -->
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
@@ -48,9 +48,9 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="http://github.magicdu.cn">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="docker-compose 迁移 wordpress | Stack Overflow">
+    <meta property="og:title" content="前后端分离项目docker下nginx https配置 | Stack Overflow">
     <meta property="og:description" content="世界很大，我很小">
-    <meta property="og:article:tag" content="docker,docker-compose"> 
+    <meta property="og:article:tag" content="https,docker,前后端分离"> 
 
     <!--[if lte IE 9]>
         <link rel="stylesheet" href="/css/ie-blocker.css">
@@ -234,7 +234,7 @@
     </button>
 
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#准备工作"><span class="post-toc-number">1.</span> <span class="post-toc-text">准备工作</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#开始迁移"><span class="post-toc-number">2.</span> <span class="post-toc-text">开始迁移</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#配置nginx-代理"><span class="post-toc-number">3.</span> <span class="post-toc-text">配置nginx 代理</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#之前的博客配置了固定链接-404-的问题"><span class="post-toc-number">4.</span> <span class="post-toc-text">之前的博客配置了固定链接 404 的问题</span></a></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#https-简介"><span class="post-toc-number">1.</span> <span class="post-toc-text">https 简介</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#前端项目部署https"><span class="post-toc-number">2.</span> <span class="post-toc-text">前端项目部署https</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#自己生成https-证书"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">自己生成https 证书</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#docker-下nginx-配置"><span class="post-toc-number">3.</span> <span class="post-toc-text">docker 下nginx 配置</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#nginx-https-代理后端-http接口"><span class="post-toc-number">4.</span> <span class="post-toc-text">nginx  https  代理后端 http接口</span></a></li></ol>
 
         <!--
         <li class="mdl-menu__item">
@@ -270,7 +270,7 @@
         
     
             <p class="article-headline-p">
-                docker-compose 迁移 wordpress
+                前后端分离项目docker下nginx https配置
             </p>
         </div>
 
@@ -289,7 +289,7 @@
     <!-- Author Name & Date -->
     <div>
         <strong>MagicDo</strong>
-        <span>11月 02, 2019</span>
+        <span>11月 17, 2019</span>
     </div>
 
     <div class="section-spacer"></div>
@@ -310,7 +310,7 @@
         </button>
         <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
             <li class="mdl-menu__item">在其它设备中阅读本文章</li>
-            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAAC30lEQVR42u3aQXLjMAwEQP//05sHZGXPgIpLoponVyyZaB6CAsDXv0euFzY2NjY2NjY2NvYl2a94vX/rP9v8+vboyaNvj94dxoyNjY29NfvDv/4FWMJOjiM/vsNIsLGxsR/APkoAR88kIa7v1SYzbGxsbOw2lKPn18ubs44PGxsbG/t9AmsLg5UWFTY2Njb2elNpllRmrf8L9dKwsbGxL8/Oy4brfP7qfBsbGxv7wux2tWOD2YHmI4cicmxsbOxN2XliaFv5SRHS7jt7HhsbG/s57FmrqAW3CSw/xA+HhY2Njb0pOx/E5qPZlcKjvb5TRIWNjY29KXsllFlxko9vZ1dz6vk2NjY29kbs2XF8s1X0/i/DBIaNjY19c3bbxEmezIfBRXO/LGaG821sbGzsG7JXLjiuNJLalNYWJ8MKDBsbG/uG7Fk7/lWudpC8ksDqQS82Njb2zdntZi1+1sCaIT8MG7CxsbE3ZZ87GGhLhaT4WS9CsLGxsZ/AnpUBJ5QH5fhh1orCxsbG3pvdFg/rJUFylO27yYFiY2Nj78puk0f+1srxJePktnDCxsbG3pXd/tB6C2l2+fKE5hc2Njb2puyWl7/bXtZsk99ply+xsbGxb87+u2IjatmXuyejAmxsbOynsfOw1ps+7xNkUsAkifaEKzvY2NjYt2InobeJqi0h8jHzyb00bGxs7Aew80Q1KzDyw23bUlEFho2Njb0deyXE2TWdpD00TFfY2NjYj2SvDGLboPN9Z6suRbCxsbFvy25X0tZv2/dfKnuwsbGxN2XPUkKSnJKUNmsqJYPn+qYSNjY29s3ZK0lr9mvr1z2TeLCxsbGfxp4lnmLUmoe43E6qpyLY2NjYj2cn4baD4SRd5cNgbGxsbOzZYDh5q7h2Ezw/vHyJjY2NvQW73T4/jqTMWClLon2xsbGxt2avNGuStlH+CyslTZ3AsLGxsbdgP2dhY2NjY2NjY2NjX2b9ADPtSUvv6mqIAAAAAElFTkSuQmCC">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQ4AAAEOCAAAAABd2qZ5AAADiklEQVR42u3aS27cQAwFQN//0s42gGHNe6RaUYDSyrDHEru04PDz9e366/pCgAMHDhw4cODAgQPHizm+4uvnfyX3uf7Mb/e8/t/kN8VZcODAgQPHAY4PqSgILvnrb2Fd/5zDDc+CAwcOHDiOceThXkO0ASV/zfnys+DAgQMHjvdwJKEnCTIJNyn/cODAgQPH/87RNu9maTKPEAcOHDhwvJMjKauuU911M7Et0jZwD/VKceDAgQPHeqHh/T8/ut+BAwcOHDh+cLRXvqA2C3e2HrE6EQ4cOHDguJUjD7ct/PLQZ2m+vQ8OHDhw4HiGY7Yu0DYN90fdpO1i7IQDBw4cOA5w5A/Ok2u+7pAQJC8yL/lw4MCBA8e9HG262q/W7RN23jRMik8cOHDgwHGCY3O8JCm2n28T7QwXBw4cOHCc5kjCapuAebptUdpWY1HC4cCBAweOYxx3HX6G0haWs1UMHDhw4MBxmiMPdFbC5eHOOPL1CBw4cODAcY5js3CwHwjNsPLX8OGeOHDgwIHjVo42XW0ScHvN7pC8Ehw4cODAcY5j36qbNQqT4VDLlNyn3u/AgQMHDhwlR37g+jGLQdR10Zh/JnolOHDgwIHjVo5Z2TZbdGiDbodSedMQBw4cOHCc48iT6Cz0tvBrFx1mzUccOHDgwPEMR/uwdk1hT7BP1UWixYEDBw4cI458ZaFdTcvTef4aZksVRaLFgQMHDhw3ccwGSLM1hf3Q67u8PpSaOHDgwIHjGEe7atC252Z3nj0rX5XAgQMHDhz3crRDnbvWF/JibL+y8CEGHDhw4MBxK0cyKNofPkp4cQpvFyaGYyccOHDgwHHrBP/JJbY2xc5amXWixYEDBw4ca452mNQWaW0JN2sOtl8gcODAgQPHaY52tJMMq55ZYsgHYzhw4MCB4xmOvLTLC6r8KW0x2X5RGDYHceDAgQPHgiMJKAfaDKJma3btkhwOHDhw4DjB0V6bBDwMd91eLJqDOHDgwIFjzbFpArbjq9mBk8Zi3tyMvnfgwIEDB441R55c98twecrM1+nymIdjJxw4cODAMeKYjXbygVM+WJoVkEd6pThw4MCB4xGOtgm4Hynd9fJw4MCBA8f7Oe5aUDiXsHHgwIEDx7/iyAun2WFmw628OThcfcCBAwcOHAc48kBnCwQJelvgzRYdcODAgQPHaQ4XDhw4cODAgQMHDhw4Xnb9AfEsmhPe4MgnAAAAAElFTkSuQmCC">
         </ul>
     
 
@@ -322,7 +322,7 @@
     </button>
     <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
         <li class="mdl-menu__item">
-        <a class="post_tag-link" href="/tags/docker-docker-compose/">docker,docker-compose</a>
+        <a class="post_tag-link" href="/tags/https-docker-前后端分离/">https,docker,前后端分离</a>
     </ul>
     
 
@@ -338,7 +338,7 @@
 
     <!-- Share Weibo -->
     
-        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=docker-compose 迁移 wordpress&url=http://github.magicdu.cn//2019/11/02/docker-compose迁移wordpress/index.html&pic=&searchPic=false&style=simple" target="_blank">
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=前后端分离项目docker下nginx https配置&url=http://github.magicdu.cn//2019/11/17/前后端分离项目docker下nginx https配置/index.html&pic=&searchPic=false&style=simple" target="_blank">
             <li class="mdl-menu__item">
                 分享到微博
             </li>
@@ -347,7 +347,7 @@
 
     <!-- Share Twitter -->
     
-        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=docker-compose 迁移 wordpress&url=http://github.magicdu.cn//2019/11/02/docker-compose迁移wordpress/index.html&via=MagicDo" target="_blank">
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=前后端分离项目docker下nginx https配置&url=http://github.magicdu.cn//2019/11/17/前后端分离项目docker下nginx https配置/index.html&via=MagicDo" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Twitter
             </li>
@@ -356,7 +356,7 @@
 
     <!-- Share Facebook -->
     
-        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://github.magicdu.cn//2019/11/02/docker-compose迁移wordpress/index.html" target="_blank">
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://github.magicdu.cn//2019/11/17/前后端分离项目docker下nginx https配置/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Facebook
             </li>
@@ -365,7 +365,7 @@
 
     <!-- Share Google+ -->
     
-        <a class="post_share-link" href="https://plus.google.com/share?url=http://github.magicdu.cn//2019/11/02/docker-compose迁移wordpress/index.html" target="_blank">
+        <a class="post_share-link" href="https://plus.google.com/share?url=http://github.magicdu.cn//2019/11/17/前后端分离项目docker下nginx https配置/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Google+
             </li>
@@ -389,50 +389,27 @@
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <p>  docker-compose 允许用户通过一个单独的docker-compose.yml    模板文件(YAML格式)来定义一组相关联的应用容器为一个项目(project)。</p>
-<p>​        我一直想把自己的博客迁移到docker 上来，之前看docker实战，记得里面有利用docker-compose 配置wordpress 的说明，趁着周末，拿出点时间将博客完全迁移过来。</p>
+        <h4 id="https-简介"><a href="#https-简介" class="headerlink" title="https 简介"></a>https 简介</h4><p>https 是目前最流行的http安全形式。使用https时。所有http请求和响应数据在发送到网络之前，都要进行加密。https在http下面提供了一个传输级的密码安全层。其大体结构如下：</p>
 <a id="more"></a>
-<h4 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h4><p>首先要做的是数据的备份，由于数据不多，我们首先利用mysqldump将mysql  中的数据备份出来。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqldump -u root -p wordpress_db &gt;wordpress.2019.11.02.sql</span><br></pre></td></tr></table></figure>
-<p>然后将 wordpress 的程序 备份一下，避免出现问题。</p>
-<p>安装 docker-compose</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo curl -L &quot;https://github.com/docker/compose/releases/download/1.17.1/docker-compose-$(uname -s)-$(uname -m)&quot; -o /usr/local/bin/docker-compose</span><br></pre></td></tr></table></figure>
-<p>授权：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo chmod +x /usr/local/bin/docker-compose</span><br></pre></td></tr></table></figure>
-<p><strong>编写docker-compose.yml, 在这之前需要查看自己之前的php 版本以及wordpress 版本，然后更改 以下文件的wordpress 镜像的版本。不然的化，迁移可能会有问题</strong></p>
-<p>可以去docker hub（<a href="https://hub.docker.com/_/wordpress?tab=tags&amp;page=1&amp;ordering=-last_updated" target="_blank" rel="external">https://hub.docker.com/_/wordpress?tab=tags&amp;page=1&amp;ordering=-last_updated</a>） 上查找版本，我们使用的是 apache 版本的。</p>
-<p>然后将挂载的文件夹建好</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">version:</span> <span class="string">"3"</span></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line"></span><br><span class="line"><span class="attr">  db:</span></span><br><span class="line"><span class="attr">    image:</span> mysql:<span class="number">5.7</span></span><br><span class="line"><span class="attr">    container_name:</span> mysql-wp</span><br><span class="line"><span class="attr">    volumes:</span></span><br><span class="line"><span class="bullet">      -</span> /alidata/mysql/db_data:/var/lib/mysql</span><br><span class="line"><span class="attr">    ports:</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">"13306:3306"</span></span><br><span class="line"><span class="attr">    restart:</span> always</span><br><span class="line"><span class="attr">    environment:</span></span><br><span class="line"><span class="attr">      MYSQL_ROOT_PASSWORD:</span> mypassword</span><br><span class="line"><span class="attr">      MYSQL_DATABASE:</span> wordpress</span><br><span class="line"><span class="attr">      MYSQL_USER:</span> wordpress</span><br><span class="line"><span class="attr">      MYSQL_PASSWORD:</span> wordpresspass</span><br><span class="line"></span><br><span class="line"><span class="attr">  wordpress:</span></span><br><span class="line"><span class="attr">    depends_on:</span></span><br><span class="line"><span class="bullet">      -</span> db</span><br><span class="line"><span class="attr">    image:</span> wordpress:<span class="number">4.7</span><span class="number">.0</span>-php5<span class="number">.6</span>-apache</span><br><span class="line"><span class="attr">    ports:</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">"9000:80"</span></span><br><span class="line"><span class="attr">    container_name:</span> wordpress</span><br><span class="line"><span class="attr">    volumes:</span></span><br><span class="line"><span class="bullet">      -</span> /alidata/www/wordpress:/var/www/html</span><br><span class="line"><span class="attr">    restart:</span> always</span><br><span class="line"><span class="attr">    environment:</span></span><br><span class="line"><span class="attr">      WORDPRESS_DB_HOST:</span> db:<span class="number">13306</span></span><br><span class="line"><span class="attr">      WORDPRESS_DB_USER:</span> wordpress</span><br><span class="line"><span class="attr">      WORDPRESS_DB_PASSWORD:</span> wordpresspass</span><br></pre></td></tr></table></figure>
-<h4 id="开始迁移"><a href="#开始迁移" class="headerlink" title="开始迁移"></a>开始迁移</h4><p>在 docker-compose.yml 同级目录执行以下命令</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker-compose up -d</span><br></pre></td></tr></table></figure>
-<p>查看日志：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker-compose logs</span><br></pre></td></tr></table></figure>
-<p>将之前备份好的数据导入到 mysql 中。建议客户端连接之前的数据库，将sql文件导入。执行之前，如果域名有变化，需要将sql文件中的域名全部替换掉再执行。</p>
-<p>然后服务器上将刚才的服务停掉 </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker-compose stop</span><br></pre></td></tr></table></figure>
-<p>将挂载的wordpress 文件夹中的文件删掉，替换为自己的wordpress 文件。记得给文件夹赋权限。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker-compose start</span><br></pre></td></tr></table></figure>
-<p>这样程序就迁移成功了。</p>
-<h4 id="配置nginx-代理"><a href="#配置nginx-代理" class="headerlink" title="配置nginx 代理"></a>配置nginx 代理</h4><p>nginx  我们直接装在主机里面了，没有使用docker 管理。</p>
-<p>编写nginx 配置文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">    listen 80;</span><br><span class="line">    server_name xxx.xxx.com;</span><br><span class="line"></span><br><span class="line">    location / &#123;</span><br><span class="line">        proxy_pass http://127.0.0.1:9000;</span><br><span class="line">        proxy_redirect off;</span><br><span class="line">        proxy_set_header Host $host;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>将配置文件放在nginx 配置文件的 conf.d 文件夹中，重启nginx,访问域名即可。</p>
-<h4 id="之前的博客配置了固定链接-404-的问题"><a href="#之前的博客配置了固定链接-404-的问题" class="headerlink" title="之前的博客配置了固定链接 404 的问题"></a>之前的博客配置了固定链接 404 的问题</h4><p>需要开启apache2 的  伪静态</p>
-<p>将容器中的配置文件拷贝出来修改</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker cp wordpress:/etc/apache2/apache2.conf .</span><br></pre></td></tr></table></figure>
-<p>将</p>
-<p>AllowOverride None</p>
-<p>改为</p>
-<p>AllowOverride All</p>
-<p>修改完拷贝进去</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker cp apache2.conf wordpress:/etc/apache2/apache2.conf</span><br></pre></td></tr></table></figure>
-<p>进入容器</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker exec -it wordpress /bin/bash</span><br></pre></td></tr></table></figure>
-<p>执行</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a2enmod rewrite</span><br></pre></td></tr></table></figure>
-<p>退出容器后重启容器</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker restart wordpress</span><br></pre></td></tr></table></figure>
-<p>再次访问就不会404了</p>
+<p><img src="/img/https1.png"></p>
+<p>​    大部分困难的编码和解码都是在ssl库中完成的。所以web客户端和服务器在使用安全的http 协议时无需过多的修改其处理逻辑协议。通过https 建立安全的web事务后，浏览器就会自动获取所连接的服务器数字证书，浏览器收到证书会对签发机构进行检查，如果浏览器无法确认该证书的签名，就会向用户展示对话框。<br>    https 将http协议与一组强大的对称的、非对称和基于证书的加密技术结合在一起，保证安全的同时还保证灵活性。</p>
+<p>以下是http和https事务的对比</p>
+<p><img src="/img/https2.jpg"><br>简化版的SSL握手如下：<br><img src="/img/https3.jpg"></p>
+<h4 id="前端项目部署https"><a href="#前端项目部署https" class="headerlink" title="前端项目部署https"></a>前端项目部署https</h4><h5 id="自己生成https-证书"><a href="#自己生成https-证书" class="headerlink" title="自己生成https 证书"></a>自己生成https 证书</h5><p>在本地调试的话，我们需要自己生成个https证书。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line">openssl genrsa -des3 -out server.key 2048</span><br><span class="line">openssl rsa -in server.key -out server.key</span><br><span class="line">openssl req -new -key server.key -out server.csr</span><br><span class="line">openssl req -new -x509 -key server.key -out ca.crt -days 3650</span><br><span class="line">openssl x509 -req -days 3650 -in server.csr -CA ca.crt -CAkey server.key -CAcreateserial -out server.crt</span><br><span class="line">ls -l</span><br></pre></td></tr></table></figure>
+<p>我们在linux  下利用  openssl  生成呢证书，生成的server.key 和server.crt 就是需要的文件。（参考 <a href="https://www.cnblogs.com/php-no-2/p/11276323.html" target="_blank" rel="external">https://www.cnblogs.com/php-no-2/p/11276323.html</a>）</p>
+<p>其中Country Name填CN,Common Name填主机名也可以不填,如果不填浏览器会认为不安全.(例如你以后的url为<a href="https://abcd/xxxx….这里就可以填abcd),其他的都可以不填。" target="_blank" rel="external">https://abcd/xxxx….这里就可以填abcd),其他的都可以不填。</a></p>
+<h4 id="docker-下nginx-配置"><a href="#docker-下nginx-配置" class="headerlink" title="docker 下nginx 配置"></a>docker 下nginx 配置</h4><p>没配置过的可以参考 ![docker下配置nginx]（<a href="http://blog.magicdu.cn/585.html" target="_blank" rel="external">http://blog.magicdu.cn/585.html</a>）</p>
+<p>配置文件的主要配置如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">upstream web &#123; </span><br><span class="line">		ip_hash; </span><br><span class="line">		server 192.168.153.128:8080;</span><br><span class="line">	&#125;</span><br><span class="line">	server &#123;</span><br><span class="line">        listen       443 ssl;</span><br><span class="line">        server_name  localhost;</span><br><span class="line"></span><br><span class="line">        ssl_certificate      server.crt;</span><br><span class="line">        ssl_certificate_key  server.key;</span><br><span class="line"></span><br><span class="line">        ssl_session_cache    shared:SSL:1m;</span><br><span class="line">        ssl_session_timeout  5m;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">      location / &#123;</span><br><span class="line">			proxy_pass http://web;</span><br><span class="line">	   &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>上面就是代理 我们的前端到 nginx  https 下了，但是直接访问后端的话，会报错</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">but requested an insecure XMLHttpRequest endpoint ‘http://192.168.153.128:2019/api/hello’. This request has been blocked; the content must be served over HTTPS.</span><br></pre></td></tr></table></figure>
+<p>大致意思就是https网站内不可以发送http请求，并且http请求直接被拦截并不发送到后台服务器。如何解决呢，由于我们后端都是一个个微服务，所以将后端都改成https 这种方式不科学，那么我们也可以向代理前端一样来使用nginx  https 来代理http的后端。</p>
+<h4 id="nginx-https-代理后端-http接口"><a href="#nginx-https-代理后端-http接口" class="headerlink" title="nginx  https  代理后端 http接口"></a>nginx  https  代理后端 http接口</h4><p>其主要配置如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">upstream gateway &#123; </span><br><span class="line">		ip_hash; </span><br><span class="line">		server 192.168.10.241:2019;</span><br><span class="line">	&#125;</span><br><span class="line">	server &#123;</span><br><span class="line">        listen       2019 ssl;</span><br><span class="line">        server_name  localhost;</span><br><span class="line"></span><br><span class="line">        ssl_certificate      server.crt;</span><br><span class="line">        ssl_certificate_key  server.key;</span><br><span class="line"></span><br><span class="line">        ssl_session_cache    shared:SSL:1m;</span><br><span class="line">        ssl_session_timeout  5m;</span><br><span class="line"></span><br><span class="line">        location / &#123;</span><br><span class="line">			proxy_pass http://gateway;</span><br><span class="line">		 &#125;  </span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>然后把我们的前端调用api 的地址改成 https 代理的后端地址就可以了。</p>
+<p>最后，附上 docker 下的部署脚本如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">echo &apos;start docker nginx-https&apos;</span><br><span class="line">docker stop nginx-https</span><br><span class="line">docker rm nginx-https</span><br><span class="line">docker run -d -p 80:80 -p 443:443 -p 2019:2019 --name nginx-https --restart=always nginx</span><br><span class="line">docker cp nginx-https.conf nginx-https:/etc/nginx/nginx.conf</span><br><span class="line">docker cp server.crt nginx-https:/etc/nginx/server.crt</span><br><span class="line">docker cp server.key nginx-https:/etc/nginx/server.key</span><br><span class="line">docker restart nginx-https</span><br><span class="line">echo &apos;success&apos;</span><br></pre></td></tr></table></figure>
 
     
 
@@ -456,21 +433,13 @@
             <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
     <!-- Prev Nav -->
     
-        <a href="/2019/11/17/前后端分离项目docker下nginx https配置/" id="post_nav-newer" class="prev-content">
-            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
-                <i class="material-icons">arrow_back</i>
-            </button>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            新篇
-        </a>
-    
 
     <!-- Section Spacer -->
     <div class="section-spacer"></div>
 
     <!-- Next Nav -->
     
-        <a href="/2019/10/27/git学习手册/" id="post_nav-older" class="next-content">
+        <a href="/2019/11/02/docker-compose迁移wordpress/" id="post_nav-older" class="next-content">
             旧篇
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
